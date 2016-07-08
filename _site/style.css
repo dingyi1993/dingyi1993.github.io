@@ -59,13 +59,9 @@ table {
 /**************/
 /* BASE RULES */
 /**************/
-html {
-  font-size: 100%;
-}
-
-body {
+html, body {
   background: #fff;
-  font: 18px/1.4 Helvetica, Arial, sans-serif;
+  font: 14px/1.4 Helvetica, Arial, sans-serif;
   color: #333;
 }
 
@@ -252,10 +248,8 @@ img {
 }
 
 nav {
-  float: right;
-  margin-top: 23px;
+  margin-top: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
 }
 @media screen and (max-width: 640px) {
   nav {
@@ -266,17 +260,29 @@ nav {
   }
 }
 nav a {
-  margin-left: 20px;
-  color: #333;
-  text-align: right;
-  font-weight: 300;
-  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 1rem;
+  font-family: DIN,Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,STHeiti,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+  color: #fff;
+  border-radius: 2px;
+  -webkit-transition: background .2s ease-out;
+  transition: background .2s ease-out;
+}
+nav a:hover,
+nav a .active {
+  background: rgba(75, 169, 106, 0.5);
+  color: #ccc;
 }
 @media screen and (max-width: 640px) {
   nav a {
     margin: 0 10px;
     color: #4183C4;
   }
+}
+nav a.active {
+  background: rgba(75, 169, 106, 0.5);
+  color: #ccc;
 }
 
 .posts > .post {

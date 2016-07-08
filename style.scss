@@ -13,14 +13,10 @@
 /* BASE RULES */
 /**************/
 
-html {
-  font-size: 100%;
-}
-
-body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+html,body {
+    background: $white;
+    font: 14px/1.4 $helvetica;
+    color: $darkGray;
 }
 
 .container {
@@ -211,30 +207,41 @@ img {
 }
 
 nav {
-  float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
-  font-size: 18px;
-
-  @include mobile {
-    float: none;
-    margin-top: 9px;
-    display: block;
-    font-size: 16px;
-  }
-
-  a {
-    margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
+    margin-top: 20px;
+    font-family: $helveticaNeue;
 
     @include mobile {
-      margin: 0 10px;
-      color: $blue;
+        float: none;
+        margin-top: 9px;
+        display: block;
+        font-size: 16px;
     }
-  }
+
+    a {
+        display: inline-block;
+        padding: 8px 12px;
+        font-size: 1rem;
+        font-family: DIN,Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,STHeiti,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+        color: #fff;
+        border-radius: 2px;
+        -webkit-transition: background .2s ease-out;
+        transition: background .2s ease-out;
+
+        &:hover,
+        .active {
+            background: rgba(75,169,106,.5);
+            color: #ccc;
+        }
+
+        @include mobile {
+            margin: 0 10px;
+            color: $blue;
+        }
+    }
+    a.active {
+        background: rgba(75,169,106,.5);
+        color: #ccc;
+    }
 }
 
 //
