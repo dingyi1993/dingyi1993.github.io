@@ -47,7 +47,11 @@
             <span>{{ site.name }}</span>
         </header>
         <div id="main">
-
+            <div id="tab">
+                <a class="active" href="javascript:;">全部</a>
+                <a href="javascript:;">开发</a>
+                <a href="javascript:;">生活</a>
+            </div>
         </div>
     </div>
 
@@ -90,6 +94,13 @@
             });
             $('#side .close').click(function() {
                 $('#side').addClass('hide');
+            });
+            $('#tab a').click(function() {
+                var $this = $(this);
+                if (! $this.hasClass('active')) {
+                    $this.parent().find('a.active').removeClass('active');
+                    $this.addClass('active');
+                }
             });
         });
     </script>
