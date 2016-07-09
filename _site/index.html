@@ -3,116 +3,60 @@
 <head>
     <title>抽筋的葡萄 – Web Developer from Somewhere</title>
 
-        <meta charset="utf-8" />
+        <meta charset="utf-8">
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
     <meta name="description" content="Web Developer from Somewhere">
-    <meta property="og:description" content="Web Developer from Somewhere" />
+    <meta property="og:description" content="Web Developer from Somewhere">
     
-    <meta name="author" content="抽筋的葡萄" />
+    <meta name="author" content="抽筋的葡萄">
 
     
+
 
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="抽筋的葡萄 - Web Developer from Somewhere" href="/feed.xml" />
+    <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="抽筋的葡萄 - Web Developer from Somewhere" href="/feed.xml">
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
     <style media="screen">
-        #side {
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 30%;
-            overflow: hidden;
-            /* -webkit-animation: side 15s ease-in-out infinite alternate; */
-            /* animation: side 15s ease-in-out infinite alternate; */
-            /* -webkit-transition: left .8s cubic-bezier(.19,1,.22,1); */
-            transition: left .8s cubic-bezier(.19,1,.22,1);
-            will-change: auto;
-            /*background: url(/themes/happy/static/c044cb12912c5931080b33a833c08261.jpg) no-repeat;*/
-            background-size: cover;
-            z-index: 10;
-            background-color: #ccc;
-            text-align: center;
-        }
-        #top {
-            left: 0;
-            top: 0;
-            right: 0;
-            display: none;
-            height: 60px;
-            font-size: 1.8rem;
-            font-family: Lato,Microsoft Yahei,HanHei SC,PingFang SC,Helvetica Neue,Helvetica,STHeitiSC-Light,Arial,sans-serif;
-            line-height: 60px;
-            background-color: #fff;
-            border-bottom: 1px solid #dedede;
-            color: #4ba96a;
-            text-align: center;
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 10;
-        }
-        #main {
-            position: absolute;
-            left: 30%;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
-            -webkit-transition: all .5s ease;
-            transition: all .5s ease;
-            will-change: opacity,transform;
-            background-color: #333;
-        }
-        #site-name {
-            margin: 50px 0 20px;
-        }
-        #site-name a {
-            font-size: 35px;
-        }
-        #logo img {
-            width: 80%;
-        }
+
+
         @media (max-width: 768px) {
-            #side {
-                width: 100%;
-            }
-            #top {
-                display: block;
-            }
-            #main {
-                left: 0!important;
-                top: 60px;
-            }
         }
+
     </style>
 </head>
 
 <body>
-    <div id="container" style="width: 100%;height: 100%;overflow: hidden;">
-        <div id="side">
-            <div id="site-name">
+    <div id="container">
+        <div id="side" class="hide">
+            <div id="logo">
                 <a href="/">抽筋的葡萄</a>
             </div>
-            <div id="logo">
-                <a href="/"><img src="/images/logo.png"></a>
+            <div id="avatar">
+                <a href="/"><img src="/images/jekyll-logo.png"></a>
             </div>
             <nav id="nav">
                 <a class="active" href="javascript:;">112</a>
                 <a href="javascript:;">112</a>
                 <a href="javascript:;">112</a>
             </nav>
+            <div class="close">
+                <i class="iconfont">&#xe659;</i>
+            </div>
         </div>
         <header id="top">
-
+            <div class="menu">
+                <i class="iconfont">&#xe6b7;</i>
+            </div>
+            <span>抽筋的葡萄</span>
         </header>
         <div id="main">
 
@@ -178,5 +122,16 @@
 
     
 
+    <script src="/js/jquery-2.2.3.min.js"></script>
+    <script>
+        $(function() {
+            $('#top .menu').click(function() {
+                $('#side').removeClass('hide');
+            });
+            $('#side .close').click(function() {
+                $('#side').addClass('hide');
+            });
+        });
+    </script>
 </body>
 </html>
