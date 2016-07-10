@@ -26,9 +26,9 @@
     <div id="container">
         <div id="side" class="hide">
             <div id="logo">
-                <a href="/">{{ site.name }}</a>
+                <a href="/"><img src="{{ site.logo }}"></a>
             </div>
-            <div id="avatar">
+            <div id="avatar" style="display: none;">
                 <a href="/"><img src="{{ site.avatar }}"></a>
             </div>
             <nav id="nav">
@@ -102,6 +102,13 @@
                     $this.addClass('active');
                 }
             });
+            $(document).on('mousemove', function(e) {
+                var imageWidth = 3182/1280 * $(this).height() - $('#side').width();
+                $('#side').css('background-position-x', - e.clientX / $(this).width() * imageWidth);
+            });
+            function aaa() {
+                return 1;
+            }
         });
     </script>
 </body>

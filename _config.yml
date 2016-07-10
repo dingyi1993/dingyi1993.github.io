@@ -10,6 +10,7 @@ description: Web Developer from Somewhere
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: /images/avatar.png
+logo: /images/logo.png
 
 #
 # Flags below are optional
@@ -17,16 +18,14 @@ avatar: /images/avatar.png
 
 # Includes an icon in the footer for each username you enter
 footer-links:
-  dribbble:
-  email:
+  email: dy781745492@gmail.com
   facebook:
-  flickr:
-  github: barryclark/jekyll-now
+  github: dingyi1993/dingyi1993.github.com
   instagram:
   linkedin:
   pinterest:
   rss: # just type anything here for a working RSS icon
-  twitter: jekyllrb
+  twitter: dingyi_1993
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/

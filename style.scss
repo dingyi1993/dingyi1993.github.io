@@ -13,17 +13,11 @@
 /* BASE RULES */
 /**************/
 
-html,body {
+html, body {
     background: $white;
     font: 14px/1.4 $helvetica;
     color: $darkGray;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 0 10px;
-  width: 100%;
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -196,16 +190,6 @@ img {
 //   letter-spacing: 1px;
 // }
 
-.site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
-
-  @include mobile {
-    margin: 3px 0;
-  }
-}
-
 #container {
     width: 100%;
     height: 100%;
@@ -225,10 +209,10 @@ img {
     /* -webkit-transition: left .8s cubic-bezier(.19,1,.22,1); */
     transition: left .8s cubic-bezier(.19,1,.22,1);
     will-change: auto;
-    /*background: url(/themes/happy/static/c044cb12912c5931080b33a833c08261.jpg) no-repeat;*/
+    background-image: url(/images/site_bg.png);
+    background-repeat: no-repeat;
     background-size: cover;
     z-index: 10;
-    background-color: #ccc;
     text-align: center;
 
     @include mobile {
@@ -265,14 +249,21 @@ img {
     #logo {
         margin: 50px 0 20px;
 
-        a {
-            font-size: 35px;
+        img {
+            width: 80%;
+
+            @include mobile {
+                width: 50%;
+            }
         }
     }
-    #avatar img {
-        width: 80%;
-        @include mobile {
-          width: 50%;
+    #avatar {
+        img {
+            width: 80%;
+
+            @include mobile {
+                width: 50%;
+            }
         }
     }
 
@@ -309,6 +300,13 @@ img {
             }
         }
     }
+
+    .bg {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: -30%;
+    }
 }
 
 #top {
@@ -323,7 +321,7 @@ img {
     line-height: 60px;
     background-color: #fff;
     border-bottom: 1px solid #dedede;
-    color: #4ba96a;
+    color: $blue;
     text-align: center;
     -webkit-backdrop-filter: blur(10px);
     z-index: 9;
@@ -374,7 +372,9 @@ img {
         a {
             display: inline-block;
             font-size: 1rem;
-            padding: 8px 18px;
+            padding: 8px 0;
+            width: 70px;
+            text-align: center;
             border-bottom: 2px solid transparent;
             color: #757575;
             cursor: pointer;
