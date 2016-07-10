@@ -97,7 +97,7 @@ strong, b {
 }
 
 img {
-  max-width: 100%;
+  /*max-width: 100%;*/
 }
 
 // Fixes images in popup boxes from Google Translate
@@ -209,14 +209,37 @@ img {
     /* -webkit-transition: left .8s cubic-bezier(.19,1,.22,1); */
     transition: left .8s cubic-bezier(.19,1,.22,1);
     will-change: auto;
-    background-image: url(/images/site_bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     z-index: 10;
     text-align: center;
 
     @include mobile {
-      width: 100%;
+        width: 100%;
+    }
+
+    @-webkit-keyframes bg { 0% { left: 0; } 100% { left: -100%; } }
+    @-moz-keyframes bg { 0% { left: 0; } 100% { left: -100%; } }
+    @-ms-keyframes bg { 0% { left: 0; } 100% { left: -100%; } }
+    @-o-keyframes bg { 0% { left: 0; } 100% { left: -100%; } }
+    @keyframes bg { 0% { left: 0; } 100% { left: -100%; } }
+
+    #bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: -1;
+
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            -moz-animation: bg 60s linear infinite;
+            -webkit-animation: bg 60s linear infinite;
+            -o-animation: bg 60s linear infinite;
+            -ms-animation: bg 60s linear infinite;
+            animation: bg 60s linear infinite;
+        }
     }
 
     .close {
@@ -230,7 +253,7 @@ img {
         cursor: pointer;
 
         @include mobile {
-          display: block;
+            display: block;
         }
 
         i {
@@ -242,7 +265,7 @@ img {
 
     &.hide {
         @include mobile {
-          left: -100%;
+            left: -100%;
         }
     }
 
