@@ -16,13 +16,12 @@
 
 html, body {
     background: $white;
-    font: 14px/1.4 $helvetica;
+    font: 14px/1.4 $consolas;
     color: #414a51;
     height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
   font-weight: bold;
   line-height: 1.7;
   margin-top: 1em;
@@ -205,7 +204,6 @@ em, i {
 
     nav {
         margin-top: 20px;
-        font-family: $helveticaNeue;
 
         @include mobile {
             float: none;
@@ -350,6 +348,7 @@ em, i {
         .subline {
             color: #9dA8b0;
             font-weight: bold;
+            font-family: $georgia;
         }
     }
 }
@@ -389,4 +388,3 @@ footer {
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
-@import "svg-icons";
