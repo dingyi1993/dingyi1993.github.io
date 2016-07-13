@@ -14,9 +14,13 @@
 /* BASE RULES */
 /**************/
 
-html, body {
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+body {
     background: $white;
-    font: 14px/1.4 $consolas;
+    font: 1.4rem/1.4 $consolas;
     color: #414a51;
     height: 100%;
 }
@@ -24,7 +28,7 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.7;
-  margin-top: 1em;
+  margin-top: 15px;
 
   @include mobile {
     line-height: 1.4;
@@ -36,19 +40,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 3rem;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 1.8rem;
   color: $gray;
 }
 
@@ -169,7 +173,7 @@ em, i {
         }
 
         i {
-            font-size: 40px;
+            font-size: 4rem;
             vertical-align: middle;
             display: block;
         }
@@ -209,7 +213,7 @@ em, i {
             float: none;
             margin-top: 9px;
             display: block;
-            font-size: 16px;
+            font-size: 1.6rem;
         }
 
         ul {
@@ -218,7 +222,7 @@ em, i {
 
                 &:after {
                     content: "\2022";
-                    font-size: 17px;
+                    font-size: 1.7rem;
                     color: #237dac;
                 }
                 &:last-child:after {
@@ -227,11 +231,11 @@ em, i {
 
                 a {
                     margin: 0 12px 0 10px;
-                    font-size: 14px;
+                    font-size: 1.4rem;
                     color: #fff;
                     border-radius: 2px;
-                    -webkit-transition: background .2s ease-out;
-                    transition: background .2s ease-out;
+                    -webkit-transition: all .2s ease-out;
+                    transition: all .2s ease-out;
 
                     &:hover,
                     &.active {
@@ -278,7 +282,7 @@ em, i {
         cursor: pointer;
 
         i {
-            font-size: 40px;
+            font-size: 4rem;
             vertical-align: middle;
             display: block;
         }
@@ -301,31 +305,6 @@ em, i {
         left: 0!important;
         top: 60px;
     }
-
-    #tab {
-        margin-left: 2rem;
-        padding: 1rem 0 0;
-        border-bottom: 1px solid #efefef;
-
-        a {
-            display: inline-block;
-            font-size: 1rem;
-            padding: 8px 0;
-            width: 70px;
-            text-align: center;
-            border-bottom: 2px solid transparent;
-            color: #757575;
-            cursor: pointer;
-            -webkit-transition: all .2s ease-out;
-            transition: all .2s ease-out;
-
-            &.active {
-                font-weight: bold;
-                border-bottom: 2px solid $blue;
-                color: $blue;
-            }
-        }
-    }
 }
 
 //
@@ -333,15 +312,15 @@ em, i {
 //
 
 .posts {
-    margin: 0 2rem;
-    padding: 1rem 0 0;
+    margin: 0 30px;
+    padding: 15px 0 0;
 
     .post {
-        padding-bottom: 2em;
+        padding-bottom: 30px;
         border-bottom: 1px solid $lightGray;
 
         &:last-child {
-            padding-bottom: 1em;
+            padding-bottom: 30px;
             border-bottom: none;
         }
 
@@ -355,11 +334,11 @@ em, i {
 
 .post {
   blockquote {
-    margin: 1.8em .8em;
+    margin: 20px 10px;
     border-left: 2px solid $gray;
-    padding: 0.1em 1em;
+    padding: 1px 10px;
     color: $gray;
-    font-size: 22px;
+    font-size: 2.2rem;
     font-style: italic;
   }
 
@@ -369,7 +348,7 @@ em, i {
 
   .read-more {
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 1.5rem;
   }
 }
 
