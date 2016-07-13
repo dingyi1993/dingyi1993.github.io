@@ -8,7 +8,7 @@ layout: default
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
       <div class="subline">
-          <time>{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;<a href="javascript:;">开发</a>&emsp;<span>访问: 301</span>
+          <time>{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;<a href="javascript:;">开发</a>&emsp;<span>访问: <span data-hk-page="{{ post.url | prepend: site.url }}"> - </span></span>
       </div>
 
       <div class="entry">
