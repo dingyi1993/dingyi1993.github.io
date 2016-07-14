@@ -4,18 +4,20 @@ layout: default
 
 <div class="posts">
   {% for post in site.posts %}
-    <article class="post">
+    <article class="item">
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
       <div class="subline">
-          <time>{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;<a href="javascript:;">开发</a>&emsp;<span>阅读: <span data-hk-page="{{ post.url | prepend: site.url }}"> - </span></span>
+          <time><span class="iconfont">&#xe662;</span>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;
+          <a href="javascript:;"><span class="iconfont">&#xe68b;</span>&nbsp;开发</a>&emsp;
+          <span><span class="iconfont">&#xe628;</span>&nbsp;<span data-hk-page="{{ post.url | prepend: site.url }}">0</span></span>
       </div>
 
       <div class="entry">
         {{ post.excerpt }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More <span class="iconfont">&#xe606;</span></a>
     </article>
   {% endfor %}
 </div>
