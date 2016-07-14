@@ -291,6 +291,17 @@ em, i {
             border-bottom: none;
         }
 
+        h1 {
+            a {
+                -webkit-transition: margin .5s ease;
+                transition: margin .5s ease;
+
+                &:hover {
+                    margin-left: 20px;
+                }
+            }
+        }
+
         .subline {
             color: #9dA8b0;
             font-weight: bold;
