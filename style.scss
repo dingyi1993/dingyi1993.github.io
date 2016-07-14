@@ -308,14 +308,20 @@ em, i {
             font-family: $number;
             font-size: 1.2rem;
 
-            time {
+            > * {
+                display: inline-block;
                 position: relative;
                 padding-left: 20px;
+            }
 
+            .iconfont {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            time {
                 .iconfont {
-                    position: absolute;
-                    top: -2px;
-                    left: 0;
                 }
             }
         }
