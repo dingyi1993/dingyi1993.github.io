@@ -8,16 +8,16 @@ layout: default
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
       <div class="subline">
-          <time><i class="iconfont">&#xe662;</i>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;
-          <a href="javascript:;"><i class="iconfont">&#xe68b;</i>&nbsp;开发</a>&emsp;
-          <span><i class="iconfont">&#xe628;</i>&nbsp;<span data-hk-page="{{ post.url | prepend: site.url }}">0</span></span>
+          <time><i class="fa fa-calendar"></i>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;
+          <a href="javascript:;"><i class="fa fa-bars"></i>&nbsp;开发</a>&emsp;
+          <span><i class="fa fa-eye"></i>&nbsp;<span data-hk-page="{{ post.url | prepend: site.url }}">0</span></span>
       </div>
 
       <div class="entry">
         {{ post.excerpt }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More <span class="iconfont">&#xe606;</span></a>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More <i class="fa fa-long-arrow-right"></i></a>
     </article>
   {% endfor %}
 </div>

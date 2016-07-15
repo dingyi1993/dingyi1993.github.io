@@ -307,23 +307,6 @@ em, i {
             font-weight: bold;
             font-family: $number;
             font-size: 1.2rem;
-
-            > * {
-                display: inline-block;
-                position: relative;
-                padding-left: 20px;
-            }
-
-            .iconfont {
-                position: absolute;
-                left: 0;
-                top: 0;
-            }
-
-            time {
-                .iconfont {
-                }
-            }
         }
 
         .read-more {
