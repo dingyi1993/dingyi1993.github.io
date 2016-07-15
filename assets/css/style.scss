@@ -437,7 +437,6 @@ em, i {
             color: $gray;
             font-weight: bold;
             font-family: $number;
-            font-size: 1.2rem;
         }
 
         .img-pvw {
@@ -450,8 +449,6 @@ em, i {
         }
 
         .read-more {
-            text-transform: uppercase;
-            font-size: 1.3rem;
         }
     }
 }
@@ -459,6 +456,7 @@ em, i {
 article.post {
     margin: 0 30px;
     padding: 15px 0;
+    position: relative;
 
     .comments {
         margin-top: 10px;
