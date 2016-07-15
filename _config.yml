@@ -9,8 +9,8 @@ name: 抽筋的葡萄
 description: A Front-End Develpoer
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: /images/avatar.png
-logo: /images/logo.png
+avatar: /assets/images/avatar.png
+logo: /assets/images/logo.png
 
 #
 # Flags below are optional
@@ -47,6 +47,8 @@ url: https://dingyi1993.github.io
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: ""
+
+ASSET_PATH: /assets
 
 #
 # !! You don't need to change any of the configuration flags below !!
