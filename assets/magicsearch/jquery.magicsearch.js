@@ -15,6 +15,7 @@
  *TODO box-sizing
  *TODO 批量初始化
  *TODO input hidden
+ *TODO 只搜索文本
  */
 ;(function($, window, document, undefined) {
     'use strict';
@@ -69,9 +70,9 @@ var
     },
     //转换以百分号为标志的字符串
     formatParse = function(format, data) {
-        var fields = format.match(/\%[^\%]+\%/g);
+        var fields = format.match(eval('/\\' + SEPARATOR + '[^\\' + SEPARATOR + ']+\\' + SEPARATOR + '/g'));
         for (var i = 0; i < fields.length; i++) {
-            fields[i] = fields[i].replace(/\%/g, '');
+            fields[i] = fields[i].replace(eval('/\\' + SEPARATOR + '/g'), '');
         }
         for (var i = 0; i < fields.length; i++) {
             format = format.replace(SEPARATOR + fields[i] + SEPARATOR, data[fields[i]] ? data[fields[i]] : 'error');
@@ -249,6 +250,9 @@ var
                 'width': styles.width,
                 'height': styles.height
             });
+            if ($input.attr('placeholder')) {
+                $input.attr('data-placeholder', $input.attr('placeholder'));
+            }
             $input.removeAttr('disabled');
             if (ids === undefined) {
                 $input.attr('data-id', '');
@@ -641,6 +645,9 @@ var
 
             var idArr = $input.attr('data-id').split(',');
             var maxLineItem = parseInt((styles.maxWidth - (options.dropdownBtn ? DROPDOWN_WIDTH : 0) - styles.borderLeftWidth - styles.borderRightWidth - DEFAULT_ITEM_SPACE) / (DEFAULT_ITEM_WIDTH + DEFAULT_ITEM_SPACE));
+            if ($input.attr('placeholder')) {
+                $input.removeAttr('placeholder');
+            }
 
             //生成item并插入items
             var $item = $('<div class="' + doms.item + '" title="' + formatParse(options.format, data) + '"><span>' + formatParse(SEPARATOR + options.multiField + SEPARATOR, data) + '</span><a class="' + doms.close + '" data-id="' + data[options.id] + '" href="javascript:void(0);"></a></div>');
@@ -683,6 +690,9 @@ var
                 //添加动画结束的回调函数
                 $this.parent().fadeOut(function() {
                     $(this).remove();
+                    if (idArr.length == 0 && $input.attr('data-placeholder')) {
+                        $input.attr('placeholder', $input.attr('data-placeholder'));
+                    }
                     $input.css('padding-left', (idArr.length % maxLineItem) * (DEFAULT_ITEM_WIDTH + DEFAULT_ITEM_SPACE) + styles.paddingLeft);
                     var lineNum = parseInt(idArr.length / maxLineItem);
                     if ((idArr.length + 1) % maxLineItem == 0) {
