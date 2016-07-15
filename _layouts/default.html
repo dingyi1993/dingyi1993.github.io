@@ -154,6 +154,7 @@
 
     {% include analytics.html %}
     <script src="{{ site.ASSET_PATH }}/js/jquery-2.2.3.min.js"></script>
+    <script src="{{ site.ASSET_PATH }}/js/jquery.unveil.js"></script>
     <script src="{{ site.ASSET_PATH }}/js/hit-kounter/hit-kounter-0.1.1.js"></script>
     <script>
         $(function() {
@@ -169,6 +170,15 @@
                     $this.parent().find('a.active').removeClass('active');
                     $this.addClass('active');
                 }
+            });
+            $("img.lazy").unveil(1000, function() {
+                $(this).load(function() {
+                    var $this = $(this);
+                    $this.css('opacity', 0);
+                    $this.animate({
+                        opacity: 1
+                    });
+                });
             });
         });
     </script>

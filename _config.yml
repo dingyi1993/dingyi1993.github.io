@@ -11,6 +11,7 @@ description: A Front-End Develpoer
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: /assets/images/avatar.png
 logo: /assets/images/logo.png
+loading: /assets/images/loading.gif
 
 #
 # Flags below are optional

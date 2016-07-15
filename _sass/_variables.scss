@@ -10,9 +10,9 @@ $lightBlue: #0bc;
 
 // Grays
 $black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
+$lightBlank: #414a51;
+$darkGray: #666;
+$gray: #9dA8b0;
 $lightGray: #eee;
 $white: #fff;
 
@@ -21,9 +21,13 @@ $consolas: Consolas, Helvetica, Arial, sans-serif;
 // $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $number: Verdana, Geneva, sans-serif;
 
-// Mobile breakpoints
 @mixin mobile {
   @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin pc {
+  @media screen and (min-width: 768px) {
     @content;
   }
 }

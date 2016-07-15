@@ -17,6 +17,10 @@ layout: default
         {{ post.excerpt }}
       </div>
 
+      {% if post.image %}
+      <div class="img-pvw"><img src="{{ site.ASSET_PATH }}/images/{{ post.image }}"></div>
+      {% endif %}
+
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More <i class="fa fa-long-arrow-right"></i></a>
     </article>
   {% endfor %}

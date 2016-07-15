@@ -21,7 +21,7 @@ html {
 body {
     background: $white;
     font: 1.4rem/20px $consolas;
-    color: #414a51;
+    color: $lightBlank;
     height: 100%;
 }
 
@@ -53,7 +53,7 @@ h3 {
 
 h4 {
   font-size: 1.8rem;
-  color: $gray;
+  color: $darkGray;
 }
 
 p {
@@ -83,7 +83,7 @@ em, i {
 
 .date {
   font-style: italic;
-  color: $gray;
+  color: $darkGray;
 }
 
 // Specify the color of the selection
@@ -292,21 +292,32 @@ em, i {
         }
 
         h1 {
-            a {
-                -webkit-transition: margin .5s ease;
-                transition: margin .5s ease;
+            @include pc {
+                a {
+                    -webkit-transition: margin .5s ease;
+                    transition: margin .5s ease;
 
-                &:hover {
-                    margin-left: 20px;
+                    &:hover {
+                        margin-left: 20px;
+                    }
                 }
             }
         }
 
         .subline {
-            color: #9dA8b0;
+            color: $gray;
             font-weight: bold;
             font-family: $number;
             font-size: 1.2rem;
+        }
+
+        .img-pvw {
+            margin: 15px 0;
+
+            img {
+                display: block;
+                max-height: 200px;
+            }
         }
 
         .read-more {
