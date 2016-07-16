@@ -141,7 +141,7 @@
         <div id="main">
             {{ content }}
         </div>
-        <div id="rocket">
+        <div id="rocket" title="发射！">
             <div class="header"></div>
             <div class="body">
                 <div class="window"></div>
@@ -162,6 +162,7 @@
     </div> -->
 
     {% include analytics.html %}
+    <input id="asset-path" type="hidden" value="{{ site.ASSET_PATH }}">
     <script src="{{ site.ASSET_PATH }}/js/require.min.js"></script>
     <script src="{{ site.ASSET_PATH }}/js/config.js"></script>
     <script src="{{ site.ASSET_PATH }}/js/default.js"></script>

@@ -1,4 +1,4 @@
-require(['jquery','hit-kounter', 'unveil'], function() {
+require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
     $('#top .menu').click(function() {
         $('#side').removeClass('hide');
     });
@@ -12,16 +12,45 @@ require(['jquery','hit-kounter', 'unveil'], function() {
             $this.addClass('active');
         }
     });
-    $("img.lazy").unveil(1000, function() {
-        $(this).load(function() {
-            var $this = $(this);
-            $this.css('opacity', 0);
-            $this.animate({
-                opacity: 1
-            });
-        });
+    $("img.lazy").lazyload({
+        effect : "fadeIn",
+        container: '#main'
     });
     $('#main').scroll(function(){
-        $(window).trigger('scroll');
+        var $this = $(this);
+        if ($this.scrollTop() >= 800) {
+            $('#rocket').fadeIn();
+        } else {
+            $('#rocket').fadeOut();
+        }
+    });
+    $('#rocket').click(function() {
+        $('#main').animate({
+            'scroll-top': 0
+        }, {
+            duration: 800,
+            easing: "easeOutBounce"
+        });
+        // var top = $('#main').scrollTop();
+        // var times = 0;
+        // while (true) {
+        //     if (top < 40  && times % 2) {
+        //         break;
+        //     }
+        //     $('#main').animate({
+        //         'scroll-top': times % 2 == 0 ? 0 : top
+        //     }, {
+        //         duration: 1000,
+        //         easing: "easeOutBounce"
+        //     });
+        //     top *= .05;
+        //     times ++;
+        // }
+        // $('#main').animate({
+        //     'scroll-top': 0
+        // });
+        // $('#main').animate({
+        //     'scroll-top': top * .3
+        // });
     });
 });
