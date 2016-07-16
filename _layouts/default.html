@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="{{ site.ASSET_PATH }}/css/font-awesome.min.css">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml">
 
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
     <style media="screen">
 
         @-moz-keyframes spinPulse {
@@ -163,38 +162,8 @@
     </div> -->
 
     {% include analytics.html %}
-    <script src="{{ site.ASSET_PATH }}/js/jquery-2.2.3.min.js"></script>
-    <script src="{{ site.ASSET_PATH }}/js/jquery.unveil.js"></script>
-    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
-    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
-    <script>
-        $(function() {
-            $('#top .menu').click(function() {
-                $('#side').removeClass('hide');
-            });
-            $('#side .close').click(function() {
-                $('#side').addClass('hide');
-            });
-            $('#tab a').click(function() {
-                var $this = $(this);
-                if (! $this.hasClass('active')) {
-                    $this.parent().find('a.active').removeClass('active');
-                    $this.addClass('active');
-                }
-            });
-            $("img.lazy").unveil(1000, function() {
-                $(this).load(function() {
-                    var $this = $(this);
-                    $this.css('opacity', 0);
-                    $this.animate({
-                        opacity: 1
-                    });
-                });
-            });
-            $('#main').scroll(function(){
-                $(window).trigger('scroll');
-            });
-        });
-    </script>
+    <script src="{{ site.ASSET_PATH }}/js/require.min.js"></script>
+    <script src="{{ site.ASSET_PATH }}/js/config.js"></script>
+    <script src="{{ site.ASSET_PATH }}/js/default.js"></script>
 </body>
 </html>
