@@ -7,6 +7,16 @@
 /**************/
 /* BASE RULES */
 /**************/
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 
 html {
     height: 100%;
@@ -76,13 +86,6 @@ em, i {
 
 pre {
     margin: 0;
-}
-
-div {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 .clearfix:after { content: " "; display: block; clear: both; }
@@ -280,8 +283,8 @@ div {
     overflow: auto;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    -webkit-transition: all .5s ease;
-    transition: all .5s ease;
+    -webkit-transition: left,top .5s ease;
+    transition: left,top .5s ease;
     will-change: opacity,transform;
 
     @include mobile {
@@ -429,7 +432,7 @@ div {
 //
 
 .posts {
-    margin: 0 30px;
+    margin: 0 20px;
     padding: 15px 0 0;
 
     .item {
@@ -442,7 +445,7 @@ div {
         }
 
         h1 {
-            margin: 15px 0 0 0;
+            margin-bottom: 0;
 
             @include pc {
                 a {
