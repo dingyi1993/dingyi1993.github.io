@@ -1,5 +1,8 @@
+---
+---
+
 require.config({
-    baseUrl: document.getElementById('asset-path').value,
+    baseUrl: '{{ site.ASSET_PATH}}',
     waitSeconds: 60,
     map: {
         '*': {
