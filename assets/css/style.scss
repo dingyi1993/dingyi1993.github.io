@@ -289,6 +289,11 @@ em, i {
     -webkit-transform: scale(.8);
     transform: scale(.8);
 
+    @include mobile {
+        right: 30px;
+        bottom: 20px;
+    }
+
     @keyframes rocket{
         0%,to{
             opacity:.5;-webkit-transform:rotate(-45deg);
