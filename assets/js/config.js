@@ -16,6 +16,7 @@ require.config({
         'unveil': 'js/jquery.unveil',
         'lazyload': 'js/jquery.lazyload.min',
         'easing': 'js/jquery.easing.min',
+        'galaxy': 'js/galaxy',
     },
     shim: {
         'hit-kounter': ['av'],

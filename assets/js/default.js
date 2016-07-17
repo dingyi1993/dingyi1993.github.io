@@ -1,4 +1,4 @@
-require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
+require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing', 'galaxy'], function() {
     $('#top .menu').click(function() {
         $('#side').removeClass('hide');
     });
