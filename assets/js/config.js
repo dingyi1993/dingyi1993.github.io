@@ -23,5 +23,6 @@ require.config({
         'unveil': ['jquery'],
         'lazyload': ['jquery'],
         'easing': ['jquery'],
+        'galaxy': ['jquery'],
     }
 });

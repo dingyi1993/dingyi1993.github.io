@@ -1,8 +1,8 @@
 var side = document.getElementById("side");
-var widthFactor = 0.3;
+var $canvas = $('#galaxy canvas');
 var num = 200;
-var w = window.innerWidth * widthFactor;
-var h = window.innerHeight;
+var w = $canvas.width();
+var h = $canvas.height();
 var max = 100;
 var _x = 0;
 var _y = 0;
@@ -185,9 +185,9 @@ var trans = {
 
   Build.prototype.go = function() {
     this.canvas = document.getElementById("canv");
-    this.canvas.width = window.innerWidth * widthFactor;
-    this.canvas.height = window.innerHeight;
-    this.$ = canv.getContext("2d");
+    this.canvas.width = $canvas.width();
+    this.canvas.height = $canvas.height();
+    this.$ = this.canvas.getContext("2d");
     this.$.globalCompositeOperation = 'source-over';
     this.varr = [];
     this.dist = [];
@@ -307,22 +307,22 @@ var trans = {
       this.toX = (e.touches[0].clientX - this.canvas.width / 2) * -0.8;
       this.toY = (e.touches[0].clientY - this.canvas.height / 2) * 0.8;
     }.bind(this));
-    side.addEventListener('mousedown', function(e) {
-      for (var i = 0; i < 100; i++) {
-        this.add();
-      }
-    }.bind(this));
-    side.addEventListener('touchstart', function(e) {
-      e.preventDefault();
-      for (var i = 0; i < 100; i++) {
-        this.add();
-      }
-    }.bind(this));
+    // side.addEventListener('mousedown', function(e) {
+    //   for (var i = 0; i < 100; i++) {
+    //     this.add();
+    //   }
+    // }.bind(this));
+    // side.addEventListener('touchstart', function(e) {
+    //   e.preventDefault();
+    //   for (var i = 0; i < 100; i++) {
+    //     this.add();
+    //   }
+    // }.bind(this));
   };
   var app = new Build();
   app.run();
 })();
-side.addEventListener('resize', function() {
-  canvas.width = w = window.innerWidth * widthFactor;
-  canvas.height = h = window.innerHeight;
-}, false);
+// side.addEventListener('resize', function() {
+//   $canvas.get(0).width = w = $canvas.width();
+//   $canvas.get(0).height = h = $canvas.height();
+// }, false);
