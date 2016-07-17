@@ -5,7 +5,8 @@
 // IMPORTS
 //
 
-@import "reset";
+// @import "reset";
+@import "normalize";
 @import "font";
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
@@ -29,7 +30,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.7;
-  margin-top: 15px;
 
   @include mobile {
     line-height: 1.4;
@@ -69,23 +69,30 @@ a {
         color: #2d3e4a;
     }
 }
-
-ol ul, ul ol, ul ul, ol ol {
-  margin: 0;
+img {
+    max-width: 100%;
 }
 
-ul ul, ol ul {
-  list-style-type: circle;
+ul {
+    padding: 0;
 }
 
 em, i {
   font-style: italic;
 }
 
-.date {
-  font-style: italic;
-  color: $darkGray;
+pre {
+    margin: 0;
 }
+
+div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix:after { content: " "; display: block; clear: both; }
 
 // Specify the color of the selection
 ::-moz-selection {
@@ -428,6 +435,8 @@ em, i {
         }
 
         h1 {
+            margin: 15px 0 0 0;
+
             @include pc {
                 a {
                     -webkit-transition: margin .5s ease;
@@ -442,7 +451,6 @@ em, i {
 
         .subline {
             color: $gray;
-            font-weight: bold;
             font-family: $number;
         }
 
@@ -464,6 +472,11 @@ article.post {
     margin: 0 30px;
     padding: 15px 0;
     position: relative;
+
+    .date {
+        font-style: italic;
+        color: $darkGray;
+    }
 
     .comments {
         margin-top: 10px;
