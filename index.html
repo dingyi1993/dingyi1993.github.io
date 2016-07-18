@@ -9,7 +9,7 @@ layout: default
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
       <div class="subline">
           <time><i class="fa fa-calendar"></i>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;
-          <a href="javascript:;"><i class="fa fa-folder-o"></i>&nbsp;开发</a>&emsp;
+          <a class="js-category-btn" href="javascript:;"><i class="fa fa-folder-o"></i>&nbsp;开发</a>&emsp;
           <span><i class="fa fa-eye"></i>&nbsp;<span data-hk-page="{{ post.url | prepend: site.url }}">0</span></span>
       </div>
 

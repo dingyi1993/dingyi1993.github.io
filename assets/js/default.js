@@ -35,6 +35,10 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
         }, isMobile ? undefined : {duration: 800, easing: "easeOutBounce"});
     });
 
+    $('js-category-btn').hover(function() {
+
+    });
+
     if (! isMobile) {
         require(['galaxy']);
     }
