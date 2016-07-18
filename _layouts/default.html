@@ -43,10 +43,12 @@
 
         #circle {
             position: fixed;
-            left: 30px;
-            bottom: 30px;
-            width: 50px;
-            height: 50px;
+            left: 15px;
+            bottom: 15px;
+            width: 80px;
+            height: 80px;
+            z-index: 10000;
+            display: none;
         }
 
         #circle1 {
@@ -56,14 +58,14 @@
             border-right: 5px solid rgba(0,0,0,0);
             border-left: 5px solid rgba(0,0,0,0);
             border-radius: 50px;
-            box-shadow: 0 0 35px #808080;
+            box-shadow: 0 0 30px #808080;
             z-index: 1000;
             width: 50px;
             height: 50px;
             margin: 0 auto;
             position: absolute;
-            left: 0;
-            top: 0;
+            left: 15px;
+            top: 15px;
             -moz-animation: spinPulse 1s infinite ease-in-out;
             -webkit-animation: spinPulse 1s infinite ease-in-out;
             -o-animation: spinPulse 1s infinite ease-in-out;
@@ -83,8 +85,8 @@
             height: 30px;
             margin: 0 auto;
             position: absolute;
-            left: 10px;
-            top: 10px;
+            left: 25px;
+            top: 25px;
             -moz-animation: spinoffPulse 1s infinite linear;
             -webkit-animation: spinoffPulse 1s infinite linear;
             -o-animation: spinoffPulse 1s infinite linear;
@@ -116,10 +118,6 @@
             <div class="close">
                 <i class="iconfont icon-guanbi"></i>
             </div>
-            <div id="circle">
-                <div id="circle1"></div>
-                <div id="circle2"></div>
-            </div>
             <div id="galaxy">
                 <canvas id="canv"></canvas>
             </div>
@@ -132,6 +130,10 @@
         </header>
         <div id="main">
             {{ content }}
+        </div>
+        <div id="circle">
+            <div id="circle1"></div>
+            <div id="circle2"></div>
         </div>
         <div id="rocket" title="发射！">
             <div class="header"></div>

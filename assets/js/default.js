@@ -1,20 +1,25 @@
 require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
+
+    var system = {};
+    var isMobile = true;
+    var p = navigator.platform;
+    system.win = p.indexOf("Win") == 0;
+    system.mac = p.indexOf("Mac") == 0;
+    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+    if (system.win || system.mac || system.xll) {
+        isMobile = false;
+    }
+
     $('#top .menu').click(function() {
         $('#side').removeClass('hide');
     });
     $('#side .close').click(function() {
         $('#side').addClass('hide');
     });
-    $('#tab a').click(function() {
-        var $this = $(this);
-        if (! $this.hasClass('active')) {
-            $this.parent().find('a.active').removeClass('active');
-            $this.addClass('active');
-        }
-    });
     $("img.lazy").lazyload({
         effect : "fadeIn",
-        container: '#main'
+        container: '#main',
+        threshold : 500
     });
     $('#main').scroll(function(){
         var $this = $(this);
@@ -27,31 +32,10 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
     $('#rocket').click(function() {
         $('#main').animate({
             'scroll-top': 0
-        }, {
-            duration: 800,
-            easing: "easeOutBounce"
-        });
+        }, isMobile ? undefined : {duration: 800, easing: "easeOutBounce"});
     });
 
-    var browser={
-        versions:function() {
-            var u = navigator.userAgent, app = navigator.appVersion;
-            return {//移动终端浏览器版本信息
-                trident: u.indexOf('Trident') > -1, //IE内核
-                presto: u.indexOf('Presto') > -1, //opera内核
-                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-                mobile: u.indexOf('Mobile') > -1, //是否为移动终端
-                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
-                iPad: u.indexOf('iPad') > -1, //是否iPad
-                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
-            };
-        }(),
-        language:(navigator.browserLanguage || navigator.language).toLowerCase()
-    };
-    if (! browser.versions.mobile) {
+    if (! isMobile) {
         require(['galaxy']);
     }
 });
