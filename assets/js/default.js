@@ -42,4 +42,8 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
     if (! isMobile) {
         require(['galaxy']);
     }
+
+    $('.cs-select').hover(function() {
+        $(this).toggleClass('cs-active');
+    });
 });

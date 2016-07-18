@@ -3,25 +3,25 @@ layout: default
 ---
 
 <div class="posts">
-  {% for post in site.posts %}
-    <article class="item">
+    {% for post in site.posts %}
+        <article class="item">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-      <div class="subline">
-          <time><i class="fa fa-calendar"></i>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;
-          <a class="js-category-btn" href="javascript:;"><i class="fa fa-folder-o"></i>&nbsp;开发</a>&emsp;
-          <span><i class="fa fa-eye"></i>&nbsp;<span data-hk-page="{{ post.url | prepend: site.url }}">0</span></span>
-      </div>
+            <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+            <div class="subline">
+                <time><i class="fa fa-calendar"></i>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;
+                <a class="js-category-btn" href="javascript:;"><i class="fa fa-folder-o"></i>&nbsp;开发</a>&emsp;
+                <span><i class="fa fa-eye"></i>&nbsp;<span data-hk-page="{{ post.url | prepend: site.url }}">0</span></span>
+            </div>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+            <div class="entry">
+                <p>{{ post.excerpt | strip_html }}</p>
+            </div>
 
-      {% if post.image %}
-      <div class="img-pvw"><img src="{{ site.ASSET_PATH }}/images/{{ post.image }}"></div>
-      {% endif %}
+            {% if post.image %}
+            <div class="img-pvw"><img src="{{ site.ASSET_PATH }}/images/{{ post.image }}"></div>
+            {% endif %}
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">READ MORE <i class="fa fa-angle-double-right"></i></a>
-    </article>
-  {% endfor %}
+            <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">READ MORE <i class="fa fa-angle-double-right"></i></a>
+        </article>
+    {% endfor %}
 </div>
