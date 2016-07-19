@@ -270,7 +270,7 @@ var trans = {
       if (this.varr[i].transOut.p < 0) continue;
       var g = this.$.createRadialGradient(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p, this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p * 2);
       this.$.globalCompositeOperation = 'lighter';
-      g.addColorStop(0, 'hsla(255, 255%, 255%, 1)');
+      g.addColorStop(0, 'hsla(0, 100%, 100%, .5)');
       g.addColorStop(.5, 'hsla(' + (i + 2) + ',85%, 40%,1)');
       g.addColorStop(1, 'hsla(' + (i) + ',85%, 40%,.5)');
       this.$.fillStyle = g;

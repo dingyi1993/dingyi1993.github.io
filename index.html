@@ -8,8 +8,18 @@ layout: default
 
             <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
             <div class="subline">
-                <time><i class="fa fa-calendar"></i>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>&emsp;
-                <a class="js-category-btn" href="javascript:;"><i class="fa fa-folder-o"></i>&nbsp;开发</a>&emsp;
+                <time><i class="fa fa-calendar"></i>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>
+                <div class="category" style="">
+                    <a class="js-category-btn" href="javascript:;"><i class="fa fa-folder-o"></i>&nbsp;开发</a>
+                    <div class="options">
+                        <ul>
+                            <li><a href="javascript:;">开发</a></li>
+                            <li><a href="javascript:;">生活</a></li>
+                            <li><a href="javascript:;">黑科技</a></li>
+                            <li><a href="javascript:;">喵</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <span><i class="fa fa-eye"></i>&nbsp;<span data-hk-page="{{ post.url | prepend: site.url }}">0</span></span>
             </div>
 
