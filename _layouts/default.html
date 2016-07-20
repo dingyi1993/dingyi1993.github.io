@@ -12,20 +12,30 @@
 
 <body>
     <div id="container">
-        <div id="side" class="hide">
-            <div id="logo">
-                <a href="/"><img src="{{ site.logo }}"></a>
+        <div id="side" class="hide full">
+            <div style="display: none;">
+                <div id="logo">
+                    <a href="/"><img src="{{ site.logo }}"></a>
+                </div>
+                <!-- <div id="avatar">
+                    <a href="/"><img src="{{ site.avatar }}"></a>
+                </div> -->
+                <nav id="nav">
+                    <ul>
+                        <li><a class="active" href="javascript:;">分类</a></li>
+                        <li><a href="javascript:;">标签</a></li>
+                        <li><a href="javascript:;">邻居</a></li>
+                    </ul>
+                </nav>
             </div>
-            <!-- <div id="avatar">
-                <a href="/"><img src="{{ site.avatar }}"></a>
-            </div> -->
-            <nav id="nav">
-                <ul>
-                    <li><a class="active" href="javascript:;">分类</a></li>
-                    <li><a href="javascript:;">标签</a></li>
-                    <li><a href="javascript:;">邻居</a></li>
-                </ul>
-            </nav>
+            <div id="box">
+                <a href="javascript:;">
+                    <img src="favicon.png">
+                </a>
+                <p>{{ site.name }}</p>
+                <p>一只有强迫症的葡萄</p>
+                <div><a class="home" href="javascript:;">home</a></div>
+            </div>
             <div class="close">
                 <i class="iconfont icon-guanbi"></i>
             </div>
@@ -39,7 +49,7 @@
             </div>
             <a href="/">{{ site.name }}</a>
         </header>
-        <div id="main">
+        <div id="main" class="hide">
             {{ content }}
         </div>
         <div id="circle">

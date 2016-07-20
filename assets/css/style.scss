@@ -114,14 +114,14 @@ pre {
 }
 
 #side {
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     width: 30%;
     overflow: hidden;
-    -webkit-transition: left .8s cubic-bezier(.19,1,.22,1);
-    transition: left .8s cubic-bezier(.19,1,.22,1);
+    -webkit-transition: all .8s cubic-bezier(.19,1,.22,1);
+    transition: all .8s cubic-bezier(.19,1,.22,1);
     will-change: auto;
     z-index: 10;
     text-align: center;
@@ -129,6 +129,13 @@ pre {
     background-image: url(/assets/images/site_bg.jpg);
     background-size: cover;
     background-position-x: center;
+
+    &.full {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     @include mobile {
         width: 100%;
@@ -226,6 +233,30 @@ pre {
         }
     }
 
+    @-webkit-keyframes slideUp{
+        from{-webkit-transform:translate(0,0);transform:translate(0,0);}
+        to{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);}
+    }
+    @keyframes slideUp{
+        from{-webkit-transform:translate(0,0);transform:translate(0,0);}
+        to{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);}
+    }
+    #box {
+        // position: relative;
+        // margin: 0 auto;
+        // top: 50%;
+        padding: 40px 20px;
+        width: 280px;
+        text-align: center;
+        background: rgba(240,240,240,0.95);
+        border-radius: 6px;
+        box-shadow: 16px 16px 24px rgba(0,0,0,0.2);
+        // -webkit-transform: translate(0,-50%);
+        // transform: translate(0,-50%);
+        // -webkit-animation: slideUp 600ms;
+        // animation: slideUp 600ms;
+    }
+
     #galaxy {
         position: absolute;
         width: 100%;
@@ -284,20 +315,24 @@ pre {
 
 #main {
     position: absolute;
-    left: 30%;
+    left: 100%;
     top: 0;
     bottom: 0;
     right: 0;
     overflow: auto;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    -webkit-transition: left,top .5s ease;
-    transition: left,top .5s ease;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
     will-change: opacity,transform;
 
     @include mobile {
         left: 0!important;
         top: 60px;
+    }
+
+    &.show {
+        left: 30%;
     }
 }
 

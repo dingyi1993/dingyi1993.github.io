@@ -14,7 +14,7 @@ layout: default
                     <div class="options">
                         <ul>
                             {% for category in site.categories %}
-                            <li><a{% if category.first == post.category %} class="active"{% endif %} href="/category/#{{ category.first }}">{{ category | first }}</a></li>
+                            <li><a{% if category.first == post.category %} class="active"{% endif %} href="/category/#{{ category.first }}">{{ category.first }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

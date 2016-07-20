@@ -29,6 +29,10 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
             $('#rocket').fadeOut();
         }
     });
+    $('.home').click(function() {
+        $('#side').removeClass('full');
+        $('#main').addClass('show');
+    });
     $('#rocket').click(function() {
         $('#main').animate({
             'scroll-top': 0
