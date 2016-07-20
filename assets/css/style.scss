@@ -68,7 +68,7 @@ a {
     color: #647993;
     text-decoration: none;
     cursor: pointer;
-    &:hover, &:active {
+    &:hover, &:active, &.active {
         color: #2d3e4a;
     }
 }
@@ -628,8 +628,18 @@ article.post {
     display: inline-block;
     position: relative;
     padding: 0 20px;
+    width: 90px;
+    text-align: center;
 
     &:hover {
+        & > a i {
+            margin-right: -2px;
+
+            &:before {
+                content: "\f115";
+            }
+        }
+
         .options {
             pointer-events: auto;
 

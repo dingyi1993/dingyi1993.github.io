@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="categories">
+    {% for category in site.categories %}
+        <div class="item">
+            {% capture category_name %}{{ category.first }}{% endcapture %}
+            {{ category_name }}
+            <div class="posts">
+                {% for post in site.categories[category_name] %}
+                {{ post.title }}<br>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
