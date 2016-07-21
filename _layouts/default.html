@@ -28,13 +28,15 @@
                     </ul>
                 </nav>
             </div>
-            <div id="box">
-                <a href="javascript:;">
-                    <img src="favicon.png">
-                </a>
-                <p>{{ site.name }}</p>
-                <p>一只有强迫症的葡萄</p>
-                <div><a class="home" href="javascript:;">home</a></div>
+            <div id="box-wrapper">
+                <div id="box">
+                    <a href="javascript:;">
+                        <img src="favicon.png">
+                    </a>
+                    <p>{{ site.name }}</p>
+                    <p>一只有强迫症的葡萄</p>
+                    <div><a class="home" href="javascript:;">home</a></div>
+                </div>
             </div>
             <div class="close">
                 <i class="iconfont icon-guanbi"></i>
@@ -49,7 +51,7 @@
             </div>
             <a href="/">{{ site.name }}</a>
         </header>
-        <div id="main" class="hide">
+        <div id="main">
             {{ content }}
         </div>
         <div id="circle">
