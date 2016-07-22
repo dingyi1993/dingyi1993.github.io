@@ -30,8 +30,7 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
         }
     });
     $('.home').click(function() {
-        $('#side').removeClass('full');
-        $('#main').addClass('show');
+        $('#container').removeClass('full');
     });
     $('#rocket').click(function() {
         $('#main').animate({

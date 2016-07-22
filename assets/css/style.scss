@@ -111,6 +111,56 @@ pre {
     height: 100%;
     overflow: hidden;
     background-color: #fefefe;
+
+    &.full {
+        #side {
+            width: 100%;
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
+
+            #box-wrapper {
+                top: 50%;
+                right: 50%;
+                margin-right: -140px;
+            }
+
+            #box {
+                color: $lightBlank;
+                margin-top: -50%;
+                background-color: rgba(240,240,240,0.95);
+                box-shadow: 16px 16px 24px rgba(0,0,0,0.2);
+                text-align: center;
+            }
+
+            nav {
+                margin: 0 auto;
+                width: 170px;
+                height: 50px;
+                float: none;
+
+                &:hover {
+                    .cat {
+                        right: 120px;
+                    }
+                    .link {
+                        right: 0;
+                        top: 0;
+                    }
+                }
+
+                a {
+                    right: 60px;
+                    background: transparent;
+                    border: 1px solid $darkGray;
+                }
+            }
+        }
+
+        #main {
+            left: 100%;
+        }
+    }
 }
 
 #side {
@@ -129,27 +179,6 @@ pre {
     background-image: url(/assets/images/site_bg.jpg);
     background-size: cover;
     background-position-x: center;
-
-    &.full {
-        width: 100%;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-
-        #box-wrapper {
-            top: 50%;
-            right: 50%;
-            margin-right: -140px;
-        }
-
-        #box {
-            color: $lightBlank;
-            margin-top: -50%;
-            background-color: rgba(240,240,240,0.95);
-            box-shadow: 16px 16px 24px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-    }
 
     @include mobile {
         width: 100%;
@@ -204,46 +233,71 @@ pre {
     }
 
     nav {
-        margin-top: 20px;
+        position: relative;
+        margin: 0;
+        width: 110px;
+        height: 110px;
+        float: right;
 
-        @include mobile {
-            float: none;
-            margin-top: 9px;
-            display: block;
-            font-size: 1.6rem;
-        }
-
-        ul {
-            li {
-                display: inline;
-
-                &:after {
-                    content: "\2022";
-                    font-size: 1.7rem;
-                    color: #237dac;
+        &:hover {
+            .cat {
+                right: 60px;
+            }
+            .link {
+                top: 60px;
+                right: 0;
+            }
+            .home {
+                i {
+                    display: none;
                 }
-                &:last-child:after {
-                    content: '';
-                }
-
-                a {
-                    margin: 0 12px 0 10px;
-                    font-size: 1.4rem;
-                    color: #fff;
-                    border-radius: 2px;
-                    -webkit-transition: all .2s ease-out;
-                    transition: all .2s ease-out;
-
-                    &:hover,
-                    &.active {
-                        color: $darkBlue;
-                    }
-
-                    @include mobile {
-                        margin: 0 10px;
-                    }
+                span {
+                    display: inline;
                 }
             }
+
+            a:not(.home) {
+                opacity: 1;
+            }
+        }
+
+        a {
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            width: 50px;
+            background-color: rgba(240,240,240,0.95);
+            border: 1px solid rgba(240,240,240,0);
+            border-radius: 50px;
+            color: $darkGray;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            text-align: center;
+
+            &:not(.home) {
+                opacity: 0;
+            }
+            &.home {
+                z-index: 2;
+                right: 0;
+
+                i {
+                    margin-top: 9px;
+                    margin-left: 1px;
+                }
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        @include mobile {
+            // float: none;
+            // margin-top: 9px;
+            // display: block;
+            // font-size: 1.6rem;
         }
     }
 
@@ -269,7 +323,7 @@ pre {
     #box {
         color: #fff;
         margin-top: 0;
-        padding: 40px 20px;
+        padding: 20px;
         width: 280px;
         text-align: right;
         border-radius: 6px;
@@ -339,7 +393,7 @@ pre {
 
 #main {
     position: fixed;
-    left: 100%;
+    left: 30%;
     top: 0;
     bottom: 0;
     right: 0;
@@ -355,10 +409,6 @@ pre {
         left: 0!important;
         top: 60px;
         width: 100%;
-    }
-
-    &.show {
-        left: 30%;
     }
 }
 

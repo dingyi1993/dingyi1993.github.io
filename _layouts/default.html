@@ -11,31 +11,20 @@
 </head>
 
 <body>
-    <div id="container">
-        <div id="side" class="hide full">
-            <div style="display: none;">
-                <div id="logo">
-                    <a href="/"><img src="{{ site.logo }}"></a>
-                </div>
-                <!-- <div id="avatar">
-                    <a href="/"><img src="{{ site.avatar }}"></a>
-                </div> -->
-                <nav id="nav">
-                    <ul>
-                        <li><a class="active" href="javascript:;">分类</a></li>
-                        <li><a href="javascript:;">标签</a></li>
-                        <li><a href="javascript:;">邻居</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <div id="container"{% if page.isHome %} class="full"{% endif %}>
+        <div id="side" class="hide{% if page.isHome %} full{% endif %}">
             <div id="box-wrapper">
                 <div id="box">
-                    <a href="javascript:;">
-                        <img src="favicon.png">
+                    <a href="/">
+                        <img src="/favicon.png">
                     </a>
-                    <p>{{ site.name }}</p>
+                    <h2>{{ site.name }}</h2>
                     <p>一只有强迫症的葡萄</p>
-                    <div><a class="home" href="javascript:;">home</a></div>
+                    <nav id="nav" class="clearfix">
+                        <a class="home" href="javascript:;"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
+                        <a class="cat" href="/category/">分类</a>
+                        <a class="link" href="javascript:;">邻居</a>
+                    </nav>
                 </div>
             </div>
             <div class="close">
