@@ -29,8 +29,8 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
             $('#rocket').fadeOut();
         }
     });
-    $('.home').click(function() {
-        $('#container').removeClass('full');
+    $('.home:not(.not-home)').click(function() {
+        $('#container').toggleClass('full');
     });
     $('#rocket').click(function() {
         $('#main').animate({

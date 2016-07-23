@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <div id="container"{% if page.isHome %} class="full"{% endif %}>
-        <div id="side" class="hide{% if page.isHome %} full{% endif %}">
+    <div id="container"{% if page.isIndex %} class="full"{% endif %}>
+        <div id="side" class="hide">
             <div id="box-wrapper">
                 <div id="box">
                     <a href="/">
@@ -21,7 +21,7 @@
                     <h2>{{ site.name }}</h2>
                     <p>一只有强迫症的葡萄</p>
                     <nav id="nav" class="clearfix">
-                        <a class="home" href="javascript:;"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
+                        <a class="home{% if page.isIndex != true and page.isHome != true %} not-home{% endif %}" href="{% if page.isIndex or page.isHome %}javascript:;{% else %}/home/{% endif %}"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
                         <a class="cat" href="/category/">分类</a>
                         <a class="link" href="javascript:;">邻居</a>
                     </nav>
