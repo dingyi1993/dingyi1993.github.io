@@ -1,0 +1,40 @@
+#top {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: none;
+    height: 60px;
+    font-size: 2.4rem;
+    line-height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid #dedede;
+    color: $blue;
+    text-align: center;
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9;
+
+    @include mobile {
+        display: block;
+    }
+
+    .menu {
+        position: absolute;
+        left: 10px;
+        top: 13px;
+        width: 40px;
+        height: 34px;
+        line-height: 34px;
+        cursor: pointer;
+
+        i {
+            font-size: 4rem;
+            vertical-align: middle;
+            display: block;
+        }
+    }
+
+    a {
+        color: $blue;
+    }
+}
