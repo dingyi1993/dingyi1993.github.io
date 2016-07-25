@@ -3,15 +3,13 @@ layout: default
 ---
 
 <div class="categories">
+    <ul>
     {% for category in site.categories %}
-        <div class="item">
-            {% capture category_name %}{{ category.first }}{% endcapture %}
-            {{ category_name }}
-            <div class="posts">
-                {% for post in site.categories[category_name] %}
-                {{ post.title }}<br>
-                {% endfor %}
-            </div>
-        </div>
+        {% capture category_name %}{{ category.first }}{% endcapture %}
+        <li class="category-name rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ category_name }}</li>
+        {% for post in site.categories[category_name] %}
+        <li class="item">{{ post.title }}</li>
+        {% endfor %}
     {% endfor %}
+    </ul>
 </div>

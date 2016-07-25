@@ -92,6 +92,14 @@ pre {
 
 .clearfix:after { content: " "; display: block; clear: both; }
 
+.rainbow-color0:before { background-color: #e74c3c!important; }
+.rainbow-color1:before { background-color: #e67e22!important; }
+.rainbow-color2:before { background-color: #ffcc00!important; }
+.rainbow-color3:before { background-color: #33cc00!important; }
+.rainbow-color4:before { background-color: #66ffff!important; }
+.rainbow-color5:before { background-color: #3498db!important; }
+.rainbow-color6:before { background-color: #9b59b6!important; }
+
 // Specify the color of the selection
 ::-moz-selection {
   color: $white;
@@ -387,6 +395,32 @@ pre {
             border-radius: .9rem 0;
             background: #f2c500;
             content: '';
+        }
+    }
+}
+
+.categories {
+    margin: 0 80px;
+    padding: 15px 0 0;
+    border-left: 4px solid #f9f9f9;
+    line-height: 45px;
+    height: 100%;
+
+    li {
+        position: relative;
+        padding-left: 20px;
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: -2px;
+            width: 8px;
+            height: 8px;
+            margin-top: -4px;
+            margin-left: -4px;
+            content: ' ';
+            border-radius: 50%;
+            background-color: #ddd;
         }
     }
 }
