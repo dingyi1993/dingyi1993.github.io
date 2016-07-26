@@ -319,6 +319,7 @@ var trans = {
     //   }
     // }.bind(this));
   };
+  window.Build = Build;
   var app = new Build();
   app.run();
 })();

@@ -31,6 +31,11 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
     });
     $('.home:not(.not-home)').click(function() {
         $('#container').toggleClass('full');
+
+        setTimeout(function() {
+            var app = new Build();
+            app.run();
+        }, 800);
     });
     $('#rocket').click(function() {
         $('#main').animate({

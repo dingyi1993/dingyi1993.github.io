@@ -6,9 +6,9 @@ layout: default
     <ul>
     {% for category in site.categories %}
         {% capture category_name %}{{ category.first }}{% endcapture %}
-        <li class="category-name rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ category_name }}</li>
+        <li id="{{ category_name }}" class="category-name rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ category_name }}</li>
         {% for post in site.categories[category_name] %}
-        <li class="item">{{ post.title }}</li>
+        <li class="item"><span class="post-date">{{ post.date | date: "%Y-%m" }}</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
     {% endfor %}
     </ul>

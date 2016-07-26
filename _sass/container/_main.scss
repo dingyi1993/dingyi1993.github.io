@@ -8,8 +8,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    -webkit-transition: all .8s cubic-bezier(.19,1,.5,1);
-    transition: all .8s cubic-bezier(.19,1,.5,1);
+    @include transition(all .8s cubic-bezier(.19,1,.5,1));
     will-change: opacity,transform;
 
     @include mobile {
@@ -79,38 +78,6 @@ article.post {
     }
 }
 
-@-webkit-keyframes expand {
-    0% { -webkit-transform: scale3d(1,0,1); }
-    25% { -webkit-transform: scale3d(1,1.2,1); }
-    50% { -webkit-transform: scale3d(1,0.85,1); }
-    75% { -webkit-transform: scale3d(1,1.05,1) }
-    100% { -webkit-transform: scale3d(1,1,1); }
-}
-
-@keyframes expand {
-    0% { -webkit-transform: scale3d(1,0,1); transform: scale3d(1,0,1); }
-    25% { -webkit-transform: scale3d(1,1.2,1); transform: scale3d(1,1.2,1); }
-    50% { -webkit-transform: scale3d(1,0.85,1); transform: scale3d(1,0.85,1); }
-    75% { -webkit-transform: scale3d(1,1.05,1); transform: scale3d(1,1.05,1); }
-    100% { -webkit-transform: scale3d(1,1,1); transform: scale3d(1,1,1); }
-}
-
-
-@-webkit-keyframes bounce {
-    0% { -webkit-transform: translate3d(0,-25px,0); opacity:0; }
-    25% { -webkit-transform: translate3d(0,10px,0); }
-    50% { -webkit-transform: translate3d(0,-6px,0); }
-    75% { -webkit-transform: translate3d(0,2px,0); }
-    100% { -webkit-transform: translate3d(0,0,0); opacity: 1; }
-}
-
-@keyframes bounce {
-    0% { -webkit-transform: translate3d(0,-25px,0); transform: translate3d(0,-25px,0); opacity:0; }
-    25% { -webkit-transform: translate3d(0,10px,0); transform: translate3d(0,10px,0); }
-    50% { -webkit-transform: translate3d(0,-6px,0); transform: translate3d(0,-6px,0); }
-    75% { -webkit-transform: translate3d(0,2px,0); transform: translate3d(0,2px,0); }
-    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); opacity: 1; }
-}
 .subline {
     color: $gray;
     font-family: $number;
@@ -136,22 +103,30 @@ article.post {
 
             ul {
                 &:before {
-                    -webkit-transform: scale3d(1,1,1);
-                    transform: scale3d(1,1,1);
-                    -webkit-transition: none;
-                    transition: none;
-                    -webkit-animation: expand 0.6s ease-out;
-                    animation: expand 0.6s ease-out;
+                    @include transform(scale3d(1,1,1));
+                    @include transition(none);
+                    @include animation(expand 0.6s ease-out);
+                }
+                @include keyframes(expand) {
+                    0% { #{$browser}transform: scale3d(1,0,1); }
+                    25% { #{$browser}transform: scale3d(1,1.2,1); }
+                    50% { #{$browser}transform: scale3d(1,0.85,1); }
+                    75% { #{$browser}transform: scale3d(1,1.05,1) }
+                    100% { #{$browser}transform: scale3d(1,1,1); }
                 }
 
                 li {
-                    -webkit-transform: translate3d(0,0,0);
-                    transform: translate3d(0,0,0);
+                    @include transform(translate3d(0,0,0));
                     opacity: 1;
-                    -webkit-transition: none;
-                    transition: none;
-                    -webkit-animation: bounce 0.6s ease-out;
-                    animation: bounce 0.6s ease-out;
+                    @include transition(none);
+                    @include animation(bounce 0.6s ease-out);
+                }
+                @include keyframes(bounce) {
+                    0% { #{$browser}transform: translate3d(0,-25px,0);opacity: 0; }
+                    25% { #{$browser}transform: translate3d(0,10px,0); }
+                    50% { #{$browser}transform: translate3d(0,-6px,0); }
+                    75% { #{$browser}transform: translate3d(0,2px,0); }
+                    100% { #{$browser}transform: translate3d(0,0,0);opacity: 1; }
                 }
             }
         }
@@ -173,8 +148,7 @@ article.post {
                 height: 100%;
                 left: 0;
                 top: 0;
-                -webkit-transform: scale3d(1,0,1);
-                transform: scale3d(1,0,1);
+                @include transform(scale3d(1,0,1));
                 background: $white;
                 -webkit-transform-origin: 50% 0%;
                 transform-origin: 50% 0%;
@@ -186,8 +160,7 @@ article.post {
 
             li {
                 opacity: 0;
-                -webkit-transform: translate3d(0,-25px,0);
-                transform: translate3d(0,-25px,0);
+                @include transform(translate3d(0,-25px,0));
                 -webkit-transition: opacity 0.15s, -webkit-transform 0.15s;
                 transition: opacity 0.15s, transform 0.15s;
 

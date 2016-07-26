@@ -36,7 +36,15 @@ $prefix-for-spec: true !default;
 }
 
 @mixin transform($property...) {
-  @include prefixer(transform, $property, webkit moz o spec);
+  @include prefixer(transform, $property, webkit moz ms o spec);
+}
+
+@mixin transition($property...) {
+  @include prefixer(transition, $property, webkit moz ms o spec);
+}
+
+@mixin animation($property...) {
+  @include prefixer(animation, $property, webkit moz ms o spec);
 }
 
 // Drop shadows
@@ -46,12 +54,6 @@ $prefix-for-spec: true !default;
 }
 
 // Transitions
-@mixin transition($transition) {
-  -webkit-transition: $transition;
-     -moz-transition: $transition;
-       -o-transition: $transition;
-          transition: $transition;
-}
 @mixin transition-delay($transition-delay) {
   -webkit-transition-delay: $transition-delay;
      -moz-transition-delay: $transition-delay;
@@ -102,9 +104,25 @@ $prefix-for-spec: true !default;
           transform: translate3d($x, $y, $z);
 }
 
-@mixin keyframes($x, $y, $z) {
-  -webkit-transform: translate3d($x, $y, $z);
-     -moz-transform: translate3d($x, $y, $z);
-       -o-transform: translate3d($x, $y, $z);
-          transform: translate3d($x, $y, $z);
-}
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        $browser: '-webkit-' !global;
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        $browser: '-moz-' !global;
+        @content;
+    }
+    @-ms-keyframes #{$animationName} {
+        $browser: '-ms-' !global;
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        $browser: '-o-' !global;
+        @content;
+    }
+    @keyframes #{$animationName} {
+        $browser: '' !global;
+        @content;
+    }
+} $browser: null;
