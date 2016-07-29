@@ -48,6 +48,9 @@ baseurl: ""
 
 ASSET_PATH: /assets
 
+paginate: 3
+paginate_path: "/home/page:num"
+
 #
 # !! You don't need to change any of the configuration flags below !!
 #
@@ -72,6 +75,7 @@ sass:
 gems:
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-paginate
 
 exclude:
   - Gemfile
