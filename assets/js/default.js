@@ -29,14 +29,14 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
             $('#rocket').fadeOut();
         }
     });
-    $('.home:not(.not-home)').click(function() {
-        $('#container').toggleClass('full');
+    // $('.home:not(.not-home)').click(function() {
+    //     $('#container').toggleClass('full');
 
-        setTimeout(function() {
-            var app = new Build();
-            app.run();
-        }, 800);
-    });
+    //     setTimeout(function() {
+    //         var app = new Build();
+    //         app.run();
+    //     }, 800);
+    // });
     $('#rocket').click(function() {
         $('#main').animate({
             'scroll-top': 0

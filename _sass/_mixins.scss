@@ -42,6 +42,9 @@ $prefix-for-spec: true !default;
 @mixin transition($property...) {
   @include prefixer(transition, $property, webkit moz ms o spec);
 }
+@mixin transition-property($property...) {
+  @include prefixer(transition-property, $property, webkit moz ms o spec);
+}
 
 @mixin animation($property...) {
   @include prefixer(animation, $property, webkit moz ms o spec);

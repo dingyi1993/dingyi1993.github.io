@@ -7,17 +7,16 @@ layout: default
 
     <div class="subline">
         <time><i class="fa fa-calendar"></i>&nbsp;{{ page.date | date: "%Y-%m-%d" }}</time>
-        <div class="category" style="">
-            <a class="js-category-btn" href="javascript:;"><i class="fa fa-folder-o"></i>&nbsp;开发</a>
-            <div class="options">
-                <ul>
-                    <li><a href="javascript:;">开发</a></li>
-                    <li><a href="javascript:;">生活</a></li>
-                    <li><a href="javascript:;">黑科技</a></li>
-                    <li><a href="javascript:;">喵</a></li>
-                </ul>
-            </div>
-        </div>
+        <div class="category">
+                    <a class="js-category-btn" href="/category/#{{ page.category }}"><i class="fa fa-folder-o"></i>&nbsp;{{ page.category }}</a>
+                    <div class="options">
+                        <ul>
+                            {% for category in site.categories %}
+                            <li><a{% if category.first == page.category %} class="active"{% endif %} href="/category/#{{ category.first }}">{{ category.first }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
         <span><i class="fa fa-eye"></i>&nbsp;<span data-hk-page="{{ page.url | prepend: site.url }}">0</span></span>
     </div>
 

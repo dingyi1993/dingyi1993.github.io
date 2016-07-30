@@ -58,6 +58,55 @@
         }
     }
 }
+.pagination {
+    overflow: hidden;
+    padding: 0 40px 30px 40px;
+
+    &:hover {
+        a {
+            opacity: 1;
+        }
+    }
+
+    a {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        width: 150px;
+        background-color: $blue;
+        text-align: center;
+        color: $white;
+        opacity: .3;
+        font-size: 2rem;
+        @include transition(.3s cubic-bezier(.19,1,.5,1));
+        transition-property: opacity, background-color;
+
+        &:hover {
+            background-color: $darkBlue;
+        }
+
+        i {
+            vertical-align: middle;
+        }
+    }
+
+    .prev {
+        float: left;
+        padding-right: 8px;
+
+        i {
+            margin-right: 10px;
+        }
+    }
+    .next {
+        float: right;
+        padding-left: 8px;
+
+        i {
+            margin-left: 10px;
+        }
+    }
+}
 
 article.post {
     margin: 0 20px;

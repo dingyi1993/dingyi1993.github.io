@@ -23,10 +23,14 @@
             </div>
 
             {% if post.image %}
-            <div class="img-pvw"><img src="{{ site.ASSET_PATH }}/images/{{ post.image }}"></div>
+            <div class="img-pvw"><img src="{{ site.asset_path }}/images/{{ post.image }}"></div>
             {% endif %}
 
             <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">READ MORE <i class="fa fa-angle-double-right"></i></a>
         </article>
     {% endfor %}
+</div>
+<div class="pagination">
+    <a class="prev" href="javascript:;"><i class="fa fa-fw fa-long-arrow-left"></i>Prev</a>
+    <a class="next" href="javascript:;">Next<i class="fa fa-fw fa-long-arrow-right"></i></a>
 </div>

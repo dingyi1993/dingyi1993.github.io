@@ -15,18 +15,26 @@
         <div id="side" class="hide">
             <div id="box-wrapper">
                 <div id="box">
-                    <a href="/">
-                        <img src="/favicon.png">
+                    <a id="logo" href="/">
+                        <img src="{{ site.asset_path }}/images/{{ site.logo }}">
                     </a>
                     <h2>{{ site.name }}</h2>
                     <p>一只有强迫症的葡萄</p>
                     <nav id="nav" class="clearfix">
-                        <a class="home{% if page.isIndex != true and page.isHome != true %} not-home{% endif %}" href="{% if page.isIndex or page.isHome %}javascript:;{% else %}/home/{% endif %}"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
+                        <a class="home" href="/blog/"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
                         <a class="cat" href="/category/">分类</a>
                         <a class="link" href="javascript:;">邻居</a>
                     </nav>
                 </div>
             </div>
+            <footer id="footer">
+                <span>© 2016 {{ site.name }}</span>
+                {% if site.links.github %}<a href="https://github.com/{{ site.links.github }}" title="github" target="_blank"><i class="fa fa-github"></i></a>{% endif %}
+                {% if site.links.weibo %}<a href="http://weibo.com/{{ site.links.weibo }}" title="微博" target="_blank"><i class="fa fa-weibo"></i></a>{% endif %}
+                {% if site.links.weixin %}<a href="javascript:;" title="微信"><i class="fa fa-weixin"></i></a>{% endif %}
+                {% if site.links.email %}<a href="mailto:{{ site.links.email }}" title="邮箱：{{ site.links.email }}"><i class="fa fa-envelope"></i></a>{% endif %}
+                {% if site.links.rss %}<a href="{{ site.baseurl }}/feed.xml" title="rss" target="_blank"><i class="fa fa-rss"></i></a>{% endif %}
+            </footer>
             <div class="close">
                 <i class="iconfont icon-guanbi"></i>
             </div>
@@ -68,8 +76,8 @@
     </div> -->
 
     {% include analytics.html %}
-    <script src="{{ site.ASSET_PATH }}/js/require.min.js"></script>
-    <script src="{{ site.ASSET_PATH }}/js/config.js"></script>
-    <script src="{{ site.ASSET_PATH }}/js/default.js"></script>
+    <script src="{{ site.asset_path }}/js/require.min.js"></script>
+    <script src="{{ site.asset_path }}/js/config.js"></script>
+    <script src="{{ site.asset_path }}/js/default.js"></script>
 </body>
 </html>

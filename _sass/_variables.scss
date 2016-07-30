@@ -31,3 +31,8 @@ $number: Verdana, Geneva, sans-serif;
     @content;
   }
 }
+@mixin large-pc {
+  @media screen and (min-width: 1500px) {
+    @content;
+  }
+}

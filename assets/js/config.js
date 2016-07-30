@@ -2,7 +2,7 @@
 ---
 
 require.config({
-    baseUrl: '{{ site.ASSET_PATH}}',
+    baseUrl: '{{ site.asset_path}}',
     waitSeconds: 60,
     map: {
         '*': {

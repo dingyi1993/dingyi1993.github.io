@@ -6,27 +6,27 @@ name: 抽筋的葡萄
 
 description: A Front-End Develpoer
 
-avatar: /assets/images/avatar.png
-logo: /assets/images/logo.png
-loading: /assets/images/loading.gif
+logo: logo.png
+loading: loading.gif
 
 #
 # Flags below are optional
 #
 
-# Includes an icon in the footer for each username you enter
-footer-links:
+links:
   email: dy781745492@gmail.com
   facebook:
-  github: dingyi1993/dingyi1993.github.com
+  github: dingyi1993
   instagram:
   linkedin:
   pinterest:
-  rss: # just type anything here for a working RSS icon
+  rss: 666
   twitter: dingyi_1993
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
+  weibo: dingyi1993
+  weixin: 666
 
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
@@ -36,20 +36,14 @@ disqus:
 google_analytics: UA-80833682-1
 baidu_analytics: 666
 
-# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
-# Used for Sitemap.xml and your RSS feed
 url: http://www.choujindeputao.com
 
-# If you're hosting your site at a Project repository on GitHub pages
-# (http://yourusername.github.io/repository-name)
-# and NOT your User repository (http://yourusername.github.io)
-# then add in the baseurl here, like this: "/repository-name"
-baseurl: ""
+baseurl: ''
 
-ASSET_PATH: /assets
+asset_path: /assets
 
 paginate: 3
-paginate_path: "/home/page:num"
+paginate_path: /blog/:num
 
 #
 # !! You don't need to change any of the configuration flags below !!
