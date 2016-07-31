@@ -1,3 +1,6 @@
+---
+---
+
 require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
 
     var system = {};
@@ -15,6 +18,12 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
     });
     $('#side .close').click(function() {
         $('#side').addClass('hide');
+    });
+    $('#footer').hover(function() {
+        var $this = $(this);
+        var $about  = $this.find('.about');
+        $this.toggleClass('active');
+        $this.hasClass('active') ? $about.text('About me') : $about.text('{{ site.name }}');
     });
     $("img.lazy").lazyload({
         effect : "fadeIn",
@@ -50,8 +59,4 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
     if (! isMobile) {
         require(['galaxy']);
     }
-
-    $('.cs-select').hover(function() {
-        $(this).toggleClass('cs-active');
-    });
 });

@@ -65,25 +65,25 @@
     &:hover {
         a {
             opacity: 1;
+
+            &.prev {
+                border-color: $gray;
+            }
         }
     }
 
     a {
         display: block;
         height: 50px;
-        line-height: 50px;
+        line-height: 48px;
         width: 150px;
-        background-color: $blue;
         text-align: center;
         color: $white;
         opacity: .3;
         font-size: 2rem;
-        @include transition(.3s cubic-bezier(.19,1,.5,1));
-        transition-property: opacity, background-color;
-
-        &:hover {
-            background-color: $darkBlue;
-        }
+        border-width: 1px;
+        border-style: solid;
+        @include transition(all .3s cubic-bezier(.19,1,.5,1));
 
         i {
             vertical-align: middle;
@@ -93,6 +93,13 @@
     .prev {
         float: left;
         padding-right: 8px;
+        background-color: $white;
+        color: $gray;
+        border-color: $gray;
+
+        &:hover {
+            background-color: $lightGray;
+        }
 
         i {
             margin-right: 10px;
@@ -101,6 +108,13 @@
     .next {
         float: right;
         padding-left: 8px;
+        border-color: $blue;
+        background-color: $blue;
+
+        &:hover {
+            background-color: $darkBlue;
+            border-color: $darkBlue;
+        }
 
         i {
             margin-left: 10px;
@@ -117,9 +131,54 @@ article.post {
         margin-bottom: 0;
     }
 
-    .date {
-        font-style: italic;
-        color: $darkGray;
+    .tags {
+        i {
+            vertical-align: middle;
+        }
+
+        a {
+            display: inline-block;
+            font-size: 10px;
+            color: $white;
+            height: 20px;
+            line-height: 20px;
+            position: relative;
+            border-radius: 0 5px 5px 0;
+            margin-left: 10px;
+            padding: 0 8px 0 10px;
+
+            &:before {
+                content: " ";
+                position: absolute;
+                width: 0;
+                height: 0;
+                top: 0;
+                left: -20px;
+                border: 10px solid transparent;
+                border-right-color: #cfb7c4;
+            }
+            &:after {
+                content: " ";
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background-color: #fff;
+                -webkit-border-radius: 4px;
+                border-radius: 4px;
+                -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.3);
+                box-shadow: 0 0 0 1px rgba(0,0,0,.3);
+                top: 8px;
+                left: 0;
+            }
+        }
+
+        .color0 { background-color: $rainbowColor0;&:before { border-right-color: $rainbowColor0;} }
+        .color1 { background-color: $rainbowColor1;&:before { border-right-color: $rainbowColor1;} }
+        .color2 { background-color: $rainbowColor2;&:before { border-right-color: $rainbowColor2;} }
+        .color3 { background-color: $rainbowColor3;&:before { border-right-color: $rainbowColor3;} }
+        .color4 { background-color: $rainbowColor4;&:before { border-right-color: $rainbowColor4;} }
+        .color5 { background-color: $rainbowColor5;&:before { border-right-color: $rainbowColor5;} }
+        .color6 { background-color: $rainbowColor6;&:before { border-right-color: $rainbowColor6;} }
     }
 
     .comments {
@@ -188,6 +247,7 @@ article.post {
         background: transparent;
         opacity: 1;
         pointer-events: none;
+        z-index: 2;
 
         ul {
             &:before {

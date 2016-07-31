@@ -166,7 +166,13 @@
     padding: 0 20px 20px 20px;
     color: $gray;
 
-    a {
+    a.about {
+        color: $gray;
+        width: 80px;
+        display: inline-block;
+    }
+
+    > a {
         margin-left: 10px;
         font-size: 1.8rem;
         display: inline-block;

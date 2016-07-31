@@ -24,9 +24,14 @@ layout: default
     	{{ content }}
     </div>
 
-    <div class="date">
-        Written on {{ page.date | date: "%B %e, %Y" }}
+    {% if page.tags.size > 0 %}
+    <div class="tags">
+        <i class="fa fa-tags"></i>
+        {% for tag in page.tags %}
+        <a class="color{{ forloop.index | plus:4 | modulo:7 }}" href="javascript:;">{{ tag }}</a>
+        {% endfor %}
     </div>
+    {% endif %}
 
     {% include disqus.html %}
 </article>
