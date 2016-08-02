@@ -3,7 +3,10 @@ layout: default
 ---
 
 <div class="categories">
-    <ul>
+    <div class="summary">
+        <div class="title">分类</div>
+    </div>
+    <ul class="items">
     {% for category in site.categories %}
         {% capture category_name %}{{ category.first }}{% endcapture %}
         <li id="{{ category_name }}" class="category-name rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ category_name }}</li>
