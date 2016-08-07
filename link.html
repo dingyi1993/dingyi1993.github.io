@@ -1,0 +1,16 @@
+---
+layout: default
+links:
+  - { name: "scott", href: "http://www.chengfeilong.com" }
+---
+
+<div class="rainbow-list">
+    <div class="summary">
+        <div class="title">邻居</div>
+    </div>
+    <ul class="items">
+    {% for link in page.links %}
+        <li class="category-name rainbow-color{{ forloop.index | plus:4 | modulo:7 }}"><a href="{{ link.href }}" target="_blank">{{ link.name }}</a></li>
+    {% endfor %}
+    </ul>
+</div>

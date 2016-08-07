@@ -10,15 +10,15 @@
         <div id="side" class="hide">
             <div id="box-wrapper">
                 <div id="box">
-                    <a id="logo" href="/">
+                    <a id="logo" href="{{ site.url }}">
                         <img src="{{ site.asset_path }}/images/{{ site.logo }}">
                     </a>
                     <h2>{{ site.name }}</h2>
                     <p>一只有强迫症的葡萄</p>
                     <nav id="nav" class="clearfix">
-                        <a class="home" href="/blog/"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
-                        <a class="cat" href="/category/">分类</a>
-                        <a class="link" href="javascript:;">邻居</a>
+                        <a class="home" href="{{ site.baseurl }}/blog/"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
+                        <a class="cat" href="{{ site.baseurl }}/category/">分类</a>
+                        <a class="link" href="{{ site.baseurl }}/link/">邻居</a>
                     </nav>
                 </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="menu">
                 <i class="iconfont icon-xitongcaidan"></i>
             </div>
-            <a href="/">{{ site.name }}</a>
+            <a href="{{ site.url }}">{{ site.name }}</a>
         </header>
         <div id="main">
             {{ content }}

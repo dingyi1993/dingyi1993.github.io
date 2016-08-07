@@ -28,10 +28,7 @@ links:
   weibo: dingyi1993
   weixin: 666
 
-
-# Enter your Disqus shortname (not your username) to enable commenting on posts
-# You can find your shortname on the Settings page of your Disqus account
-disqus:
+duoshuo: choujindeputao
 
 google_analytics: UA-80833682-1
 baidu_analytics: 666
@@ -42,7 +39,7 @@ baseurl: ''
 
 asset_path: /assets
 
-paginate: 3
+paginate: 5
 paginate_path: /blog/:num
 
 #
