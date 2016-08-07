@@ -46,9 +46,13 @@
         <div class="section" id="section4">
             <div class="intro">
                 <h1>more</h1>
-                <p>{% include links.html %}</p>
+                <p>
+                    <a href="{{ site.baseurl }}/blog/" title="博客"><i class="fa fa-home"></i></a>
+                    {% include links.html %}
+                </p>
             </div>
         </div>
     </div>
+    {% include analytics.html %}
 </body>
 </html>
