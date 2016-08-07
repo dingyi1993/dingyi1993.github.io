@@ -1,0 +1,55 @@
+---
+---
+
+@import "variables";
+@import "mixins";
+@import "custom";
+
+body {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    color: #f2f2f2;
+}
+h1 {
+    font-size: 8rem;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+p {
+    font-size: 2.8rem;
+    color: #ccc;
+}
+.section {
+    text-align: center;
+}
+
+.intro p {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#section1 img.avatar {
+    width: 20%;
+    border-radius: 25%;
+}
+
+#section2 p {
+    color: #067d6b;
+}
+
+#section3 p {
+    color: #757575;
+}
+
+#section4 p a {
+    color: #0a9198;
+    margin-right: 20px;
+    font-size: 4rem;
+
+    &:hover {
+        color: #006d73;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

@@ -2,12 +2,7 @@
 <html lang="zh-CN">
 <head>
     {% include head.html %}
-    <style media="screen">
-
-        @media (max-width: 768px) {
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/style.css">
 </head>
 
 <body>
@@ -28,12 +23,8 @@
                 </div>
             </div>
             <footer id="footer">
-                <span>© 2016 <a class="about" href="javascript:;">{{ site.name }}</a></span>
-                {% if site.links.github %}<a href="https://github.com/{{ site.links.github }}" title="github" target="_blank"><i class="fa fa-github"></i></a>{% endif %}
-                {% if site.links.weibo %}<a href="http://weibo.com/{{ site.links.weibo }}" title="微博" target="_blank"><i class="fa fa-weibo"></i></a>{% endif %}
-                {% if site.links.weixin %}<a href="javascript:;" title="微信"><i class="fa fa-weixin"></i></a>{% endif %}
-                {% if site.links.email %}<a href="mailto:{{ site.links.email }}" title="邮箱：{{ site.links.email }}"><i class="fa fa-envelope"></i></a>{% endif %}
-                {% if site.links.rss %}<a href="{{ site.baseurl }}/feed.xml" title="rss" target="_blank"><i class="fa fa-rss"></i></a>{% endif %}
+                <span>© 2016 <a class="about" href="{{ site.baseurl }}/about/">{{ site.name }}</a></span>
+                {% include links.html %}
             </footer>
             <div class="close">
                 <i class="iconfont icon-guanbi"></i>
@@ -66,15 +57,6 @@
             <div class="footer"></div>
         </div>
     </div>
-
-    <!-- <div class="wrapper-footer">
-        <div class="container">
-            <footer class="footer">
-                {% include svg-icons.html %}
-            </footer>
-        </div>
-    </div> -->
-
     {% include analytics.html %}
     <script src="{{ site.asset_path }}/js/require.min.js"></script>
     <script src="{{ site.asset_path }}/js/config.js"></script>

@@ -1,0 +1,54 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/about.css">
+    <link rel="stylesheet" href="{{ site.asset_path }}/pagepiling/jquery.pagepiling.min.css">
+    <script src="{{ site.asset_path }}/js/jquery-2.2.3.min.js"></script>
+    <script src="{{ site.asset_path }}/pagepiling/jquery.pagepiling.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#pagepiling').pagepiling({
+                loopBottom: true,
+                sectionsColor: ['#09c', '#22c3aa', '#2C3E50', '#51bec4'],
+                anchors: ['me', 'location', 'hobbies', 'more'],
+                navigation: {
+                    'position': 'right',
+                    'tooltips': ['me', 'location', 'hobbies', 'more']
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="pagepiling">
+        <div class="section" id="section1">
+            <img class="avatar" src="{{ site.asset_path }}/images/avatar.jpg">
+            <h1>丁一</h1>
+            <p>会前端的强迫症患者</p>
+            <br />
+        </div>
+        <div class="section" id="section2">
+            <div class="intro">
+                <h1>location</h1>
+                <p>广东·广州</p>
+            </div>
+        </div>
+        <div class="section" id="section3">
+            <div class="intro">
+                <h1>hobbies</h1>
+                <p>旅游·摄影·音乐</p>
+            </div>
+        </div>
+        <div class="section" id="section4">
+            <div class="intro">
+                <h1>more</h1>
+                <p>{% include links.html %}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

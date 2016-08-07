@@ -1,0 +1,89 @@
+html {
+    @include box-sizing;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+body {
+    background: $white;
+    font: 1.4rem/1.5 $consolas;
+    color: $lightBlank;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    line-height: 1.7;
+
+    @include mobile {
+        line-height: 1.4;
+    }
+
+    a {
+        color: #4e5e6a;
+    }
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.8rem;
+    color: $darkGray;
+}
+
+p {
+    margin: 15px 0;
+}
+
+a {
+    color: #647993;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover, &:active, &.active {
+        color: #2d3e4a;
+    }
+}
+img {
+    max-width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+pre {
+    margin: 0;
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+::-moz-selection {
+    color: $white;
+    background: $lightBlue;
+}
+::selection {
+    color: $white;
+    background: $lightBlue;
+}

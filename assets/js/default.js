@@ -1,7 +1,7 @@
 ---
 ---
 
-require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
+require(['jquery', 'hit-kounter', 'lazyload', 'easing'], function() {
 
     var system = {};
     var isMobile = true;
@@ -21,7 +21,7 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
     });
     $('#footer').hover(function() {
         var $this = $(this);
-        var $about  = $this.find('.about');
+        var $about = $this.find('.about');
         $this.toggleClass('active');
         $this.hasClass('active') ? $about.text('About me') : $about.text('{{ site.name }}');
     });
@@ -30,7 +30,7 @@ require(['jquery','hit-kounter', 'unveil', 'lazyload', 'easing'], function() {
         container: '#main',
         threshold : 500
     });
-    $('#main').scroll(function(){
+    $('#main').scroll(function() {
         var $this = $(this);
         if ($this.scrollTop() >= 800) {
             $('#rocket').fadeIn();

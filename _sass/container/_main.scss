@@ -53,9 +53,6 @@
                 max-height: 200px;
             }
         }
-
-        .read-more {
-        }
     }
 }
 .pagination {
@@ -169,6 +166,9 @@ article.post {
                 box-shadow: 0 0 0 1px rgba(0,0,0,.3);
                 top: 8px;
                 left: 0;
+            }
+            &:hover {
+                opacity: .7;
             }
         }
 
