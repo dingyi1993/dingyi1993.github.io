@@ -182,8 +182,10 @@
         display: inline-block;
         @include transition(transform .2s ease-in-out);
 
-        &:hover {
-            @include transform(translateY(-2px));
+        @include pc {
+            &:hover {
+                @include transform(translateY(-2px));
+            }
         }
     }
     .weixin-qrcode {
@@ -195,6 +197,7 @@
         left: 50%;
         margin-left: -100px;
         opacity: 0;
+        z-index: 2;
         @include transition(all .6s cubic-bezier(.19,1,.5,1));
 
         &.hover {
