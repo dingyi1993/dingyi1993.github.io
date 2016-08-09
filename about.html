@@ -10,7 +10,7 @@
     <script src="{{ site.asset_path }}/js/jquery-2.2.3.min.js"></script>
     <script src="{{ site.asset_path }}/pagepiling/jquery.pagepiling.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(function() {
             $('#pagepiling').pagepiling({
                 loopBottom: true,
                 sectionsColor: ['#09c', '#22c3aa', '#2C3E50', '#51bec4'],
@@ -19,6 +19,10 @@
                     'position': 'right',
                     'tooltips': ['me', 'location', 'hobbies', 'more']
                 }
+            });
+
+            $('.weixin-btn').hover(function() {
+                $('.weixin-qrcode').toggleClass('hover');
             });
         });
     </script>

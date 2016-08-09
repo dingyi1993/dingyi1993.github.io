@@ -40,16 +40,38 @@ p {
     color: #757575;
 }
 
-#section4 p a {
-    color: #0a9198;
-    margin-right: 20px;
-    font-size: 4rem;
+#section4 p {
+    position: relative;
 
-    &:hover {
-        color: #006d73;
+    a {
+        color: #0a9198;
+        margin-right: 20px;
+        font-size: 4rem;
+
+        &:hover {
+            color: #006d73;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 
-    &:last-child {
-        margin-right: 0;
+    .weixin-qrcode {
+        position: absolute;
+        display: block;
+        visibility: hidden;
+        width: 200px;
+        bottom: 100px;
+        left: 50%;
+        margin-left: -100px;
+        opacity: 0;
+        @include transition(all .6s cubic-bezier(.19,1,.5,1));
+
+        &.hover {
+            bottom: 80px;
+            opacity: 1;
+            visibility: visible;
+        }
     }
 }

@@ -182,4 +182,21 @@
             @include transform(translateY(-2px));
         }
     }
+    .weixin-qrcode {
+        position: absolute;
+        display: block;
+        visibility: hidden;
+        width: 200px;
+        bottom: 100px;
+        left: 50%;
+        margin-left: -100px;
+        opacity: 0;
+        @include transition(all .6s cubic-bezier(.19,1,.5,1));
+
+        &.hover {
+            bottom: 80px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
 }

@@ -56,6 +56,10 @@ require(['jquery', 'hit-kounter', 'lazyload', 'easing'], function() {
 
     });
 
+    $('.weixin-btn').hover(function() {
+        $('.weixin-qrcode').toggleClass('hover');
+    });
+
     if (! isMobile) {
         require(['galaxy']);
     }
