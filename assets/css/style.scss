@@ -37,7 +37,7 @@
 
         #box {
             color: $lightBlank;
-            margin-top: -50%;
+            margin-top: -60%;
             background-color: rgba(240,240,240,0.95);
             box-shadow: 16px 16px 24px rgba(0,0,0,0.2);
             text-align: center;
@@ -49,13 +49,25 @@
             height: 50px;
             float: none;
 
-            &:hover {
-                .cat {
+            @include mobile {
+                 .cat {
                     right: 120px;
                 }
                 .link {
                     right: 0;
                     top: 0;
+                }
+            }
+
+            @include pc {
+                &:hover {
+                    .cat {
+                        right: 120px;
+                    }
+                    .link {
+                        right: 0;
+                        top: 0;
+                    }
                 }
             }
 
@@ -135,8 +147,8 @@
 /**************/
 #rocket {
     position: fixed;
-    right: 60px;
-    bottom: 36px;
+    left: 32%;
+    bottom: 6px;
     display: none;
     cursor: pointer;
     -webkit-transition: -webkit-transform .6s;
@@ -146,8 +158,9 @@
     @include transform(scale(.8));
 
     @include mobile {
-        right: 30px;
-        bottom: 20px;
+        left: 15px;
+        bottom: 0;
+        @include transform(scale(.6));
     }
 
     &:hover {
@@ -326,6 +339,10 @@
             content: ' ';
             border-radius: 50%;
             background-color: #ddd;
+        }
+
+        a {
+            margin-right: 10px;
         }
 
         .post-date {

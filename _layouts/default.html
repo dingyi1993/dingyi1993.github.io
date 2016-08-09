@@ -7,7 +7,7 @@
 
 <body>
     <div id="container"{% if page.isIndex %} class="full"{% endif %}>
-        <div id="side" class="hide">
+        <div id="side"{% if page.isIndex != true %} class="hide"{% endif %}>
             <div id="box-wrapper">
                 <div id="box">
                     <a id="logo" href="{{ site.url }}">
@@ -26,9 +26,11 @@
                 <span>© 2016 <a class="about" href="{{ site.baseurl }}/about/">{{ site.name }}</a></span>
                 {% include links.html %}
             </footer>
+            {% if page.isIndex != true %}
             <div class="close">
                 <i class="iconfont icon-guanbi"></i>
             </div>
+            {% endif %}
             <div id="galaxy">
                 <canvas id="canv"></canvas>
             </div>

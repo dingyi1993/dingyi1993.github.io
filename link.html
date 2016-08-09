@@ -1,7 +1,7 @@
 ---
 layout: default
 links:
-  - { name: "scott", href: "http://www.chengfeilong.com" }
+  - { name: "scott", href: "http://www.chengfeilong.com", "desc": "一生想做优雅前端" }
 ---
 
 <div class="rainbow-list">
@@ -10,7 +10,10 @@ links:
     </div>
     <ul class="items">
     {% for link in page.links %}
-        <li class="category-name rainbow-color{{ forloop.index | plus:4 | modulo:7 }}"><a href="{{ link.href }}" target="_blank">{{ link.name }}</a></li>
+        <li class="rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">
+            <a href="{{ link.href }}" target="_blank">{{ link.name }}</a>
+            <span>{{ link.desc }}</span>
+        </li>
     {% endfor %}
     </ul>
 </div>

@@ -15,7 +15,7 @@ layout: default
     <ul class="items">
     {% for tag in site.tags %}
         {% capture tag_name %}{{ tag.first }}{% endcapture %}
-        <li id="{{ tag_name }}" class="category-name rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ tag_name }}</li>
+        <li id="{{ tag_name }}" class="rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ tag_name }}</li>
         {% for post in site.tags[tag_name] %}
         <li class="item"><span class="post-date">{{ post.date | date: "%Y-%m" }}</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}

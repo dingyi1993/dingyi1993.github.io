@@ -145,6 +145,7 @@ article.post {
             border-radius: 0 5px 5px 0;
             margin-left: 10px;
             padding: 0 8px 0 10px;
+            margin-bottom: 5px;
 
             &:before {
                 content: " ";
@@ -199,44 +200,46 @@ article.post {
     width: 100px;
     text-align: center;
 
-    &:hover {
-        & > a i {
-            margin-right: -2px;
+    @include pc {
+        &:hover {
+            & > a i {
+                margin-right: -2px;
 
-            &:before {
-                content: "\f115";
-            }
-        }
-
-        .options {
-            pointer-events: auto;
-
-            ul {
                 &:before {
-                    @include transform(scale3d(1,1,1));
-                    @include transition(none);
-                    @include animation(expand 0.6s ease-out);
+                    content: "\f115";
                 }
-                @include keyframes(expand) {
-                    0% { #{$browser}transform: scale3d(1,0,1); }
-                    25% { #{$browser}transform: scale3d(1,1.2,1); }
-                    50% { #{$browser}transform: scale3d(1,0.85,1); }
-                    75% { #{$browser}transform: scale3d(1,1.05,1) }
-                    100% { #{$browser}transform: scale3d(1,1,1); }
-                }
+            }
 
-                li {
-                    @include transform(translate3d(0,0,0));
-                    opacity: 1;
-                    @include transition(none);
-                    @include animation(bounce 0.6s ease-out);
-                }
-                @include keyframes(bounce) {
-                    0% { #{$browser}transform: translate3d(0,-25px,0);opacity: 0; }
-                    25% { #{$browser}transform: translate3d(0,10px,0); }
-                    50% { #{$browser}transform: translate3d(0,-6px,0); }
-                    75% { #{$browser}transform: translate3d(0,2px,0); }
-                    100% { #{$browser}transform: translate3d(0,0,0);opacity: 1; }
+            .options {
+                pointer-events: auto;
+
+                ul {
+                    &:before {
+                        @include transform(scale3d(1,1,1));
+                        @include transition(none);
+                        @include animation(expand 0.6s ease-out);
+                    }
+                    @include keyframes(expand) {
+                        0% { #{$browser}transform: scale3d(1,0,1); }
+                        25% { #{$browser}transform: scale3d(1,1.2,1); }
+                        50% { #{$browser}transform: scale3d(1,0.85,1); }
+                        75% { #{$browser}transform: scale3d(1,1.05,1) }
+                        100% { #{$browser}transform: scale3d(1,1,1); }
+                    }
+
+                    li {
+                        @include transform(translate3d(0,0,0));
+                        opacity: 1;
+                        @include transition(none);
+                        @include animation(bounce 0.6s ease-out);
+                    }
+                    @include keyframes(bounce) {
+                        0% { #{$browser}transform: translate3d(0,-25px,0);opacity: 0; }
+                        25% { #{$browser}transform: translate3d(0,10px,0); }
+                        50% { #{$browser}transform: translate3d(0,-6px,0); }
+                        75% { #{$browser}transform: translate3d(0,2px,0); }
+                        100% { #{$browser}transform: translate3d(0,0,0);opacity: 1; }
+                    }
                 }
             }
         }

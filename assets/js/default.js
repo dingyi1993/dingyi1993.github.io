@@ -15,6 +15,7 @@ require(['jquery', 'hit-kounter', 'lazyload', 'easing'], function() {
 
     $('#top .menu').click(function() {
         $('#side').removeClass('hide');
+        $('#container').addClass('full');
     });
     $('#side .close').click(function() {
         $('#side').addClass('hide');

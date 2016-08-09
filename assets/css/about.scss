@@ -14,6 +14,11 @@ h1 {
     margin: 20px 0;
     line-height: 1.2;
 }
+@include mobile {
+    h1 {
+        font-size: 6rem;
+    }
+}
 p {
     font-size: 2.8rem;
     color: #ccc;
@@ -23,7 +28,6 @@ p {
 }
 
 .intro p {
-    width: 50%;
     margin: 0 auto;
 }
 
@@ -32,15 +36,15 @@ p {
     border-radius: 25%;
 }
 
-#section2 p {
+#section3 p {
     color: #067d6b;
 }
 
-#section3 p {
+#section4 p {
     color: #757575;
 }
 
-#section4 p {
+#section5 p {
     position: relative;
 
     a {
@@ -54,6 +58,13 @@ p {
 
         &:last-child {
             margin-right: 0;
+        }
+    }
+
+    @include mobile {
+        a {
+            margin-right: 5px;
+            font-size: 3rem;
         }
     }
 

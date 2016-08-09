@@ -84,25 +84,27 @@
     height: 110px;
     float: right;
 
-    &:hover {
-        .cat {
-            right: 60px;
-        }
-        .link {
-            top: 60px;
-            right: 0;
-        }
-        .home {
-            i {
-                display: none;
+    @include pc {
+        &:hover {
+            .cat {
+                right: 60px;
             }
-            span {
-                display: inline;
+            .link {
+                top: 60px;
+                right: 0;
             }
-        }
+            .home {
+                i {
+                    display: none;
+                }
+                span {
+                    display: inline;
+                }
+            }
 
-        a:not(.home) {
-            opacity: 1;
+            a:not(.home) {
+                opacity: 1;
+            }
         }
     }
 
@@ -122,8 +124,10 @@
         text-align: center;
         @include transition(all .8s cubic-bezier(.19,1,.5,1));
 
-        &:not(.home) {
-            opacity: 0;
+        @include pc {
+            &:not(.home) {
+                opacity: 0;
+            }
         }
         &.home {
             z-index: 2;
