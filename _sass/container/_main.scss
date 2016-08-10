@@ -1,20 +1,12 @@
 #main {
-    position: fixed;
-    left: 30%;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 70%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    margin-left: 30%;
     -webkit-overflow-scrolling: touch;
     @include transition(all .8s cubic-bezier(.19,1,.5,1));
     will-change: opacity,transform;
 
     @include mobile {
-        left: 0!important;
-        top: 60px;
-        width: 100%;
+        margin-left: 0;
+        margin-top: 60px;
     }
 }
 .posts {

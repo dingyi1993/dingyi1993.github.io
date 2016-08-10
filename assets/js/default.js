@@ -28,10 +28,9 @@ require(['jquery', 'hit-kounter', 'lazyload', 'easing'], function() {
     });
     $("img.lazy").lazyload({
         effect : "fadeIn",
-        container: '#main',
         threshold : 500
     });
-    $('#main').scroll(function() {
+    $(window).scroll(function() {
         var $this = $(this);
         if ($this.scrollTop() >= 800) {
             $('#rocket').fadeIn();
@@ -39,16 +38,8 @@ require(['jquery', 'hit-kounter', 'lazyload', 'easing'], function() {
             $('#rocket').fadeOut();
         }
     });
-    // $('.home:not(.not-home)').click(function() {
-    //     $('#container').toggleClass('full');
-
-    //     setTimeout(function() {
-    //         var app = new Build();
-    //         app.run();
-    //     }, 800);
-    // });
     $('#rocket').click(function() {
-        $('#main').animate({
+        $('body').animate({
             'scroll-top': 0
         }, isMobile ? undefined : {duration: 800, easing: "easeOutBounce"});
     });
