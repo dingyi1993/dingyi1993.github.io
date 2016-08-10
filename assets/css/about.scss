@@ -13,9 +13,8 @@ h1 {
     font-size: 8rem;
     margin: 20px 0;
     line-height: 1.2;
-}
-@include mobile {
-    h1 {
+
+    @include mobile {
         font-size: 6rem;
     }
 }
@@ -34,6 +33,10 @@ p {
 #section1 img.avatar {
     width: 20%;
     border-radius: 25%;
+
+    @include mobile {
+        width: 50%;
+    }
 }
 
 #section3 p {
@@ -52,19 +55,17 @@ p {
         margin-right: 20px;
         font-size: 4rem;
 
+        @include mobile {
+            margin-right: 5px;
+            font-size: 3rem;
+        }
+
         &:hover {
             color: #006d73;
         }
 
         &:last-child {
             margin-right: 0;
-        }
-    }
-
-    @include mobile {
-        a {
-            margin-right: 5px;
-            font-size: 3rem;
         }
     }
 

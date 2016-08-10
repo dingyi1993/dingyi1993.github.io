@@ -59,12 +59,18 @@
     overflow: hidden;
     padding: 0 40px 30px 40px;
 
-    &:hover {
-        a {
-            opacity: 1;
+    @include mobile {
+        padding: 0 20px 20px 20px;
+    }
 
-            &.prev {
-                border-color: $gray;
+    @include pc {
+        &:hover {
+            a {
+                opacity: 1;
+
+                &.prev {
+                    border-color: $gray;
+                }
             }
         }
     }
@@ -81,6 +87,11 @@
         border-width: 1px;
         border-style: solid;
         @include transition(all .3s cubic-bezier(.19,1,.5,1));
+
+        @include mobile {
+            width: 40%;
+            opacity: 1;
+        }
 
         i {
             vertical-align: middle;
