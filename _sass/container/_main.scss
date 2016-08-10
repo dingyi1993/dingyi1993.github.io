@@ -1,4 +1,5 @@
 #main {
+    height: 100%;
     margin-left: 30%;
     -webkit-overflow-scrolling: touch;
     @include transition(all .8s cubic-bezier(.19,1,.5,1));
@@ -6,7 +7,7 @@
 
     @include mobile {
         margin-left: 0;
-        margin-top: 60px;
+        padding-top: 60px;
     }
 }
 .posts {
