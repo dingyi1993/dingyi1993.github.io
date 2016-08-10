@@ -6,7 +6,7 @@ layout: default
     <h1>{{ page.title }}</h1>
 
     <div class="subline">
-        <time><i class="fa fa-calendar"></i>&nbsp;{{ page.date | date: "%Y-%m-%d" }}</time>
+        <time title="{{ page.date | date: "%Y-%m-%d %H:%M:%S" }}"><i class="fa fa-calendar"></i>&nbsp;{{ page.date | date: "%Y-%m-%d" }}</time>
         <div class="category">
             <a class="js-category-btn" href="{{ site.baseurl }}/category/#{{ page.category }}"><i class="fa fa-folder-o"></i>&nbsp;{{ page.category }}</a>
             {% if site.categories.size > 1 %}
@@ -34,6 +34,10 @@ layout: default
         {% endfor %}
     </div>
     {% endif %}
+
+    <div class="licence">
+        版权声明：自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>）
+    </div>
 
     {% include duoshuo.html %}
 </article>

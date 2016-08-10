@@ -4,6 +4,7 @@ title: 关于本站
 excerpt: 简单介绍一下我的博客
 category: 开发
 tags: 前端
+date: 2016-08-10 17:23:00 +0800
 ---
 
 ## 前言
@@ -16,29 +17,29 @@ tags: 前端
 
 作为一个前端er，技术类文章自然必不可少了，但博客怎么能止步于技术呢，博主很喜欢喵，说不准哪一天发一篇晒喵的文章或者灌你一大口鸡汤，你们千万别紧张，以为输错了地址。
 
-<img class="lazy" src="{{site.asset_path}}/images/{{ site.loading }}" data-original="{{ site.asset_path }}/images/posts{{ page.id }}/haoren.jpg">
+![haoren]({{ site.asset_path }}/images/{{ site.loading }}){:class="lazy"}{:data-original="{{ site.asset_path }}/images/posts{{ page.id }}/haoren.jpg"}
 
 ***
 
 博客使用的相关技术和框架：
 
-- [jekyll](https://jekyllrb.com/) 一个生成静态页面的框架，对于没有数据库的博主们非常有用
+- [jekyll](https://jekyllrb.com/){:target="_blank"} 一个生成静态页面的框架，对于没有数据库的博主们非常有用
 
-- [requirejs](http://requirejs.org/) 异步模块加载js
+- [requirejs](http://requirejs.org/){:target="_blank"} 异步模块加载js
 
-- [lazyload](http://www.appelsiini.net/projects/lazyload) 延迟加载图片
+- [lazyload](http://www.appelsiini.net/projects/lazyload){:target="_blank"} 延迟加载图片
 
-- [normalize](https://necolas.github.io/normalize.css/) 初始化标签的样式，但不会像reset那样太暴力
+- [normalize](https://necolas.github.io/normalize.css/){:target="_blank"} 初始化标签的样式，但不会像reset那样太暴力
 
-- [font-awesome](http://fontawesome.io/) 图标库
+- [font-awesome](http://fontawesome.io/){:target="_blank"} 图标库
 
-- [pagepiling](http://www.alvarotrigo.com/pagePiling/) 单页面滚动插件，see [about me]({{site.baseurl}}/about/)
+- [pagepiling](http://www.alvarotrigo.com/pagePiling/){:target="_blank"} 单页面滚动插件，see [about me]({{ site.baseurl }}/about/){:target="_blank"}
 
 ***
 
 博客的部署：
 
-为了让百度爬虫能爬到，最后折中的方案是国内线路采用coding pages来呈现，国外则解析到github pages，所以代码同时部署在[coding](https://coding.net/)和[github](https://github.com)上。
+为了让百度爬虫能爬到，最后折中的方案是国内线路采用coding pages来呈现，国外则解析到github pages，所以代码同时部署在[coding](https://coding.net/){:target="_blank"}和[github](https://github.com){:target="_blank"}上。
 
 ***
 
@@ -50,4 +51,4 @@ tags: 前端
 
 老司机要开车了，还不快上车
 
-<img class="lazy" src="{{site.asset_path}}/images/{{ site.loading }}" data-original="{{ site.asset_path }}/images/posts{{ page.id }}/xieyanxiao.jpg">
+![xieyanxiao]({{ site.asset_path }}/images/{{ site.loading }}){:class="lazy"}{:data-original="{{ site.asset_path }}/images/posts{{ page.id }}/xieyanxiao.jpg"}

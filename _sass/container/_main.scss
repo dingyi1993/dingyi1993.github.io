@@ -202,8 +202,14 @@ article.post {
         .color6 { background-color: $rainbowColor6;&:before { border-right-color: $rainbowColor6;} }
     }
 
-    .comments {
-        margin-top: 10px;
+    .licence {
+        text-align: right;
+        color: $gray;
+        margin: 15px 0;
+
+        a {
+            color: $darkGray;
+        }
     }
 }
 
