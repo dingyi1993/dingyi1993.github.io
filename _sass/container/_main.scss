@@ -131,6 +131,21 @@ article.post {
         margin-bottom: 0;
     }
 
+    h2 {
+        border-left: 5px solid $blue;
+        padding-left: 15px;
+    }
+
+    hr {
+        border: 0;
+        border-bottom: 1px solid $lightGray;
+    }
+
+    img {
+        display: block;
+        max-height: 200px;
+    }
+
     .tags {
         margin: 15px 0;
 
@@ -257,6 +272,10 @@ article.post {
         z-index: 2;
 
         ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
             &:before {
                 content: '';
                 position: absolute;

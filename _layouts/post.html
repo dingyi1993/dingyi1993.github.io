@@ -9,6 +9,7 @@ layout: default
         <time><i class="fa fa-calendar"></i>&nbsp;{{ page.date | date: "%Y-%m-%d" }}</time>
         <div class="category">
             <a class="js-category-btn" href="{{ site.baseurl }}/category/#{{ page.category }}"><i class="fa fa-folder-o"></i>&nbsp;{{ page.category }}</a>
+            {% if site.categories.size > 1 %}
             <div class="options">
                 <ul>
                     {% for category in site.categories %}
@@ -16,6 +17,7 @@ layout: default
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
         </div>
         <span><i class="fa fa-eye"></i>&nbsp;<span data-hk-page="{{ page.url | prepend: site.url }}">0</span></span>
     </div>

@@ -7,6 +7,7 @@
                 <time><i class="fa fa-calendar"></i>&nbsp;{{ post.date | date: "%Y-%m-%d" }}</time>
                 <div class="category">
                     <a class="js-category-btn" href="{{ site.baseurl }}/category/#{{ post.category }}"><i class="fa fa-folder-o"></i>&nbsp;{{ post.category }}</a>
+                    {% if site.categories.size > 1 %}
                     <div class="options">
                         <ul>
                             {% for category in site.categories %}
@@ -14,6 +15,7 @@
                             {% endfor %}
                         </ul>
                     </div>
+                    {% endif %}
                 </div>
                 <span><i class="fa fa-eye"></i>&nbsp;<span data-hk-page="{{ post.url | prepend: site.url }}">0</span></span>
             </div>
@@ -23,7 +25,7 @@
             </div>
 
             {% if post.image %}
-            <div class="img-pvw"><img src="{{ site.asset_path }}/images/{{ post.image }}"></div>
+            <div class="img-pvw"><img src="{{ site.asset_path }}/images/posts{{ post.id }}/{{ post.image }}"></div>
             {% endif %}
 
             <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">READ MORE <i class="fa fa-angle-double-right"></i></a>
