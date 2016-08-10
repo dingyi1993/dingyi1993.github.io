@@ -147,19 +147,17 @@
 #rocket {
     position: fixed;
     left: 32%;
-    bottom: 6px;
+    bottom: 10px;
     display: none;
     cursor: pointer;
     -webkit-transition: -webkit-transform .6s;
     transition: -webkit-transform .6s;
     transition: transform .6s;
     transition: transform .6s,-webkit-transform .6s;
-    @include transform(scale(.8));
 
     @include mobile {
         left: 15px;
-        bottom: 0;
-        @include transform(scale(.6));
+        @include transform(scale(.8));
     }
 
     &:hover {
@@ -173,24 +171,24 @@
     }
 
     .header {
-        width: 24px;
-        height: 16px;
-        border-radius: 36px 36px 0 0;
+        width: 18px;
+        height: 12px;
+        border-radius: 27px 27px 0 0;
         background: #e2553b;
     }
 
     .body {
         position: relative;
         z-index: 1;
-        width: 24px;
-        height: 56px;
+        width: 18px;
+        height: 42px;
         background: #dfe2e4;
 
         .window {
-            top: 12px;
-            left: 4px;
-            width: 16px;
-            height: 16px;
+            top: 10px;
+            left: 3px;
+            width: 12px;
+            height: 12px;
             background: #33485f;
             position: absolute;
             border-radius: 50%;
@@ -198,10 +196,10 @@
             &:before {
                 position: absolute;
                 border-radius: 50%;
-                top: 3px;
-                left: 3px;
-                width: 10px;
-                height: 10px;
+                top: 2px;
+                left: 2px;
+                width: 8px;
+                height: 8px;
                 background: #2c97de;
                 content: '';
             }
@@ -209,15 +207,15 @@
 
         .wing {
             position: absolute;
-            bottom: 6px;
-            left: -10px;
-            width: 10px;
-            height: 22px;
+            bottom: 4px;
+            left: -8px;
+            width: 8px;
+            height: 18px;
             background: #c23824;
             @include transform(skewY(-50deg));
 
             &.wing-right {
-                left: 24px;
+                left: 18px;
                 @include transform(skewY(50deg));
             }
         }
@@ -225,8 +223,8 @@
         .lader {
             position: absolute;
             bottom: -8px;
-            left: -2px;
-            width: 28px;
+            left: -4px;
+            width: 26px;
             height: 0;
             border-right: 8px solid transparent;
             border-bottom: 8px solid #517397;
@@ -237,9 +235,9 @@
         position: relative;
         margin-right: auto;
         margin-left: auto;
-        width: 1.8rem;
-        height: 1.8rem;
-        border-radius: 1.2rem 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 10px 0;
         background: #f59d00;
         -webkit-transition: bottom .6s;
         transition: bottom .6s;
@@ -248,10 +246,10 @@
         &:before {
             position: absolute;
             top: 0;
-            left: .6rem;
-            width: 1.2rem;
-            height: 1.2rem;
-            border-radius: .9rem 0;
+            left: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 9px 0;
             background: #f2c500;
             content: '';
         }
