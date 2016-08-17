@@ -3,7 +3,7 @@ layout: post
 title: 关于本站
 excerpt: 简单介绍一下我的博客
 category: 开发
-tags: 前端
+tags: 前端 jekyll
 date: 2016-08-10 17:23:00 +0800
 ---
 
