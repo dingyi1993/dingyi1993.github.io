@@ -41,7 +41,7 @@ PS: 部署时需要一定的git基础，在此不赘述。
 
 ### 将代码上传到github
 
-**1、** 在你的github上新建一个仓库，仓库名为 **{username}.github.io**，**{username}**为你的github用户名；
+**1、** 在你的github上新建一个仓库，仓库名为 `{username}.github.io`，**{username}**为你的github用户名；
 
 **2、** 在你的jekyll根目录新建**CNAME**文件，在里面添加你想绑定的域名，如下图，然后将整个目录上传至刚刚新建的仓库中。
 
@@ -83,13 +83,13 @@ PS: 部署时需要一定的git基础，在此不赘述。
 
 **3、** 添加如下几个记录：
 
-一个**www**的**CNAME**的记录，线路默认，记录值为**pages.coding.me**
+一个**www**的**CNAME**的记录，线路默认，记录值为`pages.coding.me`
 
-一个**@**的**显性URL**记录，线路为默认，记录值为**http://www.choujindeputao.com**（以我的网站为例），这个记录意思是将**http://choujindeputao.com**重定向到**http://www.choujindeputao.com**
+一个**@**的**显性URL**记录，线路为默认，记录值为`http://www.choujindeputao.com`（以我的网站为例），这个记录意思是将`http://choujindeputao.com`重定向到`http://www.choujindeputao.com`
 
-一个**www**的**CNAME**的记录，线路国外，记录值为**{username}.github.io**，**{username}**是你的github用户名
+一个**www**的**CNAME**的记录，线路国外，记录值为`{username}.github.io`，**{username}**是你的github用户名
 
-一个**@**的**CNAME**的记录，线路国外，记录值为**{username}.github.io**，**{username}**是你的github用户名
+一个**@**的**CNAME**的记录，线路国外，记录值为`{username}.github.io`，**{username}**是你的github用户名
 
 我还添加了两个百度线路的记录，不过貌似没有什么卵用，最终效果图如下；
 
@@ -105,7 +105,7 @@ PS: 部署时需要一定的git基础，在此不赘述。
 
 要将你的网站添加至搜索引擎的索引，一般先要验证你的网站所有权，然后验证你的robots.txt文件，最后提交你blog中的url。
 
-这几个步骤在百度站长或者google search console都有傻瓜式的指引，如果还是有不懂的地方的话欢迎联系我。
+这几个步骤在[百度站长](https://zhanzhang.baidu.com/)或者[google search console](https://www.google.com/webmasters/tools/home)都有傻瓜式的指引，如果还是有不懂的地方的话欢迎联系我。
 
 ***
 

@@ -3,24 +3,24 @@
     left: 0;
     top: 0;
     bottom: 0;
+    right: 0;
     width: 30%;
     overflow: hidden;
     @include transition(all .8s cubic-bezier(.19,1,.5,1));
-    will-change: auto;
+    will-change: all;
     z-index: 10;
     text-align: center;
     background-color: $blue;
     background-image: url(/assets/images/site_bg.jpg);
     background-size: cover;
     background-position-x: center;
+    @include transform(none);
 
     @include mobile {
         width: 100%;
-    }
 
-    &.hide {
-        @include mobile {
-            left: -100%;
+        &.hide {
+            @include transform(translateX(-100%));
         }
     }
 

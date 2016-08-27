@@ -81,3 +81,10 @@ pre {
     color: $white;
     background: $lightBlue;
 }
+
+::-moz-placeholder {
+    color: $gray;
+}
+::-webkit-input-placeholder {
+    color: $gray;
+}
