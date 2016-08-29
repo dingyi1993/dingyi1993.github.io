@@ -17,6 +17,7 @@ require.config({
         'easing': 'js/jquery.easing.min',
         'galaxy': 'js/galaxy',
         'pagepiling': 'pagepiling/jquery.pagepiling.min',
+        'magicsearch': 'magicsearch/jquery.magicsearch.min',
     },
     shim: {
         'hit-kounter': ['av'],
@@ -24,5 +25,6 @@ require.config({
         'easing': ['jquery'],
         'galaxy': ['jquery'],
         'pagepiling': ['jquery'],
+        'magicsearch': ['jquery', 'css!{{ site.asset_path}}/magicsearch/jquery.magicsearch.min'],
     }
 });

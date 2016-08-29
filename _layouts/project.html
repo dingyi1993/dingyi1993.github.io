@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/project/style.css">
+    {% include analytics.html %}
+    <script src="{{ site.asset_path }}/js/require.min.js"></script>
+    <script src="{{ site.asset_path }}/js/config.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <nav id="nav" class="nav">
+            <a href="#examples" class="nav-item">Examples</a>
+            <a href="#getting-started" class="nav-item">Getting started</a>
+            <a href="#features" class="nav-item">Features</a>
+            <a href="#options" class="nav-item">Options</a>
+            <a href="#triggers" class="nav-item">Triggers</a>
+            <a href="#todo" class="nav-item">Todo</a>
+            <a href="#appendix" class="nav-item">Appendix</a>
+            <a href="#browser-support" class="nav-item">Browser support</a>
+            <a href="#license" class="nav-item">License</a>
+            <a href="#help" class="nav-item">Help</a>
+        </nav>
+        <div id="main">
+            {{ content }}
+        </div>
+    </div>
+</body>
+</html>

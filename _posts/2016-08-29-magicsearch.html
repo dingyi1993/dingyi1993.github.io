@@ -1,0 +1,1416 @@
+---
+layout: project
+title: MagicSearch：高度可定制化的输入框插件
+excerpt: 一个基于jQuery的输入框插件，可以实现搜索的联想、离线查询、单选多选等，并且不影响原来输入框的展现样式。
+category: 开发
+tags: jQuery plugin input
+date: 2016-08-29 17:58:00 +0800
+---
+<header id="download">
+    <div class="container">
+        <h1 class="logo">
+            MagicSearch
+        </h1>
+        <a class="logo-credit" href="{{ site.url }}" target="_blank">by {{ site.name }}</a>
+        <p class="lead">
+            An input plugin based on jQuery.
+            <br>
+            Searching with magic!
+        </p>
+        <div class="primary-actions">
+        <a href="https://github.com/dingyi1993/jquery-magicsearch/archive/master.zip" class="button">
+            Download
+        </a>
+        <a href="https://github.com/dingyi1993/jquery-magicsearch" class="button">
+        View on Github
+        </a>
+        </div>
+    </div>
+</header>
+<section id="examples" class="examples-section">
+    <div class="container">
+
+        <h2>Examples</h2>
+        <h3>一般的搜索框</h3>
+        <div class="demo">
+            <input class="magicsearch" id="example1" placeholder="search some names">
+        </div>
+        <hr>
+        <h3>可以多选的搜索框</h3>
+        <div class="demo">
+            <input class="magicsearch" id="example2" placeholder="search some names">
+        </div>
+    </div>
+</section>
+<section id="getting-started" class="getting-started-section">
+    <div class="container">
+        <h2>Getting started</h2>
+
+        <ol class="getting-started-list">
+            <li>
+                <p><a href="https://github.com/dingyi1993/jquery-magicsearch/archive/master.zip">下载最新版的压缩包</a><br>
+                或者用包管理器安装：<br>
+                NPM： <code>npm install magicsearch</code></p>
+            </li>
+            <li>
+                <p>打开压缩包，你可以直接运行 <code>/examples</code> 文件夹下的例子。</p>
+            </li>
+            <li>
+                <p>准备把magicsearch用在你的页面中？ 打开 <code>/dist</code> 文件夹。</p>
+                <ul>
+                    <li>
+                        把css包含在你的 <code>&lt;head&gt;</code> 标签中：
+{% highlight html %}
+<link href="path/to/jquery.magicsearch.css" rel="stylesheet">
+{% endhighlight %}
+                    </li>
+                    <li>把js文件包含在你的 <code>&lt;/body&gt;</code> 标签之前：
+{% highlight html %}
+<script src="path/to/jquery.magicsearch.js"></script>
+{% endhighlight %}
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>确保jQuery在 <code>jquery.magicsearch.js</code> 文件加载之前加载。</p>
+            </li>
+            <li>
+                在合适的位置插入一个input标签：
+{% highlight html %}
+<input id="start-magicsearch">
+{% endhighlight %}
+            </li>
+            <li>
+                在你的页面中添加如下代码：
+{% highlight html %}
+<script>
+$(function() {
+    var dataSource = [
+        {id: 1, firstName: 'Tim', lastName: 'Cook'},
+        {id: 2, firstName: 'Eric', lastName: 'Baker'},
+        {id: 3, firstName: 'Victor', lastName: 'Brown'},
+        {id: 4, firstName: 'Lisa', lastName: 'White'},
+        {id: 5, firstName: 'Oliver', lastName: 'Bull'},
+        {id: 6, firstName: 'Zade', lastName: 'Stock'},
+        {id: 7, firstName: 'David', lastName: 'Reed'},
+        {id: 8, firstName: 'George', lastName: 'Hand'},
+        {id: 9, firstName: 'Tony', lastName: 'Well'},
+        {id: 10, firstName: 'Bruce', lastName: 'Wayne'},
+    ];
+    $('#start-magicsearch').magicsearch({
+        dataSource: dataSource,
+        id: 'id',
+        format: '%firstName% · %lastName%',
+        fields: ['firstName', 'lastName'],
+    });
+});
+</script>
+{% endhighlight %}
+            </li>
+        </ol>
+    </div>
+</section>
+<section id="features" class="features-section">
+    <div class="container">
+
+        <h2>Features</h2>
+        <h3 id="same-style">样式的一致性</h3>
+        <p>很多关于输入框的插都会改变原来的样式，magicsearch并不会，它会最大程度还原适用插件之前的样式，虽然dom结构会有变化，但并不影响展示。</p>
+        <p>你能看出下面几个输入框有区别吗？</p>
+        <div class="demo">
+            <input class="magicsearch" id="feature1" placeholder="我没有绑定magicsearch">
+        </div>
+        <div class="demo">
+            <input class="magicsearch" id="feature2" placeholder="我绑定了magicsearch">
+        </div>
+        <div class="demo">
+            <input class="magicsearch" id="feature3" placeholder="我绑定了magicsearch的多选">
+        </div>
+        <hr>
+        <h3 id="multi-search">多条件搜索</h3>
+        <p>你可以输入多个搜索值，中间以空格隔开，匹配的关键字会高亮显示出来（在examples中试试同时搜索firstName和lastName吧，记得用空格分开哦）。</p>
+        <hr>
+        <h3 id="key-binding">按键绑定</h3>
+        <p>MagicSearch目前支持以下按键绑定：</p>
+        <ol>
+            <li>Esc：清空当前的输入框</li>
+            <li>箭头上：在搜索列表中向上移一行</li>
+            <li>箭头下：在搜索列表中向下移一行</li>
+            <li>Enter：在搜索列表中确定你的选择</li>
+            <li>Backspace：在多选时，如果输入框为空，可以删除最近一个选择过的数据</li>
+        </ol>
+        <hr>
+        <h3 id="dom-page">分批加载dom</h3>
+        <p>在展示全部的下拉框中，不必担心你的数据过多会引起dom加载过慢，MagicSearch已经将下拉框做了分页处理，一次只加载100个dom，滚动到底时才会加载下一页。</p>
+        <hr>
+        <h3 id="max-width">max-width</h3>
+        <p>多选时，MagicSearch会将你的输入框延长，不过不必担心，默认的最大长度是500像素，你可以给输入框添加样式 <code>max-width</code> 来限制最大的长度。</p>
+        <div class="demo">
+            <input class="magicsearch" id="feature4" placeholder="我的max-width为默认">
+        </div>
+        <div class="demo">
+            <input class="magicsearch" id="feature5" placeholder="我的max-width为300px" style="max-width: 300px;">
+        </div>
+        <div class="demo">
+            <input class="magicsearch" id="feature6" placeholder="我的max-width为800px" style="max-width: 800px;">
+        </div>
+        <hr>
+        <h3 id="init-data">初始化数据</h3>
+        <p>你可以在调用MagicSearch插件之前就给输入框绑定 <code>data-id</code> 的值：</p>
+{% highlight html %}
+<!-- 单选 -->
+<input data-id="1">
+<!-- 多选 -->
+<input data-id="1,3,5">
+{% endhighlight %}
+        <p>这样在插件初始化时就可以有初始值了。</p>
+        <div class="demo">
+            <input class="magicsearch" id="feature7" data-id="1" placeholder="单选，我一开始就有值">
+        </div>
+        <div class="demo">
+            <input class="magicsearch" id="feature8" data-id="1,3,5" placeholder="多选，我一开始就有值">
+        </div>
+    </div>
+</section>
+<section id="options" class="options-section">
+    <div class="container">
+        <h2>Options</h2>
+
+        <p>插件的基本用法如下：</p>
+{% highlight javascript %}
+$('#start-magicsearch').magicsearch(options);
+{% endhighlight %}
+
+        <p>其中 <code>options</code> 是一个对象，对象的key为参数字段，value为参数的值。</p>
+
+        <table class="options-table">
+            <colgroup>
+                <col style="width: 15%;">
+                <col style="width: 10%;">
+                <col style="width: 10%;">
+                <col style="width: 15%;">
+                <col style="width: 50%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>参数</th>
+                    <th>必选</th>
+                    <th>类型</th>
+                    <th>默认</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#dataSource">dataSource</a></td>
+                    <td>true</td>
+                    <td>Array<br>String<br>Function</td>
+                    <td>[ ]</td>
+                    <td>搜索的数据源，可以是数组、字符串或函数。当是字符串时，插件会自动将字符串转化为数组；当是函数时，插件会采用函数的返回值作为数据源。</td>
+                </tr>
+                <tr>
+                    <td><a href="#type">type</a></td>
+                    <td>false</td>
+                    <td>String</td>
+                    <td>''</td>
+                    <td>数据源的类型，可以选择同步获取数据源或异步获取数据源，如果是异步，则填写 <code>'ajax'</code>， 其他值无效，此时dataSource应该是一个url。</td>
+                </tr>
+                <tr>
+                    <td><a href="#ajaxOptions">ajaxOptions</a></td>
+                    <td>false</td>
+                    <td>Object</td>
+                    <td>{ }</td>
+                    <td>异步获取数据源时，调用的是 <code>$.ajax</code> 函数，<code>ajaxOptions</code> 是 <code>$.ajax</code> 的参数，如果参数的url不为空，会覆盖dataSource的值。</td>
+                </tr>
+                <tr>
+                    <td><a href="#id">id</a></td>
+                    <td>true</td>
+                    <td>String</td>
+                    <td>''</td>
+                    <td>数据源中的每一个对象都有一个唯一的id，这里定义id的字段。</td>
+                </tr>
+                <tr>
+                    <td><a href="#hidden">hidden</a></td>
+                    <td>false</td>
+                    <td>Boolean</td>
+                    <td>false</td>
+                    <td>是否生成 <code>input[type="hidden"]</code> 标签。</td>
+                </tr>
+                <tr>
+                    <td><a href="#fields">fields</a></td>
+                    <td>true</td>
+                    <td>Array<br>String</td>
+                    <td>''</td>
+                    <td>定义搜索数据源中的哪些字段，如果为数组，则可以搜索多个；如果为字符串，则只搜索一个字段。</td>
+                </tr>
+                <tr>
+                    <td><a href="#format">format</a></td>
+                    <td>true</td>
+                    <td>String</td>
+                    <td>''</td>
+                    <td>定义搜索列表的展现格式，每个字段以 <code>%</code> 包裹，如 <code>%firstName%</code> 。</td>
+                </tr>
+                <tr>
+                    <td><a href="#inputFormat">inputFormat</a></td>
+                    <td>false</td>
+                    <td>String</td>
+                    <td>format</td>
+                    <td>定义input的值的展现格式，规则和 <code>format</code> 一样，默认为 <code>format</code> 的值。</td>
+                </tr>
+                <tr>
+                    <td><a href="#maxShow">maxShow</a></td>
+                    <td>false</td>
+                    <td>Number</td>
+                    <td>5</td>
+                    <td>搜索列表展示的最大行数。</td>
+                </tr>
+                <tr>
+                    <td><a href="#isClear">isClear</a></td>
+                    <td>false</td>
+                    <td>Boolean</td>
+                    <td>true</td>
+                    <td>没有选择时是否清空input。</td>
+                </tr>
+                <tr>
+                    <td><a href="#showSelected">showSelected</a></td>
+                    <td>false</td>
+                    <td>Boolean</td>
+                    <td>true</td>
+                    <td>是否显示已经选择过的。</td>
+                </tr>
+                <tr>
+                    <td><a href="#dropdownBtn">dropdownBtn</a></td>
+                    <td>false</td>
+                    <td>Boolean</td>
+                    <td>false</td>
+                    <td>是否显示展示全部的下拉按钮。</td>
+                </tr>
+                <tr>
+                    <td><a href="#dropdownMaxItem">dropdownMaxItem</a></td>
+                    <td>false</td>
+                    <td>Number</td>
+                    <td>8</td>
+                    <td>展示全部的下拉列表的最大行数。</td>
+                </tr>
+                <tr>
+                    <td><a href="#multiple">multiple</a></td>
+                    <td>false</td>
+                    <td>Boolean</td>
+                    <td>false</td>
+                    <td>是否多选。</td>
+                </tr>
+                <tr>
+                    <td><a href="#maxItem">maxItem</a></td>
+                    <td>false</td>
+                    <td>Boolean<br>String</td>
+                    <td>true</td>
+                    <td>多选的最大个数，为true时则不限制个数。</td>
+                </tr>
+                <tr>
+                    <td><a href="#showMultiSkin">showMultiSkin</a></td>
+                    <td>false</td>
+                    <td>Boolean</td>
+                    <td>true</td>
+                    <td>是否显示默认的多选样式。</td>
+                </tr>
+                <tr>
+                    <td><a href="#multiStyle">multiStyle</a></td>
+                    <td>false</td>
+                    <td>Object</td>
+                    <td>{ }</td>
+                    <td>默认多选样式的参数。</td>
+                </tr>
+                <tr>
+                    <td><a href="#multiField">multiField</a></td>
+                    <td>false</td>
+                    <td>String</td>
+                    <td>''</td>
+                    <td>多选时展示的字段。</td>
+                </tr>
+                <tr>
+                    <td><a href="#focusShow">focusShow</a></td>
+                    <td>false</td>
+                    <td>Boolean</td>
+                    <td>false</td>
+                    <td>获得焦点时，是否显示展示全部的下拉框。</td>
+                </tr>
+                <tr>
+                    <td><a href="#noResult">noResult</a></td>
+                    <td>false</td>
+                    <td>String</td>
+                    <td>'未搜索到结果'</td>
+                    <td>没有搜索到结果时显示的文字。</td>
+                </tr>
+                <tr>
+                    <td><a href="#skin">skin</a></td>
+                    <td>false</td>
+                    <td>String</td>
+                    <td>''</td>
+                    <td>自定义皮肤。</td>
+                </tr>
+                <tr>
+                    <td><a href="#disableRule">disableRule</a></td>
+                    <td>false</td>
+                    <td>Function</td>
+                    <td>return false</td>
+                    <td>搜索框可以展示两种状态的数据，一种是正常的，另一种是不正常的，此函数返回true时会将数据展示为不正常的样式。</td>
+                </tr>
+                <tr>
+                    <td><a href="#success">success</a></td>
+                    <td>false</td>
+                    <td>Function</td>
+                    <td>return true</td>
+                    <td>每选择一次数据后，会调用此回调函数。</td>
+                </tr>
+                <tr>
+                    <td><a href="#afterDelete">afterDelete</a></td>
+                    <td>false</td>
+                    <td>Function</td>
+                    <td>return true</td>
+                    <td>每删除一次数据后，会调用此回调函数。</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="dataSource">dataSource</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Array/String/Function</em>，
+            <strong>默认：</strong><em class="option-type">[ ]</em>，
+            <strong>是否必选：</strong><em class="option-type">true</em>
+        </p>
+        <p><strong>说明：</strong>用于搜索的数据源</p>
+        <ol>
+            <li>
+                <p>Array</p>
+                <p>当传入的值是数组时，数组里面的每一个元素必须是<strong>Object</strong>，类似于下面的结构：</p>
+{% highlight javascript %}
+var dataSource = [
+    {id: 1, firstName: 'Tim', lastName: 'Cook'},
+    {id: 2, firstName: 'Eric', lastName: 'Baker'},
+    {id: 3, firstName: 'Victor', lastName: 'Brown'},
+    ...
+];
+{% endhighlight %}
+                <p>这样才能结合其他参数来设置哪些字段是用来搜索的，哪些字段是 <a href="#id">id</a>。</p>
+            </li>
+            <li>
+                <p>String</p>
+                <p>当传入的值是字符串时，有两种可能：</p>
+                <ul>
+                    <li>参数 <code>type</code> 的值为 <code>'ajax'</code>，此时 <code>dataSource</code> 为一个url。</li>
+                    <li>参数 <code>type</code> 的值不为 <code>'ajax'</code>，此时 <code>dataSource</code> 为一个json字符串，转换成对象后必须符合之前的Array的格式。</li>
+                </ul>
+            </li>
+            <li>
+                <p>Function</p>
+                <p>当传入的值是函数时，会将函数的返回值作为 <code>dataSource</code> 使用，函数只有一个参数，是当前输入框的jQuery对象，同样支持返回值为Array或String，例如下面的demo：</p>
+                <p>
+                    <input class="function magicsearch" data-type="1" placeholder="我的data-type为1">
+                    <input class="function magicsearch" data-type="2" placeholder="我的data-type为2">
+                </p>
+{% highlight html %}
+...
+<input class="function" data-type="1">
+<input class="function" data-type="2">
+...
+<script>
+...
+//不同的data-type使用不同的数据源
+$('.function').magicsearch({
+    dataSource: function($input) {
+        var type = $input.attr('data-type');
+        if (type == 1) {
+            return [
+                {id: 1, firstName: 'Tim', lastName: 'Cook'},
+                {id: 2, firstName: 'Eric', lastName: 'Baker'},
+                {id: 3, firstName: 'Victor', lastName: 'Brown'},
+            ];
+        } else if (type == 2) {
+            return '[{"id": 4, "firstName": "Lisa", "lastName": "White"},{"id": 5, "firstName": "Oliver", "lastName": "Bull"},{"id": 6, "firstName": "Zade", "lastName": "Stock"}]';
+        }
+    },
+    ...
+});
+...
+</script>
+{% endhighlight %}
+            </li>
+        </ol>
+        <hr>
+        <h3 id="type">type</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">String</em>，
+            <strong>默认：</strong><em class="option-type">''</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>数据源的类型，如果是异步，则填写 <code>'ajax'</code>， 其他值无效，此时 <code>dataSource</code> 应该是一个url。</p>
+        <p>
+            <input class="magicsearch" id="type1" placeholder="点击右边的按钮初始化">
+            <button id="ajax-btn" type="button" style="margin-left: 20px;">点我异步获取数据</button>
+            <button id="destory" type="button">destory</button>
+        </p>
+{% highlight javascript %}
+$('#ajax-btn').click(function() {
+    $('#ajax').magicsearch({
+        dataSource: '{{ site.asset_path }}/data/magicsearch.json',
+        type: 'ajax',
+        ...
+    });
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="ajaxOptions">ajaxOptions</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Object</em>，
+            <strong>默认：</strong><em class="option-type">{ }</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>异步获取数据源时，调用的是 <code>$.ajax</code> 函数，此参数是 <code>$.ajax</code> 的参数（和你使用的jQuery的ajax函数的参数一致），如果参数的url不为空，会覆盖 <code>dataSource</code> 的值。</p>
+        <p>
+            <input class="magicsearch" id="ajaxOptions1" placeholder="点击右边的按钮初始化">
+            <button id="ajaxOptions-btn" type="button" style="margin-left: 20px;">点我异步获取数据</button>
+        </p>
+{% highlight javascript %}
+$('#ajaxOptions-btn').click(function() {
+    $('#ajaxOptions').magicsearch({
+        dataSource: '{{ site.asset_path }}/data/magicsearch.json',
+        type: 'ajax',
+        ajaxOptions: {
+            success: function(data) {
+                alert('回调成功，啦啦啦~');
+            }
+        },
+        ...
+    });
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="id">id</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">String</em>，
+            <strong>默认：</strong><em class="option-type">''</em>，
+            <strong>是否必选：</strong><em class="option-type">true</em>
+        </p>
+        <p><strong>说明：</strong>数据源中的每一个对象都有一个唯一的id，这里定义id的字段，此字段对应的值会绑定在input的 <code>data-id</code> 上，你可以随时取用：<code>$('input').attr('data-id')</code>，如果是多选，则多个id以逗号（<code>,</code>）分隔开。</p>
+        <div class="bg-info">
+            如果想要在插件初始化时绑定数据，只需给输入框的 <code>data-id</code> 属性赋值就好，值为id或者以逗号连接起来的id，见 <a href="#init-data">初始化数据</a>。
+        </div>
+        <p>
+            <p>
+                <input class="magicsearch" id="id1" placeholder="我是单选">
+                &emsp;这是我的 <code>data-id</code> 的值：<span id="id1-span"></span>
+            </p>
+            <p>
+                <input class="magicsearch" id="id2" placeholder="我是多选">
+                &emsp;这是我的 <code>data-id</code> 的值：<span id="id2-span"></span>
+            </p>
+        </p>
+        <hr>
+        <h3 id="hidden">hidden</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Boolean</em>，
+            <strong>默认：</strong><em class="option-type">false</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>是否生成 <code>input[type="hidden"]</code> 标签。如果你的搜索表单提交是同步的，设置输入框的name属性后，传到后端的值并不是id（因为id绑定在 <code>data-id</code> 上），此选项为true时，传入后端的值就是id啦（前提是你给输入框设置了name属性）。</p>
+        <hr>
+        <h3 id="fields">fields</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Array/String</em>，
+            <strong>默认：</strong><em class="option-type">''</em>，
+            <strong>是否必选：</strong><em class="option-type">true</em>
+        </p>
+        <p><strong>说明：</strong>定义搜索数据源中的哪些字段，如果为数组，则可以搜索多个；如果为字符串，则只搜索一个字段。</p>
+        <p>
+            <input class="magicsearch" id="fields1" placeholder="我只可以搜firstName">
+            <input class="magicsearch" id="fields2" placeholder="搜firstName、lastName都可以">
+        </p>
+{% highlight javascript %}
+$('#fields1').magicsearch({
+    ...
+    fields: 'firstName',
+    ...
+});
+$('#fields2').magicsearch({
+    ...
+    fields: ['firstName', 'lastName'],
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="format">format</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">String</em>，
+            <strong>默认：</strong><em class="option-type">''</em>，
+            <strong>是否必选：</strong><em class="option-type">true</em>
+        </p>
+        <p><strong>说明：</strong>定义搜索列表的展现格式，每个字段以 % 包裹，如 <code>%firstName%</code>。</p>
+        <p>
+            <input class="magicsearch" id="format1" placeholder="我只展示firstName">
+            <input class="magicsearch" id="format2" placeholder="我可以展示firstName和lastName">
+        </p>
+{% highlight javascript %}
+$('#format1').magicsearch({
+    ...
+    format: '%firstName%',
+    ...
+});
+$('#format2').magicsearch({
+    ...
+    format: '%firstName% · %lastName%',
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="inputFormat">inputFormat</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">String</em>，
+            <strong>默认：</strong><em class="option-type">format</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>定义input的值的展现格式，规则和 <code>format</code> 一样,需要用 <code>%</code> 将字段包裹起来，默认为 <code>format</code> 的值。</p>
+        <p>
+            <input class="magicsearch" id="inputFormat1" placeholder="我的值只显示firstName">
+        </p>
+{% highlight javascript %}
+$('#inputFormat1').magicsearch({
+    ...
+    inputFormat: '%firstName%',
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="maxShow">maxShow</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Number</em>，
+            <strong>默认：</strong><em class="option-type">5</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>定义搜索时搜索列表展示的最大行数。</p>
+        <p>
+            <input class="magicsearch" id="maxShow1" placeholder="搜索时可以显示3个">
+            <input class="magicsearch" id="maxShow2" placeholder="搜索时可以显示6个">
+        </p>
+{% highlight javascript %}
+$('#maxShow1').magicsearch({
+    ...
+    maxShow: 3,
+    ...
+});
+$('#maxShow2').magicsearch({
+    ...
+    maxShow: 6,
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="isClear">isClear</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Boolean</em>，
+            <strong>默认：</strong><em class="option-type">true</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>没有选择时是否清空input。</p>
+        <p class="bg-warning">
+            如果此属性为false，则 <a href="#hidden">hidden</a> 选项会失效，始终为false。<br>
+            如果 <a href="#multiple">multiple</a> 为true，则此属性失效，始终为默认值true。
+        </p>
+        <p>
+            <input class="magicsearch" id="isClear1" placeholder="不选择也不会清空">
+        </p>
+{% highlight javascript %}
+$('#isClear1').magicsearch({
+    ...
+    isClear: false,
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="showSelected">showSelected</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Boolean</em>，
+            <strong>默认：</strong><em class="option-type">true</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>是否显示已经选择过的。默认已经选择过的也会搜索到，只是样式会有不同，如果设置为false，则不会显示已经选择过的，即选一个少一个。</p>
+        <p>
+            <input class="magicsearch" id="showSelected1" placeholder="选择过后还会显示">
+            <input class="magicsearch" id="showSelected2" placeholder="选择过后不会显示">
+            <input class="magicsearch" id="showSelected3" placeholder="多选选择过后不会显示">
+        </p>
+{% highlight javascript %}
+$('#showSelected1').magicsearch({
+    ...
+    showSelected: true, //可不填，默认为true
+    ...
+});
+$('#showSelected2').magicsearch({
+    ...
+    showSelected: false,
+    ...
+});
+$('#showSelected3').magicsearch({
+    ...
+    multiple: true,
+    ...
+    showSelected: false,
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="dropdownBtn">dropdownBtn</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Boolean</em>，
+            <strong>默认：</strong><em class="option-type">false</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>是否显示展示全部的下拉按钮。如果为true，则在输入框的右边会添加一个下拉按钮，可以展示全部的数据。</p>
+        <p>
+            <input class="magicsearch" id="dropdownBtn1" placeholder="我有一个下拉按钮">
+        </p>
+{% highlight javascript %}
+$('#dropdownBtn1').magicsearch({
+    ...
+    dropdownBtn: true,
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="dropdownMaxItem">dropdownMaxItem</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Number</em>，
+            <strong>默认：</strong><em class="option-type">8</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>展示全部的下拉列表的最大行数，默认可一次展示8行。</p>
+        <hr>
+        <h3 id="multiple">multiple</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Boolean</em>，
+            <strong>默认：</strong><em class="option-type">false</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>是否多选，需配合 <a href="#multiField">multiField</a> 使用。</p>
+        <p>
+            <input class="magicsearch" id="multiple1" placeholder="我是多选">
+        </p>
+{% highlight javascript %}
+$('#dropdownBtn1').magicsearch({
+    ...
+    multiple: true,
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="maxItem">maxItem</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Boolean/Number</em>，
+            <strong>默认：</strong><em class="option-type">true</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>多选时选择的最大个数，<a href="#multiple">multiple</a> 为true时才生效。此选项为true时则不限制个数，是数字时则为最大可选个数。</p>
+        <p>
+            <input class="magicsearch" id="maxItem1" placeholder="选择个数没有上限">
+            <input class="magicsearch" id="maxItem2" placeholder="我只能选择3个">
+        </p>
+{% highlight javascript %}
+$('#maxItem1').magicsearch({
+    ...
+    maxItem: true, //可不填，默认为true
+    ...
+});
+$('#maxItem2').magicsearch({
+    ...
+    maxItem: 3,
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="showMultiSkin">showMultiSkin</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Boolean</em>，
+            <strong>默认：</strong><em class="option-type">true</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>是否显示默认的多选样式，<a href="#multiple">multiple</a> 为true时才生效。如果有必要，你可以设置此项为false，在 <a href="#success">success</a> 和 <a href="#afterDelete">afterDelete</a> 中执行你想要的操作。</p>
+        <p>
+            <input class="magicsearch" id="showMultiSkin1" placeholder="我没有默认样式">
+            <br>
+            我的 <code>data-id</code> 值为：<span id="showMultiSkin1-span"></span>
+            <br>
+            我刚选择的值是：<code id="showMultiSkin1-code"></code>
+        </p>
+{% highlight javascript %}
+$('#showMultiSkin1').magicsearch({
+    ...
+    showMultiSkin: false,
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="multiStyle">multiStyle</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Object</em>，
+            <strong>默认：</strong><em class="option-type">{ }</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>默认多选样式的参数，<a href="#showMultiSkin">showMultiSkin</a> 为true时才生效。目前仅支持以下格式的值：</p>
+{% highlight javascript %}
+{
+    space: 3, //默认为3，单位为px
+    width: 57 //默认为57，单位为px
+}
+{% endhighlight %}
+        <ul>
+            <li><code>space</code> 含义为多选时选择的元素距离上、下、左边框及每个元素之间的距离，为下图d1所示的距离。</li>
+            <li><code>width</code> 含义为多选时选择的每个元素的宽度，为下图d2所示的距离。</li>
+        </ul>
+        <img src="" alt="">
+        <p>
+            <input class="magicsearch" id="multiStyle1" placeholder="我的间距大一些">
+            <input class="magicsearch" id="multiStyle2" placeholder="我的宽度大一些">
+        </p>
+{% highlight javascript %}
+$('#multiStyle1').magicsearch({
+    ...
+    multiStyle: {
+        space: 5,
+    },
+    ...
+});
+$('#multiStyle2').magicsearch({
+    ...
+    multiStyle: {
+        width: 80,
+    },
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="multiField">multiField</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">String</em>，
+            <strong>默认：</strong><em class="option-type">''</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>多选时展示的字段，<a href="#multiple">multiple</a> 为true时<strong>必填</strong>。</p>
+        <p>
+            <input class="magicsearch" id="multiField1" placeholder="我显示firstName">
+            <input class="magicsearch" id="multiField2" placeholder="我显示lastName">
+        </p>
+{% highlight javascript %}
+$('#multiField1').magicsearch({
+    ...
+    multiField: 'firstName',
+    ...
+});
+$('#multiField2').magicsearch({
+    ...
+    multiField: 'lastName',
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="focusShow">focusShow</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Boolean</em>，
+            <strong>默认：</strong><em class="option-type">false</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>获得焦点时，是否显示展示全部的下拉框。</p>
+        <p>
+            <input class="magicsearch" id="focusShow1" placeholder="获取焦点没有下拉框">
+            <input class="magicsearch" id="focusShow2" placeholder="获取焦点有下拉框">
+        </p>
+{% highlight javascript %}
+$('#focusShow1').magicsearch({
+    ...
+    focusShow: false, //可不填，默认为false
+    ...
+});
+$('#focusShow2').magicsearch({
+    ...
+    focusShow: true,
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="noResult">noResult</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">String</em>，
+            <strong>默认：</strong><em class="option-type">'未搜索到结果'</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>没有搜索到结果时显示的文字。</p>
+        <p>
+            <input class="magicsearch" id="noResult1" placeholder="随便输点啥">
+        </p>
+{% highlight javascript %}
+$('#noResult1').magicsearch({
+    ...
+    noResult: '啥都没有，啦啦啦~~~',
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="skin">skin</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">String</em>，
+            <strong>默认：</strong><em class="option-type">''</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>自定义皮肤。插件在初始化时，会用一个div包裹input，此属性就是在此div上添加class，多个class以空格分开。</p>
+        <div class="bg-info">
+            定义专属的皮肤或者想要覆盖某些样式，需要遵循一定规则（见 <a href="#dom-tree">附录1 - dom树</a> ），否则会因css选择器的权重问题导致覆盖失败。
+        </div>
+        <p>
+            <input class="magicsearch" id="skin1" placeholder="随便输点啥">
+        </p>
+{% highlight javascript %}
+$('#skin1').magicsearch({
+    ...
+    skin: 'blue-text yellow-bg',
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="disableRule">disableRule</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Function</em>，
+            <strong>默认：</strong><em class="option-type">return false</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>此函数有1个参数，含义为 <a href="#dataSource">dataSource</a> 中数据的结构（见下面demo）。搜索框可以展示两种状态的数据<strong>（这里的状态仅仅是样式上的区别）</strong>，一种是正常的，另一种是不正常的，此函数返回true时会将数据展示为不正常的样式。比如如果firstName包含字母 <code>o</code>，则此名字不可用（仅仅是举个例子）：</p>
+        <p>
+            <input class="magicsearch" id="disableRule1" placeholder="输入字母 'o'">
+        </p>
+{% highlight javascript %}
+$('#disableRule1').magicsearch({
+    ...
+    disableRule: function(data) {
+        // 此处的data中有你的数据的所有的字段，这里包含id、firstName、lastName，你可以以下面的形式来取用他们
+        if (data.firstName.toLowerCase().indexOf('o') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="success">success</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Function</em>，
+            <strong>默认：</strong><em class="option-type">return true</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>此函数有2个参数，第一个参数为输入框的jQuery对象，第二个参数为选择的数据。每选择一次数据后，会调用此回调函数。</p>
+        <p>
+            <input class="magicsearch" id="success1" placeholder="随便输点啥">
+        </p>
+{% highlight javascript %}
+$('#success1').magicsearch({
+    ...
+    success: function($input, data) {
+        alert('你刚选择的数据为：' + JSON.stringify(data) + '，当前data-id值为：' + $input.attr('data-id'));
+    },
+    ...
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="afterDelete">afterDelete</h3>
+        <p>
+            <strong>类型：</strong><em class="option-type">Function</em>，
+            <strong>默认：</strong><em class="option-type">return true</em>，
+            <strong>是否必选：</strong><em class="option-type">false</em>
+        </p>
+        <p><strong>说明：</strong>此函数有2个参数，第一个参数为输入框的jQuery对象，第二个参数为删除的数据。每删除一次数据后，会调用此回调函数。</p>
+        <p>
+            <input class="magicsearch" id="afterDelete1" data-id="1,3,5" placeholder="随便输点啥">
+        </p>
+{% highlight javascript %}
+$('#afterDelete1').magicsearch({
+    ...
+    afterDelete: function($input, data) {
+        alert('你刚删除的数据为：' + JSON.stringify(data) + '，当前data-id值为：' + $input.attr('data-id'));
+    },
+    ...
+});
+{% endhighlight %}
+    </div>
+</section>
+<section id="triggers" class="triggers-section">
+    <div class="container">
+        <h2>Triggers</h2>
+        <p>插件的触发器用法如下：</p>
+{% highlight javascript %}
+$('#start-magicsearch').trigger(method, [args]);
+{% endhighlight %}
+
+        <p>其中 <code>method</code> 是一个字符串，代表你要触发的函数；<code>args</code>是一个对象，可选，代表触发的函数的参数。</p>
+        <h3 id="clear">clear</h3>
+        <p><strong>说明：</strong>此触发器可以清空输入框的所有已经选择过的数据，包括单选和多选。</p>
+{% highlight javascript %}
+$('#clear').trigger('clear');
+{% endhighlight %}
+        <p>
+            <input class="magicsearch" id="clear1" data-id="1" placeholder="点击右边的按钮清除">
+            <button id="clear1-btn" type="button">clear</button>
+        </p>
+        <p>
+            <input class="magicsearch" id="clear2" data-id="1,3,5" placeholder="点击右边的按钮清除">
+            <button id="clear2-btn" type="button">clear</button>
+        </p>
+{% highlight javascript %}
+$('#clear1-btn').click(function() {
+    $('#clear1').trigger('clear');
+});
+$('#clear2-btn').click(function() {
+    $('#clear2').trigger('clear');
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="destroy">destroy</h3>
+        <p><strong>说明：</strong>此触发器可以将输入框与MagicSearch解绑，还原到为绑定之前的样子。</p>
+        <div class="bg-error">
+            此触发器会使所有绑定在输入框的事件失效！
+        </div>
+{% highlight javascript %}
+$('#destroy').trigger('destroy');
+{% endhighlight %}
+        <p>
+            <input class="magicsearch" id="destroy1" data-id="1" placeholder="再输入已经没有反应啦">
+            <button id="destroy1-btn" type="button">destroy</button>
+        </p>
+        <p>
+            <input class="magicsearch" id="destroy2" data-id="1,3,5" placeholder="再输入已经没有反应啦">
+            <button id="destroy2-btn" type="button">destroy</button>
+        </p>
+{% highlight javascript %}
+$('#destroy1-btn').click(function() {
+    $('#destroy1').trigger('destroy');
+});
+$('#destroy2-btn').click(function() {
+    $('#destroy2').trigger('destroy');
+});
+{% endhighlight %}
+        <hr>
+        <h3 id="update">update</h3>
+        <p><strong>说明：</strong>此触发器可以更新已绑定MagicSearch的输入框的参数，目前暂时只支持更新 <a href="#dataSource">dataSource</a>。</p>
+{% highlight javascript %}
+$('#update').trigger('update', args);
+{% endhighlight %}
+        <p>
+            <input class="magicsearch" id="update1" placeholder="点击右边的按钮更新dataSource">
+            <button id="update1-btn" type="button">update dataSource</button>
+            <button id="update1-restore-btn" type="button">restore dataSource</button>
+        </p>
+{% highlight javascript %}
+$('#update1-btn').click(function() {
+    var dataSource = [
+        {id: 'abc', firstName: '这是', lastName: '更换'},
+        {id: 'def', firstName: '后的', lastName: '数据源'},
+    ];
+    $('#update1').trigger('update', {dataSource: dataSource});
+});
+{% endhighlight %}
+        <hr>
+    </div>
+</section>
+<section id="todo" class="todo-section">
+    <div class="container">
+        <h2>Todo</h2>
+        <p>MagicSearch仍然需要改进，目前已知需要改进的地方有：</p>
+        <ol>
+            <li><a href="#update">update</a> 触发器支持更多参数的修改。</li>
+            <li>MagicSearch的 <a href="#dom-tree">dom树</a> 相关的文档还未完善。</li>
+        </ol>
+    </div>
+</section>
+<section id="appendix" class="appendix-section">
+    <div class="container">
+        <h2>Appendix</h2>
+        <h3 id="dom-tree">dom tree</h3>
+        <p>正在整理中。。。</p>
+    </div>
+</section>
+<section id="browser-support" class="browser-support-section">
+    <div class="container">
+        <h2>Browser support</h2>
+        <p>MagicSearch支持以下主流的浏览器（暂不支持移动端的浏览器）：</p>
+        <ul>
+            <li><strong>Chrome</strong></li>
+            <li><strong>Safari</strong></li>
+            <li><strong>Firefox</strong></li>
+            <li><strong>Opera</strong></li>
+            <li><strong>Internet Explorer 10+</strong></li>
+        </ul>
+    </div>
+</section>
+<section id="license" class="license-section">
+    <div class="container">
+        <h2>License</h2>
+        <p>MagicSearch遵循 <a href="https://raw.githubusercontent.com/dingyi1993/jquery-magicsearch/master/LICENSE">MIT许可证</a>。</p>
+        <ul>
+        <li><strong>100% 免费。</strong> 你可以免费将MagicSearch用于商业或非商业目的。</li>
+        <li><strong>必须声明原作者。</strong>你必须将我的名字、主页链接和许可证完整地保留。你不必将它们展示给用户，只需留在源代码中即可。</li>
+        </ul>
+    </div>
+</section>
+<section id="help" class="help-section">
+    <div class="container">
+        <h2>Help</h2>
+
+        <h3>有任何关于MagicSearch的问题？</h3>
+        <p>首先确保您已仔细阅读过本文档。</p>
+        <ol>
+            <li>你可以在github的issues寻找答案。</li>
+            <li>如果你的问题很独特，请联系我，在我 <a href="http://www.choujindeputao.com" target="_blank">博客</a> 的主页有我的联系方式。</li>
+        </ol>
+
+        <h3>发现bug？</h3>
+        <p>如果你发现bug，请在github提issues，或者直接联系我。</p>
+
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <p>
+        Created by {{ site.name }}
+        <br>
+        <a href="https://github.com/dingyi1993" class="button">Follow me on Github</a>
+        </p>
+    </div>
+</footer>
+<script>
+    require(['jquery', 'magicsearch'], function() {
+        var dataSource = [
+            {id: 1, firstName: 'Tim', lastName: 'Cook'},
+            {id: 2, firstName: 'Eric', lastName: 'Baker'},
+            {id: 3, firstName: 'Victor', lastName: 'Brown'},
+            {id: 4, firstName: 'Lisa', lastName: 'White'},
+            {id: 5, firstName: 'Oliver', lastName: 'Bull'},
+            {id: 6, firstName: 'Zade', lastName: 'Stock'},
+            {id: 7, firstName: 'David', lastName: 'Reed'},
+            {id: 8, firstName: 'George', lastName: 'Hand'},
+            {id: 9, firstName: 'Tony', lastName: 'Well'},
+            {id: 10, firstName: 'Bruce', lastName: 'Wayne'},
+        ];
+        var options = {
+            dataSource: dataSource,
+            id: 'id',
+            format: '%firstName% · %lastName%',
+            fields: ['firstName', 'lastName'],
+        };
+        //example
+        $('#example1').magicsearch($.extend({}, options, {focusShow: true}));
+        $('#example2').magicsearch($.extend({}, options, {multiple: true, multiField: 'firstName'}));
+
+        //feature
+        $('#feature2').magicsearch(options);
+        $('#feature3').magicsearch($.extend({}, options, {multiple: true, multiField: 'firstName', dropdownBtn: true}));
+        $('#feature4').magicsearch($.extend({}, options, {multiple: true, multiField: 'firstName', focusShow: true}));
+        $('#feature5').magicsearch($.extend({}, options, {multiple: true, multiField: 'firstName', focusShow: true}));
+        $('#feature6').magicsearch($.extend({}, options, {multiple: true, multiField: 'firstName', focusShow: true}));
+        $('#feature7').magicsearch(options);
+        $('#feature8').magicsearch($.extend({}, options, {multiple: true, multiField: 'firstName'}));
+
+        //dataSource
+        $('.function').magicsearch($.extend({}, options, {
+            dataSource: function($input) {
+                var type = $input.attr('data-type');
+                if (type == 1) {
+                    return [
+                        {id: 1, firstName: 'Tim', lastName: 'Cook'},
+                        {id: 2, firstName: 'Eric', lastName: 'Baker'},
+                        {id: 3, firstName: 'Victor', lastName: 'Brown'},
+                    ];
+                } else if (type == 2) {
+                    return '[{"id": 4, "firstName": "Lisa", "lastName": "White"},{"id": 5, "firstName": "Oliver", "lastName": "Bull"},{"id": 6, "firstName": "Zade", "lastName": "Stock"}]';
+                }
+            },
+            dropdownBtn: true
+        }));
+
+        //type
+        $('#ajax-btn').click(function() {
+            $('#type1').magicsearch($.extend({}, options, {
+                dataSource: '{{ site.asset_path }}/data/magicsearch.json',
+                type: 'ajax',
+                dropdownBtn: true,
+            }));
+        });
+        $('#destory').click(function() {
+            $('#type1').trigger('destroy');
+        });
+
+        //ajaxOptions
+        $('#ajaxOptions-btn').click(function() {
+            $('#ajaxOptions1').magicsearch($.extend({}, options, {
+                dataSource: '{{ site.asset_path }}/data/magicsearch.json',
+                type: 'ajax',
+                ajaxOptions: {
+                    success: function(data) {
+                        alert('回调成功，啦啦啦~');
+                    }
+                },
+                dropdownBtn: true,
+            }));
+        });
+
+        //id
+        $('#id1').magicsearch($.extend({}, options, {
+            dropdownBtn: true,
+            success: function($input, data) {
+                $('#id1-span').text($input.attr('data-id'));
+            },
+            afterDelete: function($input, data) {
+                $('#id1-span').text($input.attr('data-id'));
+            }
+        }));
+        $('#id2').magicsearch($.extend({}, options, {
+            dropdownBtn: true,
+            multiple: true,
+            multiField: 'firstName',
+            success: function($input, data) {
+                $('#id2-span').text($input.attr('data-id'));
+            },
+            afterDelete: function($input, data) {
+                $('#id2-span').text($input.attr('data-id'));
+            }
+        }));
+
+        //fields
+        $('#fields1').magicsearch($.extend({}, options, {
+            fields: 'firstName',
+            focusShow: true
+        }));
+        $('#fields2').magicsearch($.extend({}, options, {
+            focusShow: true
+        }));
+
+        //format
+        $('#format1').magicsearch($.extend({}, options, {
+            fields: 'firstName',
+            format: '%firstName%',
+            focusShow: true
+        }));
+        $('#format2').magicsearch($.extend({}, options, {
+            focusShow: true
+        }));
+        
+        //inputFormat
+        $('#inputFormat1').magicsearch($.extend({}, options, {
+            inputFormat: '%firstName%',
+            focusShow: true
+        }));
+
+        //maxShow
+        var maxShowDataSource = [
+            {id: 1, name: 'f'},
+            {id: 2, name: 'fo'},
+            {id: 3, name: 'for'},
+            {id: 4, name: 'forr'},
+            {id: 5, name: 'forre'},
+            {id: 6, name: 'forrep'},
+            {id: 7, name: 'forrepe'},
+            {id: 8, name: 'forrepea'},
+            {id: 9, name: 'forrepeat'},
+            {id: 10, name: 'forrepeatt'},
+        ];
+        $('#maxShow1').magicsearch($.extend({}, options, {
+            dataSource: maxShowDataSource,
+            fields: 'name',
+            format: '%name%',
+            maxShow: 3,
+            focusShow: true
+        }));
+        $('#maxShow2').magicsearch($.extend({}, options, {
+            dataSource: maxShowDataSource,
+            fields: 'name',
+            format: '%name%',
+            maxShow: 6,
+            focusShow: true
+        }));
+
+        $('#isClear1').magicsearch($.extend({}, options, {
+            isClear: false
+        }));
+
+        //showSelected
+        $('#showSelected1').magicsearch($.extend({}, options, {
+            focusShow: true
+        }));
+        $('#showSelected2').magicsearch($.extend({}, options, {
+            showSelected: false,
+            focusShow: true
+        }));
+        $('#showSelected3').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'firstName',
+            showSelected: false,
+            focusShow: true
+        }));
+
+        //dropdownBtn
+        $('#dropdownBtn1').magicsearch($.extend({}, options, {
+            dropdownBtn: true
+        }));
+
+        //multiple
+        $('#multiple1').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'firstName'
+        }));
+
+        //maxItem
+        $('#maxItem1').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'firstName',
+            maxItem: true,
+            focusShow: true
+        }));
+        $('#maxItem2').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'firstName',
+            maxItem: 3,
+            focusShow: true
+        }));
+
+        //showMultiSkin
+        $('#showMultiSkin1').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'firstName',
+            showMultiSkin: false,
+            focusShow: true,
+            success: function($input, data) {
+                $('#showMultiSkin1-span').text($input.attr('data-id'));
+                $('#showMultiSkin1-code').text(JSON.stringify(data));
+            },
+            afterDelete: function($input, data) {
+                $('#showMultiSkin1-span').text($input.attr('data-id'));
+                $('#showMultiSkin1-code').text(JSON.stringify(data));
+            }
+        }));
+
+        //multiStyle
+        $('#multiStyle1').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'firstName',
+            multiStyle: {
+                space: 5,
+            },
+            focusShow: true
+        }));
+        $('#multiStyle2').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'firstName',
+            multiStyle: {
+                width: 80,
+            },
+            focusShow: true
+        }));
+
+        //multiField
+        $('#multiField1').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'firstName',
+            focusShow: true
+        }));
+        $('#multiField2').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'lastName',
+            focusShow: true,
+        }));
+
+        //focusShow
+        $('#focusShow1').magicsearch(options);
+        $('#focusShow2').magicsearch($.extend({}, options, {
+            focusShow: true,
+            hidden: true
+        }));
+
+        //noResult
+        $('#noResult1').magicsearch($.extend({}, options, {
+            dataSource: [],
+            noResult: '啥都没有，啦啦啦~~~'
+        }));
+
+        //skin
+        $('#skin1').magicsearch($.extend({}, options, {
+            focusShow: true,
+            skin: 'blue-text yellow-bg'
+        }));
+
+        //disableRule
+        $('#disableRule1').magicsearch($.extend({}, options, {
+            disableRule: function(data) {
+                if (data.firstName.toLowerCase().indexOf('o') > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+        }));
+
+        //success
+        $('#success1').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'lastName',
+            focusShow: true,
+            success: function($input, data) {
+                alert('你刚选择的数据为：' + JSON.stringify(data) + '，当前data-id值为：' + $input.attr('data-id'));
+            },
+        }));
+
+        //afterDelete
+        $('#afterDelete1').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'lastName',
+            afterDelete: function($input, data) {
+                alert('你刚删除的数据为：' + JSON.stringify(data) + '，当前data-id值为：' + $input.attr('data-id'));
+            },
+        }));
+
+        //clear
+        $('#clear1').magicsearch(options);
+        $('#clear1-btn').click(function() {
+            $('#clear1').trigger('clear');
+        });
+        $('#clear2').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'lastName',
+        }));
+        $('#clear2-btn').click(function() {
+            $('#clear2').trigger('clear');
+        });
+        
+        //destroy
+        $('#destroy1').magicsearch(options);
+        $('#destroy1-btn').click(function() {
+            $('#destroy1').trigger('destroy');
+        });
+        $('#destroy2').magicsearch($.extend({}, options, {
+            multiple: true,
+            multiField: 'lastName',
+        }));
+        $('#destroy2-btn').click(function() {
+            $('#destroy2').trigger('destroy');
+        });
+
+        //destroy
+        $('#update1').magicsearch($.extend({}, options, {
+            focusShow: true,
+        }));
+        $('#update1-btn').click(function() {
+            var newDataSource = [
+                {id: 'abc', firstName: '这是', lastName: '更换'},
+                {id: 'def', firstName: '后的', lastName: '数据源'},
+            ];
+            $('#update1').trigger('update', {dataSource: newDataSource});
+        });
+        $('#update1-restore-btn').click(function() {
+            $('#update1').trigger('update', {dataSource: dataSource});
+        });
+    });
+</script>
