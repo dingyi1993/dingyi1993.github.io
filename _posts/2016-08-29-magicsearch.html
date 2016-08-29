@@ -446,7 +446,6 @@ $('.function').magicsearch({
         <p>
             <input class="magicsearch" id="type1" placeholder="点击右边的按钮初始化">
             <button id="ajax-btn" type="button" style="margin-left: 20px;">点我异步获取数据</button>
-            <button id="destory" type="button">destory</button>
         </p>
 {% highlight javascript %}
 $('#ajax-btn').click(function() {
@@ -1139,9 +1138,6 @@ $('#update1-btn').click(function() {
                 type: 'ajax',
                 dropdownBtn: true,
             }));
-        });
-        $('#destory').click(function() {
-            $('#type1').trigger('destroy');
         });
 
         //ajaxOptions
