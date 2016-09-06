@@ -137,14 +137,17 @@ article.post {
         padding-left: 15px;
     }
 
-    hr {
-        border: 0;
-        border-bottom: 1px solid $lightGray;
-    }
+    .entry {
+        hr {
+            border: 0;
+            border-bottom: 1px solid $lightGray;
+        }
 
-    img {
-        display: block;
-        max-height: 200px;
+        img {
+            display: block;
+            max-height: 200px;
+            cursor: zoom-in;
+        }
     }
 
     .tags {

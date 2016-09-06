@@ -18,6 +18,7 @@ require.config({
         'galaxy': 'js/galaxy',
         'pagepiling': 'pagepiling/jquery.pagepiling.min',
         'magicsearch': 'magicsearch/jquery.magicsearch.min',
+        'layer': 'layer/layer',
     },
     shim: {
         'hit-kounter': ['av'],
@@ -26,5 +27,6 @@ require.config({
         'galaxy': ['jquery'],
         'pagepiling': ['jquery'],
         'magicsearch': ['jquery', 'css!{{ site.asset_path}}/magicsearch/jquery.magicsearch.min'],
+        'layer': ['jquery', 'css!{{ site.asset_path}}/layer/skin/layer'],
     }
 });
