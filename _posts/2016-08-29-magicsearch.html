@@ -859,7 +859,7 @@ $('#noResult1').magicsearch({
         </p>
         <p><strong>说明：</strong>自定义皮肤。插件在初始化时，会用一个div包裹input，此属性就是在此div上添加class，多个class以空格分开。</p>
         <div class="bg-info">
-            定义专属的皮肤或者想要覆盖某些样式，需要遵循一定规则（见 <a href="#dom-tree">附录1 - dom树</a> ），否则会因css选择器的权重问题导致覆盖失败。
+            定义专属的皮肤或者想要覆盖某些样式，需要遵循一定规则（参考 <a href="#dom-tree">附录1 - dom树</a> 和css源码 <a href="https://github.com/dingyi1993/jquery-magicsearch/blob/master/src/sass/jquery.magicsearch.scss">jquery.magicsearch.scss</a> ），否则会因css选择器的权重问题导致覆盖失败。
         </div>
         <p>
             <input class="magicsearch" id="skin1" placeholder="随便输点啥">
@@ -1030,7 +1030,38 @@ $('#update1-btn').click(function() {
     <div class="container">
         <h2>Appendix</h2>
         <h3 id="dom-tree">dom tree</h3>
-        <p>正在整理中。。。</p>
+        <p>初始化magicsearch后所有可能的dom结构如下：</p>
+{% highlight html %}
+div.magicsearch-wrapper.focus.disabled    * 这是初始化时添加的wrapper，input获得焦点时会添加focus类，多选到上限时会添加disabled类。
+ │
+ ├──input.multi                           * 这是你的输入框，如果是多选，则会添加multi类。
+ │
+ ├──div.magicsearch-box.all               * 这是搜索框，如果展示的是所有的数据，则会添加all类。
+ │   ├──ul
+ │   │   ├──li.enabled                    * 这是搜索框的每一个元素，一般情况会添加enabled类。
+ │   │   │   └──span.keyword              * 这是搜索时高亮添加的标签，标签的的类为keyword。
+ │   │   ├──li.disabled                   * 通过disableRule定义的元素，会添加disabled类。
+ │   │   ├──li.ishover                    * 鼠标悬浮会添加ishover类。
+ │   │   ├──li.selected                   * 当showSelected选项为true时，已选择过的会添加selected类。
+ │   │   └──...
+ │   │
+ │   └──span.no-result                    * 如果没有搜索到数据，则会以此标签替换上面的ul标签。
+ │
+ ├──input.magicsearch-hidden              * 如果hidden选项为true，则会添加此标签（input[type="hidden"]）。
+ │
+ ├──div.magicsearch-arrow                 * 这是下拉按钮，如果dropdownBtn选项为true，则会添加此标签。
+ │   └──i
+ │
+ ├──div.magicsearch-loading               * 异步获取数据源时，会添加此dom，异步请求成功后，会删除此dom。
+ │   └──div
+ │
+ └──div.multi-items                       * 这是多选的列表，如果multiple和showMultiSkin都为true，则会添加此标签。
+     ├──div.multi-item                    * 这是多选的每一个元素。
+     │   ├──span
+     │   └──a.multi-item-close            * 这是多选每个元素的删除按钮。
+     ├──div
+     └──...
+{% endhighlight %}
     </div>
 </section>
 <section id="browser-support" class="browser-support-section">
