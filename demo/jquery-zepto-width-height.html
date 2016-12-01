@@ -1,0 +1,56 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/style.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .wrapper {
+            display: inline-block;
+            font-size: 20px;
+        }
+        .wrapper div {
+            background-color: #ccc;
+            width: 200px;
+            height: 200px;
+        }
+        #scale-div {
+            transform: scale(.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        some text
+        <div id="no-scale-div"></div>
+        some text
+    </div>
+    <div class="wrapper">
+        some text
+        <div id="scale-div"></div>
+        some text
+    </div>
+    <p>jQuery就是jQuery，$是zepto。</p>
+    <p>左边的div是没有缩放的：</p>
+    <p><code>jQuery('#no-scale-div').width() === 200</code></p>
+    <p><code>$('#no-scale-div').width() === 200</code></p>
+    <p>右边的div是有缩放的，缩小到0.5：</p>
+    <p><code>jQuery('#scale-div').width() === 200</code></p>
+    <p><code>$('#scale-div').width() === <font color="red">100</font></code></p>
+    <br>
+    <p>讲道理缩放后原来的空间仍然占用，总之就是不影响其他的dom节点，这是没问题的，但是获取宽高获取到缩放后的就不太好了。</p>
+    <p>自己打开控制台输出一下也是可以的。</p>
+    <script src="{{ site.asset_path }}/js/jquery-2.2.3.min.js"></script>
+    <script>$.noConflict();</script>
+    <script src="{{ site.asset_path }}/js/zepto-1.2.0.min.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>
