@@ -22,7 +22,7 @@ require.config({
         'layer': 'layer/layer',
         'smoothscroll': 'js/SmoothScroll',
         'tagcanvas': 'js/jquery.tagcanvas.min',
-        'useragent': 'js/userAgent.min',
+        'useragent': 'js/useragent.min',
     },
     shim: {
         'hit-kounter': ['av'],
