@@ -6,7 +6,7 @@ layout: default
     <h1>{{ page.title }}</h1>
 
     <div class="subline">
-        <time title="{{ page.date | date: "%Y-%m-%d %H:%M:%S" }}"><i class="fa fa-calendar"></i>&nbsp;{{ page.date | date: "%Y-%m-%d" }}</time>
+        <time title="{{ page.date | date: "%Y-%m-%d %H:%M:%S" }}"><i class="fa fa-calendar"></i>&nbsp;{{ page.date | date: '%b %d, %Y' }}</time>
         <div class="category">
             <a class="js-category-btn" href="{{ site.baseurl }}/category/#{{ page.category }}"><i class="fa fa-folder-o"></i>&nbsp;{{ page.category }}</a>
             {% if site.categories.size > 1 %}

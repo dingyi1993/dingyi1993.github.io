@@ -7,16 +7,16 @@ require(['jquery', 'smoothscroll', 'useragent', 'hit-kounter', 'lazyload', 'tagc
     $(window).scroll(function() {
         var $this = $(this);
         var $rocket = $('#rocket');
-        var $grape = $('#grape');
+        var $grape = $('#main .grape');
         if ($this.scrollTop() >= 800) {
             !$rocket.hasClass('show') && $rocket.addClass('show');
         } else {
             $rocket.hasClass('show') && $rocket.removeClass('show');
         }
         if ($('#main').offset().top - $(document).scrollTop() <= 0) {
-            !$grape.hasClass('show') && $grape.addClass('show');
+            !$grape.hasClass('fixed') && $grape.addClass('fixed');
         } else {
-            $grape.hasClass('show') && $grape.removeClass('show');
+            $grape.hasClass('fixed') && $grape.removeClass('fixed');
         }
     });
     $('#rocket').click(function() {
@@ -70,4 +70,5 @@ require(['jquery', 'smoothscroll', 'useragent', 'hit-kounter', 'lazyload', 'tagc
     $('.posts').height(Math.max(leftHeight, rightHeight));
     $('#main').removeClass('not-ready').addClass('animate');
     $('#bottom').removeClass('not-ready');
+    $(window).trigger('scroll');
 });

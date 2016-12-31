@@ -107,7 +107,7 @@
                             left: 50%;
                             margin-left: -100px;
                             opacity: 0;
-                            z-index: 2;
+                            z-index: 4;
                             @include transition(all .6s cubic-bezier(.19,1,.5,1));
                             -webkit-will-change: opacity, bottom;
                             will-change: opacity, bottom;
