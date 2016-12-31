@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/home.css">
+    <script src="{{ site.asset_path }}/js/require.min.js"></script>
+    <script src="{{ site.asset_path }}/js/config.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="box-wrapper">
+            <div id="box">
+                <a id="logo" href="{{ site.url }}">
+                    <img src="{{ site.asset_path }}/images/{{ site.logo }}">
+                </a>
+                <h2>{{ site.name }}</h2>
+                <p>一只有强迫症的葡萄</p>
+                <nav id="nav" class="clearfix">
+                    <a class="home" href="{{ site.baseurl }}/blog/"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
+                    <a class="cat" href="{{ site.baseurl }}/category/">分类</a>
+                    <a class="link" href="{{ site.baseurl }}/link/">邻居</a>
+                </nav>
+            </div>
+        </div>
+        <footer id="footer">
+            <span>© 2016 <a class="about" href="{{ site.baseurl }}/about/" data-sitename="{{ site.name }}">{{ site.name }}</a></span>
+            {% include links.html %}
+        </footer>
+        <div id="galaxy">
+            <canvas id="canv"></canvas>
+        </div>
+    </div>
+    {% include analytics.html %}
+    <script src="{{ site.asset_path }}/js/home.js"></script>
+</body>
+</html>

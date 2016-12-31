@@ -2,8 +2,9 @@
 ---
 
 require.config({
-    baseUrl: '{{ site.asset_path}}',
+    baseUrl: '{{ site.asset_path }}',
     waitSeconds: 60,
+    urlArgs: 'v={{ site.version }}',
     map: {
         '*': {
             'css': 'js/css.min'
@@ -19,6 +20,9 @@ require.config({
         'pagepiling': 'pagepiling/jquery.pagepiling.min',
         'magicsearch': 'magicsearch/jquery.magicsearch.min',
         'layer': 'layer/layer',
+        'smoothscroll': 'js/SmoothScroll',
+        'tagcanvas': 'js/jquery.tagcanvas.min',
+        'useragent': 'js/userAgent.min',
     },
     shim: {
         'hit-kounter': ['av'],
@@ -28,5 +32,6 @@ require.config({
         'pagepiling': ['jquery'],
         'magicsearch': ['jquery', 'css!{{ site.asset_path}}/magicsearch/jquery.magicsearch.min'],
         'layer': ['jquery', 'css!{{ site.asset_path}}/layer/skin/layer'],
+        'tagcanvas': ['jquery'],
     }
 });

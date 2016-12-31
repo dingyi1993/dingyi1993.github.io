@@ -1,0 +1,138 @@
+#bottom {
+    margin-top: 30px;
+    background-color: #222;
+
+    &.not-ready {
+        visibility: hidden;
+    }
+
+    .content {
+        height: 300px;
+        width: $mainMaxWidth;
+        margin: 0 auto;
+        padding: 20px 0;
+
+        @include middle-screen1 {
+            width: $mainMiddleWidth;
+        }
+        @include middle-screen2 {
+            width: 95%;
+            height: auto;
+        }
+
+        .other-item {
+            float: left;
+            width: 33.3%;
+
+            @include middle-screen2 {
+                float: none;
+                width: 100%;
+            }
+
+            .other-title {
+                color: #fff;
+                text-align: left;
+                font-size: 2rem;
+            }
+
+            &.gaoji {
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        display: block;
+                        float: left;
+                        width: 50%;
+                        line-height: 30px;
+
+                        a {
+                            display: inline-block;
+                            color: $darkGray;
+
+                            &:hover {
+                                color: $gray;
+                                @include animation(buling 5s infinite ease-in-out);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.find-me {
+                .other-content {
+                    > a {
+                        display: inline-block;
+                        font-size: 3rem;
+                        color: $darkGray;
+                        margin-right: 10px;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        &.github-btn:hover {
+                            color: #4078c0;
+                        }
+                        &.weibo-btn:hover {
+                            color: #e6162d;
+                        }
+                        &.weixin-btn {
+                            position: relative;
+
+                            &:hover {
+                                color: #51c332;
+
+                                .weixin-qrcode {
+                                    bottom: 80px;
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                        &.email-btn:hover {
+                            color: #fff;
+                        }
+                        &.rss-btn:hover {
+                            color: #f78422;
+                        }
+
+                        .weixin-qrcode {
+                            position: absolute;
+                            display: block;
+                            visibility: hidden;
+                            width: 200px;
+                            bottom: 100px;
+                            left: 50%;
+                            margin-left: -100px;
+                            opacity: 0;
+                            z-index: 2;
+                            @include transition(all .6s cubic-bezier(.19,1,.5,1));
+                            -webkit-will-change: opacity, bottom;
+                            will-change: opacity, bottom;
+
+                            img {
+                                display: block;
+                                border-radius: 10px;
+                            }
+                        }
+                    }
+
+                    .info {
+                        margin-top: 50px;
+                        color: $darkGray;
+
+                        a {
+                            color: $darkGray;
+
+                            &:hover {
+                                color: $gray;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

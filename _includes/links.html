@@ -1,8 +1,7 @@
-{% if site.links.github %}<a href="https://github.com/{{ site.links.github }}" title="github" target="_blank"><i class="fa fa-github"></i></a>{% endif %}
-{% if site.links.weibo %}<a href="http://weibo.com/{{ site.links.weibo }}" title="微博" target="_blank"><i class="fa fa-weibo"></i></a>{% endif %}
+{% if site.links.github %}<a class="github-btn" href="https://github.com/{{ site.links.github }}" title="github" target="_blank"><i class="fa fa-github"></i></a>{% endif %}
+{% if site.links.weibo %}<a class="weibo-btn" href="http://weibo.com/{{ site.links.weibo }}" title="微博" target="_blank"><i class="fa fa-weibo"></i></a>{% endif %}
 {% if site.links.weixin %}
-<a class="weixin-btn" href="javascript:;" title="微信"><i class="fa fa-weixin"></i></a>
-<a class="weixin-qrcode" href="javascript:;"><img src="{{ site.asset_path }}/images/weixin_qrcode.jpg"></a>
+<a class="weixin-btn" href="javascript:;" title="微信"><i class="fa fa-weixin"></i><div class="weixin-qrcode"><img src="{{ site.asset_path }}/images/weixin_qrcode.jpg"></div></a>
 {% endif %}
-{% if site.links.email %}<a href="mailto:{{ site.links.email }}" title="邮箱：{{ site.links.email }}"><i class="fa fa-envelope"></i></a>{% endif %}
-{% if site.links.rss %}<a href="{{ site.baseurl }}/feed.xml" title="rss" target="_blank"><i class="fa fa-rss"></i></a>{% endif %}
+{% if site.links.email %}<a class="email-btn" href="mailto:{{ site.links.email }}" title="邮箱：{{ site.links.email }}"><i class="fa fa-envelope"></i></a>{% endif %}
+{% if site.links.rss %}<a class="rss-btn" href="{{ site.baseurl }}/feed.xml" title="rss" target="_blank"><i class="fa fa-rss"></i></a>{% endif %}

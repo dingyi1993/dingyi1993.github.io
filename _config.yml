@@ -39,7 +39,7 @@ baseurl: ''
 
 asset_path: /assets
 
-paginate: 5
+paginate: 8
 paginate_path: /blog/:num
 
 #
@@ -48,7 +48,7 @@ paginate_path: /blog/:num
 
 permalink: /:title/
 
-version: v1.0.0_alpha
+version: 1.0.0
 
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:

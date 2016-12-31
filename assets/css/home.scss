@@ -1,28 +1,23 @@
-#side {
+---
+---
+
+@import "font";
+@import "variables";
+@import "mixins";
+@import "custom";
+
+#container {
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
-    width: 30%;
-    overflow: hidden;
-    @include transition(all .8s cubic-bezier(.19,1,.5,1));
-    will-change: all;
-    z-index: 10;
+    width: 100%;
     text-align: center;
     background-color: $blue;
     background-image: url(/assets/images/site_bg.jpg);
     background-size: cover;
     background-position-x: center;
-    @include transform(none);
-
-    @include mobile {
-        width: 100%;
-
-        &.hide {
-            @include transform(translateX(-100%));
-        }
-    }
 
     .close {
         position: absolute;
@@ -60,34 +55,35 @@
 }
 #box-wrapper{
     position: absolute;
-    right: 0;
-    margin-right: 0;
-    top: 0;
+    top: 50%;
+    right: 50%;
+    margin-right: -140px;
 }
 #box {
-    color: #fff;
-    margin-top: 0;
+    color: $lightBlank;
+    margin-top: -60%;
     padding: 20px;
     width: 280px;
-    text-align: right;
+    text-align: center;
     border-radius: 6px;
-    overflow: hidden;
+    background-color: rgba(240,240,240,.95);
+    box-shadow: 16px 16px 24px rgba(0,0,0,.2);
 }
 #nav {
     position: relative;
-    margin: 0;
-    width: 110px;
-    height: 110px;
-    float: right;
+    margin: 0 auto;
+    width: 170px;
+    height: 50px;
+    margin: 0 auto;
 
     @include pc {
         &:hover {
             .cat {
-                right: 60px;
+                right: 120px;
             }
             .link {
-                top: 60px;
                 right: 0;
+                top: 0;
             }
             .home {
                 i {
@@ -104,18 +100,28 @@
         }
     }
 
+    @include mobile {
+        .cat {
+            right: 120px;
+        }
+        .link {
+            right: 0;
+            top: 0;
+        }
+    }
+
     a {
         display: block;
         height: 50px;
         line-height: 50px;
         width: 50px;
-        background-color: rgba(240,240,240,0.95);
-        border: 1px solid rgba(240,240,240,0);
+        // background-color: rgba(240,240,240,0.95);
+        border: 1px solid $darkGray;
         border-radius: 50%;
         color: $darkGray;
         position: absolute;
         top: 0;
-        right: 0;
+        right: 60px;
         z-index: 1;
         text-align: center;
         @include transition(all .8s cubic-bezier(.19,1,.5,1));
@@ -127,7 +133,6 @@
         }
         &.home {
             z-index: 2;
-            right: 0;
 
             i {
                 margin-top: 9px;
@@ -176,7 +181,22 @@
         margin-left: 10px;
         font-size: 1.8rem;
         display: inline-block;
+        color: #647993;
         @include transition(transform .2s ease-in-out);
+
+        &:hover {
+            color: #2d3e4a;
+        }
+
+        &.weixin-btn {
+            position: relative;
+
+            &:hover .weixin-qrcode {
+                bottom: 80px;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
 
         @include pc {
             &:hover {
@@ -196,13 +216,8 @@
         z-index: 2;
         @include transition(all .6s cubic-bezier(.19,1,.5,1));
 
-        &.hover {
-            bottom: 80px;
-            opacity: 1;
-            visibility: visible;
-        }
-
         img {
+            display: block;
             border-radius: 10px;
         }
     }

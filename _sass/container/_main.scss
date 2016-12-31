@@ -1,60 +1,110 @@
 #main {
     height: 100%;
-    margin-left: 30%;
+    padding-top: 30px;
     -webkit-overflow-scrolling: touch;
-    @include transition(all .8s cubic-bezier(.19,1,.5,1));
-    will-change: opacity,transform;
 
-    @include mobile {
-        margin-left: 0;
-        padding-top: 60px;
+    &.not-ready {
+        visibility: hidden;
+    }
+
+    @include keyframes(fade-in) {
+        0% { opacity: 0;#{$browser}transform: translateY(20px); }
+        100% { opacity:1;#{$browser}transform: translateY(0px); }
+    }
+
+    &.animate {
+        @include animation(fade-in .5s);
     }
 }
 .posts {
-    margin: 0 20px;
-    padding: 15px 0 0;
+    position: relative;
+    width: $mainMaxWidth;
+    margin: 0 auto;
+    @include middle-screen1 {
+        width: $mainMiddleWidth;
+    }
+    @include middle-screen2 {
+        width: 95%;
+        height: auto!important;
+    }
 
     .item {
-        padding-bottom: 30px;
-        border-bottom: 1px solid $lightGray;
+        position: absolute;
+        width: 480px;
+        box-shadow: 2px 2px 5px #ddd;
+        @include transition(all .8s cubic-bezier(.19,1,.5,1));
+        -webkit-will-change: transform, box-shadow;
+        will-change: transform, box-shadow;
 
-        &:last-child {
-            padding-bottom: 30px;
-            border-bottom: none;
+        @include middle-screen1 {
+            width: 380px;
         }
+        @include middle-screen2 {
+            position: static;
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        &:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,.1);
+            @include transform(translateY(-2px));
+        }
+        background-color: #fefefe;
+        margin: 10px;
+        border-radius: 3px;
 
-        h1 {
-            margin-bottom: 0;
-
-            @include pc {
-                a {
-                    -webkit-transition: margin .5s ease;
-                    transition: margin .5s ease;
-
-                    &:hover {
-                        margin-left: 20px;
-                    }
-                }
+        .banner {
+            img {
+                display: block;
+                max-height: 500px;
             }
         }
 
-        .img-pvw {
-            margin: 15px 0;
+        .content {
+            padding: 20px 20px 8px;
 
-            img {
-                display: block;
-                max-height: 200px;
+            h1 {
+                margin: 0;
+                font-size: 2rem;
+
+                a {
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .entry {
+                padding-top: 10px;
+                min-height: 60px;
+                font-size: 1.3rem;
+                color: $darkGray;
+            }
+
+            .read-more {
+                height: 30px;
+                line-height: 30px;
+                text-align: right;
+                font-size: 1.2rem;
+
+                a {
+                    display: inline-block;
+
+                    &:hover {
+                        @include animation(buling 5s infinite ease-in-out);
+                    }
+                }
             }
         }
     }
 }
 .pagination {
-    overflow: hidden;
-    padding: 0 40px 30px 40px;
-
-    @include mobile {
-        padding: 0 20px 20px 20px;
-    }
+    margin-top: 30px;
+    text-align: center;
 
     @include pc {
         &:hover {
@@ -68,68 +118,75 @@
         }
     }
 
-    a {
-        display: block;
-        height: 50px;
-        line-height: 48px;
-        width: 150px;
-        text-align: center;
-        color: $white;
-        opacity: .3;
-        font-size: 2rem;
-        border-width: 1px;
-        border-style: solid;
-        @include transition(all .3s cubic-bezier(.19,1,.5,1));
+    .pagination-inner {
+        display: inline-block;
+        margin: 0 auto;
+        font-size: 1.4rem;
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 2px 2px 5px #ddd;
 
-        @include mobile {
-            width: 40%;
-            opacity: 1;
+        a,
+        span {
+            display: block;
+            float: left;
+            line-height: 24px;
+            padding: 12px 15px;
+        }
+        a {
+            &:hover {
+                color: #fff;
+                background-color: $blue;
+            }
+
+            &.disabled {
+                color: $gray;
+
+                &:hover {
+                    color: $gray;
+                    background-color: inherit;
+                    cursor: not-allowed;
+                }
+            }
+        }
+        span {
+            color: $gray;
         }
 
-        i {
-            vertical-align: middle;
+        .prev {
+            border-radius: 3px 0 0 3px;
+
+            i {
+                margin-right: 10px;
+            }
         }
-    }
+        .next {
+            border-radius: 0 3px 3px 0;
 
-    .prev {
-        float: left;
-        padding-right: 8px;
-        background-color: $white;
-        color: $gray;
-        border-color: $gray;
-
-        &:hover {
-            background-color: $lightGray;
-        }
-
-        i {
-            margin-right: 10px;
-        }
-    }
-    .next {
-        float: right;
-        padding-left: 8px;
-        border-color: $blue;
-        background-color: $blue;
-
-        &:hover {
-            background-color: $darkBlue;
-            border-color: $darkBlue;
-        }
-
-        i {
-            margin-left: 10px;
+            i {
+                margin-left: 10px;
+            }
         }
     }
 }
 
 article.post {
-    margin: 0 20px;
-    padding: 15px 0;
     position: relative;
+    width: $mainMaxWidth;
+    margin: 0 auto;
+    padding: 20px 30px;
+    background-color: #fefefe;
+    border-radius: 5px;
+
+    @include middle-screen1 {
+        width: $mainMiddleWidth;
+    }
+    @include middle-screen2 {
+        width: 95%;
+    }
 
     h1 {
-        margin-bottom: 0;
+        margin: 0;
     }
 
     h2 {
@@ -145,7 +202,7 @@ article.post {
 
         img {
             display: block;
-            max-height: 200px;
+            max-height: 300px;
             cursor: zoom-in;
         }
     }
@@ -218,7 +275,6 @@ article.post {
 
 .subline {
     color: $gray;
-    font-family: $number;
 }
 .category {
     display: inline-block;

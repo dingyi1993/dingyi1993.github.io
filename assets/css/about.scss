@@ -47,7 +47,7 @@ p {
     color: #757575;
 }
 
-#section5 p {
+#section5 .content {
     position: relative;
 
     a {
@@ -64,31 +64,32 @@ p {
             color: #006d73;
         }
 
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-
-    .weixin-qrcode {
-        position: absolute;
-        display: block;
-        visibility: hidden;
-        width: 200px;
-        bottom: 100px;
-        left: 50%;
-        margin-left: -100px;
-        opacity: 0;
-        z-index: 2;
-        @include transition(all .6s cubic-bezier(.19,1,.5,1));
-
-        &.hover {
+        &.weixin-btn:hover .weixin-qrcode {
             bottom: 80px;
             opacity: 1;
             visibility: visible;
         }
 
-        img {
-            border-radius: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .weixin-qrcode {
+            position: absolute;
+            display: block;
+            visibility: hidden;
+            width: 200px;
+            bottom: 100px;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            z-index: 2;
+            @include transition(all .6s cubic-bezier(.19,1,.5,1));
+
+            img {
+                display: block;
+                border-radius: 10px;
+            }
         }
     }
 }

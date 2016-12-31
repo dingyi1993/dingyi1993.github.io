@@ -20,10 +20,6 @@
                     'tooltips': ['me', 'location', 'job', 'hobbies', 'more']
                 }
             });
-
-            $('.weixin-btn').hover(function() {
-                $('.weixin-qrcode').toggleClass('hover');
-            });
         });
     </script>
 </head>
@@ -56,10 +52,10 @@
         <div class="section" id="section5">
             <div class="intro">
                 <h1>more</h1>
-                <p>
+                <div class="content">
                     <a href="{{ site.baseurl }}/blog/" title="博客"><i class="fa fa-home"></i></a>
                     {% include links.html %}
-                </p>
+                </div>
             </div>
         </div>
     </div>

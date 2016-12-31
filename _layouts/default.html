@@ -8,44 +8,62 @@
 </head>
 
 <body>
-    <div id="container"{% if page.isIndex %} class="full"{% endif %}>
-        <div id="side"{% if page.isIndex != true %} class="hide"{% endif %}>
-            <div id="box-wrapper">
-                <div id="box">
-                    <a id="logo" href="{{ site.url }}">
-                        <img src="{{ site.asset_path }}/images/{{ site.logo }}">
-                    </a>
-                    <h2>{{ site.name }}</h2>
-                    <p>一只有强迫症的葡萄</p>
-                    <nav id="nav" class="clearfix">
-                        <a class="home" href="{{ site.baseurl }}/blog/"><span>博客</span><i class="fa fa-home fa-2x"></i></a>
-                        <a class="cat" href="{{ site.baseurl }}/category/">分类</a>
-                        <a class="link" href="{{ site.baseurl }}/link/">邻居</a>
-                    </nav>
-                </div>
-            </div>
-            <footer id="footer">
-                <span>© 2016 <a class="about" href="{{ site.baseurl }}/about/">{{ site.name }}</a></span>
-                {% include links.html %}
-            </footer>
-            {% if page.isIndex != true %}
-            <div class="close">
-                <i class="iconfont icon-guanbi"></i>
-            </div>
-            {% endif %}
-            <div id="galaxy">
-                <canvas id="canv"></canvas>
-            </div>
-        </div>
+    <div id="container">
         <header id="top">
-            <div class="menu">
-                <i class="iconfont icon-xitongcaidan"></i>
-            </div>
-            <a href="{{ site.url }}">{{ site.name }}</a>
         </header>
-        <div id="main">
+        <div id="grape">
+            <a href="/">
+                <div class="logo"></div>
+            </a>
+        </div>
+        <div id="main" class="not-ready">
             {{ content }}
         </div>
+        <footer id="bottom" class="not-ready">
+            <div class="content">
+                <div class="other clearfix">
+                    <div class="other-item">
+                        <div class="other-title">标签</div>
+                        <div class="other-content">
+                            <div id="tag-canvas-container">
+                                <canvas width="200" height="200" id="tag-canvas">
+                                    <p>战5渣的浏览器，竟然不支持canvas！</p>
+                                </canvas>
+                            </div>
+                            <div id="tags">
+                                <ul>
+                                    {% for tag in site.tags %}
+                                    {% capture tag_name %}{{ tag.first }}{% endcapture %}
+                                    <li><a href="/tag/#{{ tag_name }}" target="_blank">{{ tag_name }}({{ site.tags[tag_name].size }})</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other-item gaoji">
+                        <div class="other-title">基友们</div>
+                        <div class="other-content">
+                            <ul class="clearfix">
+                                {% for link in site.data.links %}
+                                <li>
+                                    <a href="{{ link.href }}" target="_blank" title="{{ link.desc }}">{{ link.name }}</a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="other-item find-me">
+                        <div class="other-title">来抓我呀</div>
+                        <div class="other-content">
+                            {% include links.html %}
+                            <div class="info">
+                                © 2016 抽筋的葡萄 · <a href="/about" target="_blank">关于</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <div id="circle">
             <div id="circle1"></div>
             <div id="circle2"></div>
@@ -58,7 +76,8 @@
                 <div class="wing wing-right"></div>
                 <div class="lader"></div>
             </div>
-            <div class="footer"></div>
+            <div class="footer">
+            </div>
         </div>
     </div>
     {% include analytics.html %}

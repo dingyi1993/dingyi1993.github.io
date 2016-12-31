@@ -10,7 +10,7 @@ $lightBlue: #0bc;
 
 // Grays
 $black: #000;
-$lightBlank: #414a51;
+$lightBlank: #333;
 $darkGray: #666;
 $gray: #aaa;
 $lightGray: #eee;
@@ -26,9 +26,11 @@ $rainbowColor5: #3498db;
 $rainbowColor6: #9b59b6;
 
 // Font stacks
-$consolas: Consolas, Helvetica, Arial, sans-serif;
-// $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$number: Verdana, Geneva, sans-serif;
+$consolas: Microsoft Jhenghei, Consolas, Helvetica, Arial, sans-serif;
+
+// Size
+$mainMaxWidth: 1000px;
+$mainMiddleWidth: 800px;
 
 @mixin mobile {
   @media screen and (max-width: 768px) {
@@ -40,6 +42,21 @@ $number: Verdana, Geneva, sans-serif;
     @content;
   }
 }
+@mixin middle-screen1 {
+  @media screen and (max-width: 1050px) {
+    @content;
+  }
+}
+@mixin middle-screen2 {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+// @mixin middle-screen2 {
+//   @media screen and (max-width: 900px) {
+//     @content;
+//   }
+// }
 @mixin large-pc {
   @media screen and (min-width: 1500px) {
     @content;

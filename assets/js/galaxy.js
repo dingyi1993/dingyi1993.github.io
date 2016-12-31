@@ -1,4 +1,4 @@
-var side = document.getElementById("side");
+var container = document.getElementById("container");
 var $canvas = $('#galaxy canvas');
 var num = 200;
 var w = $canvas.width();
@@ -298,11 +298,11 @@ var trans = {
   Build.prototype.run = function() {
     this.anim();
 
-    side.addEventListener('mousemove', function(e) {
+    container.addEventListener('mousemove', function(e) {
       this.toX = (e.clientX - this.canvas.width / 2) * -0.8;
       this.toY = (e.clientY - this.canvas.height / 2) * 0.8;
     }.bind(this));
-    side.addEventListener('touchmove', function(e) {
+    container.addEventListener('touchmove', function(e) {
       e.preventDefault();
       this.toX = (e.touches[0].clientX - this.canvas.width / 2) * -0.8;
       this.toY = (e.touches[0].clientY - this.canvas.height / 2) * 0.8;

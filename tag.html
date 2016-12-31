@@ -2,23 +2,25 @@
 layout: default
 ---
 
-<div class="rainbow-list">
-    <div class="summary">
-        <div class="title">标签</div>
+<div class="rainbow-list-wrapper">
+    <div class="rainbow-list">
+        <div class="summary">
+            <div class="title">标签</div>
+            <ul class="items">
+                {% for tag in site.tags %}
+                {% capture tag_name %}{{ tag.first }}{% endcapture %}
+                <li><a href="#{{ tag_name }}">{{ tag_name }}（{{ site.tags[tag_name].size }}）</a></li>
+                {% endfor %}
+            </ul>
+        </div>
         <ul class="items">
-            {% for tag in site.tags %}
+        {% for tag in site.tags %}
             {% capture tag_name %}{{ tag.first }}{% endcapture %}
-            <li><a href="#{{ tag_name }}">{{ tag_name }}（{{ site.tags[tag_name].size }}）</a></li>
+            <li id="{{ tag_name }}" class="rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ tag_name }}</li>
+            {% for post in site.tags[tag_name] %}
+            <li class="item"><span class="post-date">{{ post.date | date: "%Y-%m" }}</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
             {% endfor %}
+        {% endfor %}
         </ul>
     </div>
-    <ul class="items">
-    {% for tag in site.tags %}
-        {% capture tag_name %}{{ tag.first }}{% endcapture %}
-        <li id="{{ tag_name }}" class="rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ tag_name }}</li>
-        {% for post in site.tags[tag_name] %}
-        <li class="item"><span class="post-date">{{ post.date | date: "%Y-%m" }}</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-    {% endfor %}
-    </ul>
 </div>

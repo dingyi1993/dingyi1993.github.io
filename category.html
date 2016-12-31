@@ -2,17 +2,19 @@
 layout: default
 ---
 
-<div class="rainbow-list">
-    <div class="summary">
-        <div class="title">分类</div>
-    </div>
-    <ul class="items">
-    {% for category in site.categories %}
-        {% capture category_name %}{{ category.first }}{% endcapture %}
-        <li id="{{ category_name }}" class="rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ category_name }}</li>
-        {% for post in site.categories[category_name] %}
-        <li class="item"><span class="post-date">{{ post.date | date: "%Y-%m" }}</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+<div class="rainbow-list-wrapper">
+    <div class="rainbow-list">
+        <div class="summary">
+            <div class="title">分类</div>
+        </div>
+        <ul class="items">
+        {% for category in site.categories %}
+            {% capture category_name %}{{ category.first }}{% endcapture %}
+            <li id="{{ category_name }}" class="rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">{{ category_name }}</li>
+            {% for post in site.categories[category_name] %}
+            <li class="item"><span class="post-date">{{ post.date | date: "%Y-%m" }}</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
-    </ul>
+        </ul>
+    </div>
 </div>
