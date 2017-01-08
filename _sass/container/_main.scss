@@ -46,7 +46,6 @@
 
             &:hover {
                 margin-left: 0;
-                @include transform(none);
             }
         }
     }
@@ -239,8 +238,16 @@ article.post {
 
         img {
             display: block;
-            max-height: 300px;
+            max-height: 500px;
             cursor: zoom-in;
+        }
+
+        a {
+            color: $blue;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

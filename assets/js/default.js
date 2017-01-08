@@ -45,7 +45,7 @@ require(['jquery', 'smoothscroll', 'useragent', 'hit-kounter', 'lazyload', 'tagc
     var leftHeight = 0,
         rightHeight = 0,
         space = 20,
-        ratio = 0.5;
+        ratio = 0.33;
     var $posts = $('.posts .item');
     $posts.each(function() {
         var $this = $(this),

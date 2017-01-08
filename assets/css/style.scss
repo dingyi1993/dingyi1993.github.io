@@ -91,6 +91,7 @@
     bottom: 50px;
     opacity: 0;
     cursor: pointer;
+    z-index: 3;
     @include transform(translateY(120px));
     @include transition(all .8s cubic-bezier(.19,1,.5,1));
 
