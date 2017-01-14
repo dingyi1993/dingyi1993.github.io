@@ -14,7 +14,7 @@ date: 2017-01-14 18:25:34 +0800
 
 ![console]({{ site.asset_path }}/images/{{ site.loading }}){:class="lazy"}{:data-original="{{ site.asset_path }}/images/posts{{ page.id }}/1.png"}
 
-身为强迫症的我，自然对红框中的连接感到好奇，直到我打开了这个连接，感觉打开了新世界的大门。
+身为强迫症的我，自然对红框中的链接感到好奇，直到我打开了这个链接，感觉打开了新世界的大门。
 
 ## 正文
 
