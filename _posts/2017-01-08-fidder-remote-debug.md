@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用fidder远程调试移动端的代码
+image: 12.jpg
 excerpt: 可以用fidder调试在移动端的任何http/https的代码，没有做不到，只有想不到。
 category: 开发
 tags: 前端 工具
