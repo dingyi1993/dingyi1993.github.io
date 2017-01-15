@@ -1,4 +1,5 @@
 #bottom {
+    position: relative;
     margin-top: 30px;
     background-color: #222;
 
@@ -6,7 +7,29 @@
         visibility: hidden;
     }
 
+    @include pc {
+        .huaji {
+            position: absolute;
+            top: -40px;
+            left: -100px;
+            height: 40px;
+            width: 100px;
+            background-image: url('/assets/images/huaji.png');
+            background-size: 80%;
+            background-position: center 3px;
+            background-repeat: no-repeat;
+            @include animation(silde 10s infinite linear);
+            @include keyframes(silde) {
+                0% { left: -100px; }
+                33% { left: 100%; }
+                100% { left: 100%; }
+            }
+            z-index: 2;
+        }
+    }
+
     .content {
+        position: relative;
         height: 300px;
         width: $mainMaxWidth;
         margin: 0 auto;

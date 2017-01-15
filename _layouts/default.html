@@ -13,12 +13,13 @@
         </header>
         <div id="main" class="not-ready">
             <div class="grape">
-                <a class="logo" href="/">
+                <a class="logo" href="/{% if page.isHome != 1 %}blog/{% endif %}">
                 </a>
             </div>
             {{ content }}
         </div>
         <footer id="bottom" class="not-ready">
+            <div class="huaji"></div>
             <div class="content">
                 <div class="other clearfix">
                     <div class="other-item">
