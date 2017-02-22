@@ -2,16 +2,18 @@
 layout: default
 ---
 
-<div class="rainbow-list">
-    <div class="summary">
-        <div class="title">邻居</div>
+<div class="rainbow-list-wrapper">
+    <div class="rainbow-list">
+        <div class="summary">
+            <div class="title">邻居</div>
+        </div>
+        <ul class="items">
+        {% for link in site.data.links %}
+            <li class="rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">
+                <a href="{{ link.href }}" target="_blank">{{ link.name }}</a>
+                <span>{{ link.desc }}</span>
+            </li>
+        {% endfor %}
+        </ul>
     </div>
-    <ul class="items">
-    {% for link in site.data.links %}
-        <li class="rainbow-color{{ forloop.index | plus:4 | modulo:7 }}">
-            <a href="{{ link.href }}" target="_blank">{{ link.name }}</a>
-            <span>{{ link.desc }}</span>
-        </li>
-    {% endfor %}
-    </ul>
 </div>
