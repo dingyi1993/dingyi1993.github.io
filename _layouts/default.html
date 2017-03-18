@@ -30,7 +30,7 @@
                                     <p>战5渣的浏览器，竟然不支持canvas！</p>
                                 </canvas>
                             </div>
-                            <div id="tags">
+                            <div id="tags" style="display: none;">
                                 <ul>
                                     {% for tag in site.tags %}
                                     {% capture tag_name %}{{ tag.first }}{% endcapture %}
@@ -57,7 +57,7 @@
                         <div class="other-content">
                             {% include links.html %}
                             <div class="info">
-                                © 2017 抽筋的葡萄 · <a href="/about/" target="_blank">关于</a>
+                                © {{ site.year }} 抽筋的葡萄 · <a href="/about/" target="_blank">关于</a>
                             </div>
                         </div>
                     </div>
