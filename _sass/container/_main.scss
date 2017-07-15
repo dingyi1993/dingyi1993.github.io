@@ -249,6 +249,29 @@ article.post {
                 text-decoration: underline;
             }
         }
+
+        p {
+            font-size: 1.5rem;
+            word-break: break-all;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            tbody > tr:nth-of-type(odd) {
+                background-color: #f9f9f9;
+            }
+            th {
+                padding: 8px;
+                border-bottom: 2px solid #ccc;
+                font-size: 1.6rem;
+            }
+            td {
+                padding: 8px;
+                border-top: 1px solid #ccc;
+            }
+        }
     }
 
     .tags {
@@ -313,6 +336,36 @@ article.post {
 
         a {
             color: $darkGray;
+        }
+    }
+}
+#toc {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    display: none;
+    width: 250px;
+    margin-left: 1000px;
+    @include large-pc {
+        display: block;
+    }
+    &.fixed {
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        margin-left: 500px;
+    }
+    > ol {
+        padding-left: 40px;
+        margin: 0;
+        > li{
+            > ol {
+                padding-left: 30px;
+            }
+            > a {
+                font-weight: bold;
+                font-size: 1.6rem;
+            }
         }
     }
 }

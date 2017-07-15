@@ -1,0 +1,209 @@
+#side {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    overflow: hidden;
+    @include transition(all .8s cubic-bezier(.19,1,.5,1));
+    will-change: all;
+    z-index: 10;
+    text-align: center;
+    background-color: $blue;
+    background-image: url(/assets/images/site_bg.jpg);
+    background-size: cover;
+    background-position-x: center;
+    @include transform(none);
+
+    @include mobile {
+        width: 100%;
+
+        &.hide {
+            @include transform(translateX(-100%));
+        }
+    }
+
+    .close {
+        position: absolute;
+        display: none;
+        right: 10px;
+        top: 10px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        cursor: pointer;
+
+        @include mobile {
+            display: block;
+        }
+
+        i {
+            font-size: 4rem;
+            opacity: .5;
+            color: $white;
+        }
+    }
+}
+#logo {
+    @include keyframes(shake) {
+        0% { margin-right: 0; }
+        25% { margin-right: 10px; }
+        50% { margin-right: 0; }
+        75% { margin-right: -10px; }
+        100% { margin-right: 0; }
+    }
+
+    &:hover {
+        @include animation(shake .07s 4);
+    }
+}
+#box-wrapper{
+    position: absolute;
+    right: 0;
+    margin-right: 0;
+    top: 0;
+}
+#box {
+    color: #fff;
+    margin-top: 0;
+    padding: 20px;
+    width: 280px;
+    text-align: right;
+    border-radius: 6px;
+    overflow: hidden;
+}
+#nav {
+    position: relative;
+    margin: 0;
+    width: 110px;
+    height: 110px;
+    float: right;
+
+    @include pc {
+        &:hover {
+            .cat {
+                right: 60px;
+            }
+            .link {
+                top: 60px;
+                right: 0;
+            }
+            .home {
+                i {
+                    display: none;
+                }
+                span {
+                    display: inline;
+                }
+            }
+
+            a:not(.home) {
+                opacity: 1;
+            }
+        }
+    }
+
+    a {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        width: 50px;
+        background-color: rgba(240,240,240,0.95);
+        border: 1px solid rgba(240,240,240,0);
+        border-radius: 50%;
+        color: $darkGray;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        text-align: center;
+        @include transition(all .8s cubic-bezier(.19,1,.5,1));
+
+        @include pc {
+            &:not(.home) {
+                opacity: 0;
+            }
+        }
+        &.home {
+            z-index: 2;
+            right: 0;
+
+            i {
+                margin-top: 9px;
+                margin-left: 1px;
+            }
+            span {
+                display: none;
+            }
+        }
+    }
+
+    @include mobile {
+        // float: none;
+        // margin-top: 9px;
+        // display: block;
+        // font-size: 1.6rem;
+    }
+}
+#galaxy {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 20px 20px 20px;
+    color: $gray;
+
+    a.about {
+        color: $gray;
+        width: 80px;
+        display: inline-block;
+    }
+
+    > a {
+        margin-left: 10px;
+        font-size: 1.8rem;
+        display: inline-block;
+        @include transition(transform .2s ease-in-out);
+
+        @include pc {
+            &:hover {
+                @include transform(translateY(-2px));
+            }
+        }
+    }
+    .weixin-qrcode {
+        position: absolute;
+        display: block;
+        visibility: hidden;
+        width: 200px;
+        bottom: 100px;
+        left: 50%;
+        margin-left: -100px;
+        opacity: 0;
+        z-index: 2;
+        @include transition(all .6s cubic-bezier(.19,1,.5,1));
+
+        &.hover {
+            bottom: 80px;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+    }
+}

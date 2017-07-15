@@ -23,6 +23,7 @@ require.config({
         'smoothscroll': 'js/SmoothScroll',
         'tagcanvas': 'js/jquery.tagcanvas.min',
         'useragent': 'js/useragent.min',
+        'toc': 'js/toc',
     },
     shim: {
         'hit-kounter': ['av'],
@@ -33,5 +34,6 @@ require.config({
         'magicsearch': ['jquery', 'css!{{ site.asset_path}}/magicsearch/jquery.magicsearch.min'],
         'layer': ['jquery', 'css!{{ site.asset_path}}/layer/skin/layer'],
         'tagcanvas': ['jquery'],
+        'toc': ['jquery'],
     }
 });

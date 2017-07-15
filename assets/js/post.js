@@ -1,6 +1,10 @@
-require(['jquery', 'layer'], function() {
+require(['jquery', 'layer', 'toc'], function() {
+    $('#toc').toc({
+        // showEffect: 'slideDown',
+        showSpeed: 0,
+        noBackToTopLinks: true,
+    });
     $('.entry img').load(function() {
-        console.log($(this).attr('src'));
         var $this = $(this);
         var src = $this.attr('src');
         var original = $this.attr('data-original');

@@ -8,6 +8,7 @@ require(['jquery', 'smoothscroll', 'useragent', 'hit-kounter', 'lazyload', 'tagc
         var $this = $(this);
         var $rocket = $('#rocket');
         var $grape = $('#main .grape');
+        var $toc = $('#toc');
         if ($this.scrollTop() >= 800) {
             !$rocket.hasClass('show') && $rocket.addClass('show');
         } else {
@@ -15,8 +16,10 @@ require(['jquery', 'smoothscroll', 'useragent', 'hit-kounter', 'lazyload', 'tagc
         }
         if ($('#main').offset().top - $(document).scrollTop() <= 0) {
             !$grape.hasClass('fixed') && $grape.addClass('fixed');
+            !$toc.hasClass('fixed') && $toc.addClass('fixed');
         } else {
             $grape.hasClass('fixed') && $grape.removeClass('fixed');
+            $toc.hasClass('fixed') && $toc.removeClass('fixed');
         }
     });
     $('#rocket').click(function() {

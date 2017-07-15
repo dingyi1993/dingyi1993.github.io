@@ -30,7 +30,7 @@ links:
   weibo: dingyi1993
   weixin: 666
 
-duoshuo: choujindeputao
+# duoshuo: choujindeputao
 
 google_analytics: UA-80833682-1
 baidu_analytics: 666
@@ -69,6 +69,9 @@ gems:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-paginate
+
+include:
+  - .well-known
 
 exclude:
   - Gemfile
